@@ -1,4 +1,4 @@
-package com.pojo;
+package com.Movieticketbookingpojo;
 
 public class Theatreinformation {
 	private String theatre_name;
@@ -7,26 +7,7 @@ public class Theatreinformation {
     private int  number_seats;
     private String theatre_address;
     private int  theatre_rating;
-	public Theatreinformation() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Theatreinformation(String theatre_name, int movie_id, int theatre_id, int number_seats, String theatre_address,
-			int theatre_rating) {
-		super();
-		this.theatre_name = theatre_name;
-		this.movie_id = movie_id;
-		this.theatre_id = theatre_id;
-		this.number_seats = number_seats;
-		this.theatre_address = theatre_address;
-		this.theatre_rating = theatre_rating;
-	}
-	@Override
-	public String toString() {
-		return "Mv2project [theatre_name=" + theatre_name + ", movie_id=" + movie_id + ", theatre_id=" + theatre_id
-				+ ", number_seats=" + number_seats + ", theatre_address=" + theatre_address + ", theatre_rating="
-				+ theatre_rating + "]";
-	}
+    private int price;
 	public String getTheatre_name() {
 		return theatre_name;
 	}
@@ -63,18 +44,31 @@ public class Theatreinformation {
 	public void setTheatre_rating(int theatre_rating) {
 		this.theatre_rating = theatre_rating;
 	}
-	public int getNumber_seats1() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getPrice() {
+		return price;
 	}
-	public String getTheatre_id1() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setPrice(int price) {
+		this.price = price;
 	}
-
-
+	@Override
+	public String toString() {
+		return "Theatreinformation [theatre_name=" + theatre_name + ", movie_id=" + movie_id + ", theatre_id="
+				+ theatre_id + ", number_seats=" + number_seats + ", theatre_address=" + theatre_address
+				+ ", theatre_rating=" + theatre_rating + ", price=" + price + "]";
+	}
+	public Theatreinformation(String theatre_name, int movie_id, int theatre_id, int number_seats,
+			String theatre_address, int theatre_rating, int price) {
+		super();
+		this.theatre_name = theatre_name;
+		this.movie_id = movie_id;
+		this.theatre_id = theatre_id;
+		this.number_seats = number_seats;
+		this.theatre_address = theatre_address;
+		this.theatre_rating = theatre_rating;
+		this.price = price;
+	}
+	public Theatreinformation() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }
-
-
-
-

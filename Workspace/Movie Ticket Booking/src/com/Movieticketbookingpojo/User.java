@@ -1,4 +1,4 @@
-package com.pojo;
+package com.Movieticketbookingpojo;
 
 public class User {
       private String user_name ;
@@ -50,9 +50,29 @@ public class User {
 		this.mobile_num = mobile_num;
 		this.e_password = e_password;
 	}
-	public User() {
+	
+	public User(String user_name, String email_id, String e_password) {
 		super();
+		this.user_name = user_name;
+		this.email_id = email_id;
+		this.e_password = e_password;
+	}
+
+	public User(long mobile, String email) {
 		// TODO Auto-generated constructor stub
+		this.mobile_num = mobile;
+		this.email_id = email;
+	}
+	public User(String email1, String password) {
+		// TODO Auto-generated constructor stub
+		this.email_id=email1;
+		this.e_password=password;
+	}
+	public User(String  user_name) {
+		// TODO Auto-generated constructor stub
+		this.user_name = user_name;
+	}
+		
+
 	}
       
-}

@@ -1,4 +1,4 @@
-package com.pojo;
+package com.Movieticketbookingpojo;
 
 public class Bookingdetail {
 	private int booking_id;
