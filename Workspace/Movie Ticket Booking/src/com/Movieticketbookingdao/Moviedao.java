@@ -59,17 +59,28 @@ public class Moviedao {
 			  
 				}
 				 return movieList;
+	}
 				
-				
-				
-		
-
-
-			
-			
+    
+		public static void searchmovie(Movie M1) throws SQLException, ClassNotFoundException {
+			String showQuery="select * from movie where movie_id=? and movie_name=?";
+			Connectionmv4 connection =new Connectionmv4();
+			Connection con=connection.DBConnection();
+		    PreparedStatement pstmt=con.prepareStatement( showQuery);
+		    pstmt.setInt(1,M1.getMovie_id());
+		    pstmt.setString(2,M1.getMovie_name());
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				System.out.println(rs.getString(1)+"\t"+rs.getInt(2)+"\t"+rs.getString(3)+"\t"+rs.getInt(4)+"\t"+rs.getInt(5)+"\t"+rs.getString(6)+"\t"+rs.getString(7)+"\t"+rs.getString(8));
+			}
 		}
+
+
+			
+			
 		
-		public void update(Movie M1 ) {
+		
+		public static void update(Movie M1 ) {
 			
 			String query="update Movie set Movie_type=? where Movie_id=?";
 			Connection con;
@@ -89,7 +100,7 @@ public class Moviedao {
 			}
 		}
 		
-	    public void delete(Movie M1 )  {
+	    public static void delete(Movie M1 )  {
 			
 		String query="delete from Movie where movie_id=? ";
 			Connection con;
@@ -107,10 +118,6 @@ public class Moviedao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
-	
-
 
 			
 			

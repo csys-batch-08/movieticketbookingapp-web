@@ -86,6 +86,11 @@ public class Movie {
 		// TODO Auto-generated constructor stub
 		this.Movie_id=movieid1;
 	}
+	public Movie(int id1, String name) {
+		// TODO Auto-generated constructor stub
+		this.Movie_id=id1;
+		this.Movie_name=name;
+	}
 	@Override
 	public String toString() {
 		return "Movie [Movie_name=" + Movie_name + ", Movie_id=" + Movie_id + ", Movie_type=" + Movie_type

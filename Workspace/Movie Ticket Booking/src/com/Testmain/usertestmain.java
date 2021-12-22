@@ -2,6 +2,8 @@ package com.Testmain;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +14,7 @@ import com.Movieticketbookingdao.Theatredao;
 import com.Movieticketbookingdao.userdao;
 import com.Movieticketbookingpojo.Admin;
 import com.Movieticketbookingpojo.Movie;
+import com.Movieticketbookingpojo.Theatreinformation;
 import com.Movieticketbookingpojo.User;
 import com.connection.Connectionmv4;
 
@@ -127,9 +130,9 @@ public class usertestmain {
 					System.out.println("invalid entry");
 				}
 			} while (user == null);
-
-			// showquery
-			
+               
+			// showquery movielist
+			System.out.println("Movielist");
 			Moviedao product=new Moviedao();
 			List<Movie> Products1=product.showMovie();
 			for(int i=0;i<Products1.size();i++)
@@ -138,9 +141,49 @@ public class usertestmain {
 				
 			}
 
-			break;
-
+						
+		//find mymovie
+		
+			System.out.println("Find mymovie");
+			System.out.println("Enter the movieid");
+			int id1 = Integer.parseInt(sc.nextLine());
+			System.out.println("Enter the moviename");
+			String name=sc.nextLine();
+            Moviedao u2=new Moviedao();
+            Movie uA1=new Movie(id1,name);
+            u2.searchmovie(uA1);
+          
+           
+		
+           
+            
+           //showtheatre
+		
+            Theatredao products11=new Theatredao();
+			List<Theatreinformation> Products12=products11.showtheatre();
+			for(int i=0;i<Products12.size();i++)
+			{
+				System.out.println(Products12.get(i));
+				
+			}
+			
+			
+			//find mvtheatre
+			
+			System.out.println("Find mytheatre");
+			System.out.println("Enter the movieid");
+			int movied1 = Integer.parseInt(sc.nextLine());
+			System.out.println("Enter the theatreid");
+			int theatreid4 = Integer.parseInt(sc.nextLine());
+            Moviedao dao2=new Moviedao();
+            Movie uao3=new Movie(id1,name);
+            dao2.searchmovie(uao3);
+            
+            
+		
 		// update emailid
+            break;
+
 		case 3:
 
 			System.out.println("1.forgot emailid\n2.forgot password");
@@ -181,7 +224,7 @@ public class usertestmain {
 			}
 
            case 4:
-        	   System.out.println("1.Admin login\n2.insert\n3.update\n4.delete\n5.showmovie");
+        	   System.out.println("1.Admin login\n2.insert\n3.update\n4.delete\n5.showmovie\n6.theatreinformationinsert\n7.update\n8.delete\n9.showtheatre");
    			    int admin = Integer.parseInt(sc.nextLine());
 
    			switch (admin) {
@@ -210,7 +253,7 @@ public class usertestmain {
         	 System.out.println("Enter the moviedetails");
         	 System.out.println("Enter the movename");
         	 String mvname=sc.nextLine();
-        	 System.out.println("movieid");
+        	 System.out.println("Enter the movieid");
         	 int mvid=Integer.parseInt(sc.nextLine());
         	 System.out.println("Enter the movietype");
         	 String mvtype=sc.nextLine();
@@ -235,7 +278,7 @@ public class usertestmain {
         case 3:
         	System.out.println("Update movieid");
         	int movieid=Integer.parseInt(sc.nextLine());
-        	System.out.println("movietype");
+        	System.out.println("Enter your movietype");
         	String movietype=sc.nextLine();
         	Moviedao uDao3=new Moviedao();
         	Movie udao2=new Movie(movietype,movieid);
@@ -262,11 +305,72 @@ public class usertestmain {
 				System.out.println(Products11.get(i));
 				
 			}
+			
+			break;
+          
+        case 6:
+        	DateTimeFormatter formatter =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
+ 	
+         System.out.println("Enter the theatre_name");
+         String theatrename=sc.nextLine();
+         System.out.println("Enter the movie_id");
+         int mvid2=Integer.parseInt(sc.nextLine());
+       //  System.out.println("Enter the theatre_id");
+         //int theatreid2=Integer.parseInt(sc.nextLine());
+          System.out.println("Enter the number_seats");
+          int seat=Integer.parseInt(sc.nextLine());
+          System.out.println("Enter the theatre_address");
+          String theatreaddress=sc.nextLine();
+          System.out.println("Enter the theatre_rating");
+          int rating=Integer.parseInt(sc.nextLine());
+          System.out.println("Enter the price");
+          int price1=Integer.parseInt(sc.nextLine());
+          System.out.println("enter movie  date time ");
+  		String mvDate = sc.nextLine(); //"2021-12-21 05:30";
+  		LocalDateTime mvTimeDate = LocalDateTime.parse(mvDate, formatter);
+          System.out.println(mvTimeDate);
+
+          Theatredao udao5=new Theatredao();
+          
+          Theatreinformation u1=new Theatreinformation(theatrename, mvid2, seat, theatreaddress,rating, price1,mvTimeDate);
+          System.out.println(u1);
+          udao5.insert(u1);
+          
+          break;
+          
+        case 7:
+        	//update
+        	System.out.println("Enter the theatrename");
+        	String theatrename1=sc.nextLine();
+        	System.out.println("Enter the theatreid");
+        	int theatreid1=Integer.parseInt(sc.nextLine());
+        	Theatredao uDa=new Theatredao();
+        	Theatreinformation obc=new Theatreinformation (theatrename1,theatreid1);
+        	uDa.update(obc);
+        	break;
         	
+        	
+        	//delete
+              case 8:        	
+        	System.out.println("Enter the theatreid");
+        	int theatreid21=Integer.parseInt(sc.nextLine());
+        	Theatredao Udoa=new Theatredao();
+        	Theatreinformation udaoa=new Theatreinformation (theatreid21);
+          	Udoa.delete(udaoa);
    			}
    			
-   			
+           case 9:
+        	   
+        	   //showtheatre
+        	Theatredao products15=new Theatredao();
+			List<Theatreinformation> Products13=products15.showtheatre();
+			for(int i=0;i<Products13.size();i++)
+			{
+				System.out.println(Products13.get(i));
+				
+			}
    			
    			
    			
@@ -279,7 +383,9 @@ public class usertestmain {
 		
 		
 		
-	}}
+	}
+	
+	}
 	 	 
 	
 		
