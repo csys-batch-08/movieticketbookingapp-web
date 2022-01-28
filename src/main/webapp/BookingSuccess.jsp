@@ -4,6 +4,7 @@
 <%@page import="com.MovieticketBookingModel.Movie"%>
 <%@page import="com.MovieTicketBookingDaoImpl.MovieDaoImpl"%>
 <%@page import="java.sql.ResultSet" %>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,40 +129,31 @@ input[type:number]
 </head>
 <body>
 
-<%String bookedmovie=(String)session.getAttribute("moviefortoday"); 
-ResultSet rs=(ResultSet)session.getAttribute("ResultSet");
-Date bookingdate=(Date) (session.getAttribute("bookingdate"));
 
-%>
-     
-      <%int userid=Integer.parseInt(session.getAttribute("userid").toString());
-   
-      %>
   <div class="one">
+       <c:set var="count" value="1"/>
+                                         
+       <c:forEach items="${bookinglist}" var="usersList">
      
       <table>
           <h1>Booking Details</h1>
-      <%while(rs.next()){ %>
+   
       <tr>
       <td>
-
+	
       
   
 
   
-       User Id: <%=userid %><br>  
+       User Id: ${usersList.user_id }<br>  
  
  
-<!---  <%int movieid= Integer.parseInt(session.getAttribute("movieid").toString());
-   //System.out.println(movieid+"Movwheuwh");
-%>
 
 
-      Movie Id : <%=movieid %><br>  ------>
+
+      Movie Id : ${movieid } <br>  
       
-      Booking Id :<%=rs.getInt(1) %><br>
-  <!----    Movie Id : <%=movieid %><br>   ---->
-      <%String movie_name=bookedmovie; %>
+    
 
         
         
@@ -169,38 +161,36 @@ Date bookingdate=(Date) (session.getAttribute("bookingdate"));
         
         
         
-           Movie name:<%=movie_name %><br> 
+           Movie name:${usersList.movie_name }<br> 
  
- <!-- -   <% int theatreid=Integer.parseInt(session.getAttribute("theaterid").toString()); %>
-       Theatre Id : <%=theatreid %><br>  ---->
+ 
        
-          <span>   Number of Seats: ${rs.getInt(4) }</span><br><br>
+             Number of Seats: ${Seats}<br><br>
        
-       <%int seatsno=Integer.parseInt(session.getAttribute("Seats").toString()); %>
-       Number of Seats  : <%=rs.getInt(4) %><br>  
+      
        
        
        
-      <%String date=session.getAttribute("moviedate").toString(); %>
-       Movie date  : <%=date %><br> 
+    
+       Movie date  : ${moviedate }<br> 
        
      
        
-      <%int price=Integer.parseInt(session.getAttribute("totalprice").toString()); %>
-      Total Price : <%=price %><br>
+      
+      Total Price : ${totalprice }<br>
       
       
       
       
        
        
-       Booking date :<%=rs.getDate(8) %><br><br><br> 
+       
     
    
       
       </div>
 
-
+       </c:forEach>
 
       </td>
 </tr>

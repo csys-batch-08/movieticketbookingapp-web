@@ -19,8 +19,10 @@ import com.Movieticketbooking.util.Connectionmv4;
 
 public class BookingDaoImpl {
 	public void insert(Bookingdetail Booking) {
-	       String  query="insert into booking_detail(user_id,theatre_id,no_seats,total_amount,movie_name,Booking_Date) values (?,?,?,?,?,sysdate)";
-//		   String updatewallet ="update user_details set wallet=wallet - ? where user_id=? ";
+		
+		     System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+	       String  query="insert into booking_detail(user_id,theatre_id,no_seats,total_amount,Booking_Date) values (?,?,?,?,sysdate)";
+
 			try {
 			Connection	con = Connectionmv4.DBConnection();			
 				PreparedStatement Pstmt1 = con.prepareStatement(query);
@@ -30,8 +32,10 @@ public class BookingDaoImpl {
 				Pstmt1.setInt(2,Booking.getTheatre_id());
 				Pstmt1.setInt(3,Booking.getNo_seat());
 				Pstmt1.setInt(4,Booking.getTotal_amount());
+				System.out.println(Booking);
 				
-				Pstmt1.setString(5, Booking.getMovie_name());
+				
+				//Pstmt1.setString(5, Booking.getMovie_name());
 				
 				boolean flag = Pstmt1.executeUpdate()>0;
 				if(flag) {
@@ -133,29 +137,26 @@ public class BookingDaoImpl {
 					try {
 						con = Connectionmv4.DBConnection();
 						PreparedStatement Pstmt1 = con.prepareStatement(query);
-					//	System.out.println(booking.getBooking_status()+ "aaaa");
-					//	System.out.println(booking.getBooking_id() + "bbbbb");
-						
-						
 						Pstmt1.setString(1,status );
 						Pstmt1.setInt(2,booking);
 						int i = Pstmt1.executeUpdate();
-						System.out.println( "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+					
 						
-					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
+					 } catch (ClassNotFoundException e) {
+				
 						e.printStackTrace();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
+					 } catch (SQLException e) {
+					
 						e.printStackTrace();
-					}
+					 }
 				
 		
 				}
 			
 			
 //Booking			
-		  public ResultSet getbookingidanddate(int thid,int userid) throws ClassNotFoundException, SQLException {
+		  public List<Bookingdetail> getbookingidanddate(int thid,int userid) throws ClassNotFoundException, SQLException {
+			  List<Bookingdetail> bookingdetails = new ArrayList<>();
 			  String query="select * from booking_detail where theatre_id =? and user_id=? order by booking_id desc";
 			  ResultSet rs=null;
 			  Connection	con = Connectionmv4.DBConnection();
@@ -163,8 +164,30 @@ public class BookingDaoImpl {
 			  pstmt.setInt(1, thid);
       		  pstmt.setInt(2, userid);
 			  rs=pstmt.executeQuery();
-			  return rs;
+			  while(rs.next()) {
+				  bookingdetails.add(new Bookingdetail(rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getString(7),rs.getDate(8)));
+			  }
+			  return bookingdetails;
 		  }
+		  
+		  
+		  
+		  
+		  
+//		  public List<Bookingdetail>getbookingidanddate(int thid,int userid) throws ClassNotFoundException, SQLException {
+//			  
+//			  List<Bookingdetail> bookingslist=new ArrayList<Bookingdetail>(); 
+//			  
+//			String query="select * from booking_detail where theatre_id =? and user_id=? order by booking_id desc";
+//			Connection	con = Connectionmv4.DBConnection();
+//			  PreparedStatement pstmt = con.prepareStatement(query);
+//			  pstmt.setInt(1, thid);
+//    		  pstmt.setInt(2, userid);
+//			  rs=pstmt.executeQuery();
+//		  }
+		  
+		  
+		  
 //mybooking		  
 		  public List<Bookingdetail> MyBooking(int userId) throws ClassNotFoundException, SQLException {
 			  List<Bookingdetail> bookinglist=new ArrayList<Bookingdetail>();
@@ -176,14 +199,14 @@ public class BookingDaoImpl {
 	           Statement stmt=con.createStatement();
 		       ResultSet rs=stmt.executeQuery(showQuery);
 		       while(rs.next()) {
-              mvtheatre1=new  Bookingdetail(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getString(6),rs.getString(7),rs.getDate(8));
+               mvtheatre1=new  Bookingdetail(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getString(6),rs.getString(7),rs.getDate(8));
 //			   System.out.println(rs.getString(3));
-              bookinglist.add(mvtheatre1);
+               bookinglist.add(mvtheatre1);
 	  
-		        }
+		  }
 		       return bookinglist;
 			
 		  } 
 		  
 		  
-			}
+	      }

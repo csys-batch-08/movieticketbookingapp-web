@@ -3,6 +3,7 @@ package com.controller;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,27 +51,30 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 	     session.setAttribute("moviefortoday", mvname);
 	     int totalprice = 180 * seat;
 	     session.setAttribute("totalprice",totalprice);
-
-	  //   System.out.println(""+userid +mvid+thid+seat+mvname+totalprice + "");
+	     
+	     System.out.println("hi sachin");
+	     
+	    System.out.println(""+userid +mvid+thid+seat+mvname+totalprice + "");
 	     
 	     
 	       
 
 	     BookingDaoImpl bookingDaoImpl = new BookingDaoImpl();
 	     Bookingdetail bookingdetail = new Bookingdetail(userid,thid,seat,totalprice,mvname);
-
+	     System.out.println(bookingdetail);
+         System.out.println("jkghfutditysrsaryastdsrtwsireyrejtyryuhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
 	     bookingDaoImpl.insert(bookingdetail);
-	    
+	     System.out.println("hhhbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 
 	    try {
-			ResultSet rs= bdi.getbookingidanddate(thid,userid);
+	           List<Bookingdetail> bookingdetails = bdi.getbookingidanddate(thid,userid);
 			
 
-			session.setAttribute("ResultSet", rs);
-			session.setAttribute("bookingdate", rs.getDate(8));
+			session.setAttribute("bookinglist", bookingdetails);
+		//	session.setAttribute("bookingdate", rs.getDate(8));
 		//	System.out.println(rs.getInt(1)+""+rs.getDate(8));
 		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
+			
 			e1.printStackTrace();
 		} catch (SQLException e1) {
 		

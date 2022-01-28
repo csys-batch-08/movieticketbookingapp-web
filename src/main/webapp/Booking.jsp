@@ -204,6 +204,7 @@ input[type:number]
         <input type="Number" name="Seats" id="Seats" min=1><br><br>
         <button type="submit"   >Book Ticket</button>
         <a href="BookingSuccess.jsp" ></a>
+        
         <button><a href ="ShowServlet">Cancel Booking</a></button>
         
         
