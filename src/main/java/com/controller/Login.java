@@ -60,7 +60,7 @@ public class Login extends HttpServlet {
 				
 			}else if(user_role.equals("user"))
 			{	
-			 response.sendRedirect("Show.jsp");
+			 response.sendRedirect("ShowServlet");
 			
 			}
 	  
@@ -70,9 +70,10 @@ public class Login extends HttpServlet {
 			try
 			{
 			   throw new InvalidUserException();	
-			}catch(InvalidUserException e)
+			} catch(InvalidUserException e)
 			{
 			   String invaliduser = e.getMessage();
+			   
 			   response.sendRedirect("MovieBooking.jsp?message="+e.getMessage()+"&url=Login1.jsp");
 			}
 		}

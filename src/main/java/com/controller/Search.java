@@ -3,6 +3,7 @@ package com.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,19 +27,22 @@ public class Search extends HttpServlet {
 			
 			 MovieDaoImpl search = new MovieDaoImpl();
 			 String moviename = request.getParameter("moviename");
-				System.out.println("movie" +moviename);
+	       
 
-			           List<Movie> searchlist = search.Search(moviename);
+			  List<Movie> searchlist = search.Search(moviename);
+			    System.out.println(searchlist);       
+			           
+			   HttpSession session = request.getSession();
+			   session.setAttribute("moviename",searchlist );
+			         
+			   session.setAttribute("bookedmovie", moviename);
+			   
+			//   request.setAttribute("searchlist", searchlist);
+				RequestDispatcher requestDispatcher=request.getRequestDispatcher("searchmovies.jsp");
+				requestDispatcher.forward(request, response);      
 			           
 			           
-			           HttpSession session = request.getSession();
-			           session.setAttribute("moviename",searchlist );
-			         // session.setAttribute("bookedmovie", searchlist.get(1));
-			          session.setAttribute("bookedmovie", moviename);
-			           
-			           //System.out.println(searchlist.get(1));
-			           
-			           response.sendRedirect("searchmovies.jsp");
+		//	   response.sendRedirect("searchmovies.jsp");
 
               		       
 			  response.getWriter().print("Search Suceessfully");

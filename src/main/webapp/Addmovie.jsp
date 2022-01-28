@@ -25,8 +25,7 @@ ul {
 
 li {
   float: left;
-  border-right:1px solid #bbb;
-    text-decoration: none;
+
 }
 
 li:last-child {
@@ -40,15 +39,14 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-size:18px; 
 }
 
 li a:hover:not(.active) {
   background-color: #111;
 }
 
-.active {
-  background-color: #04AA6D;
-}
+
 .ones1{
   position:absolute;
   top:80px;
@@ -63,7 +61,7 @@ li a:hover:not(.active) {
   left:600px;
   text-decoration:none;
   color:Block;
-   text-decoration: none; 
+  text-decoration: none; 
 }
 .ones{
   position:absolute;
@@ -89,12 +87,24 @@ h3{
 color:white;
 }
 
+.Logs
+{
+  position:absolute;
+  top:1px;
+  left:1250px;
+  text-decoration:none;
+  color:white;
+}
 
 
- body {
-  background-image: url('Rohini Sliver Screen.jpg');
+
+  body {
+  
+  background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('Rohini Sliver Screen.jpg');
   background-repeat: no-repeat;
-  background-size:100% 1200px;
+  background-size:cover;
+  background-attachment: fixed;
+  font-weight: bold;
 }
 
 </style>
@@ -106,11 +116,15 @@ color:white;
   <li><a class="active" href="#home">Home</a></li>
   <li><a href="News.jsp">News</a></li>
   <li><a href="AddTheatre.jsp">AddTheatre</a></li>
-    <li><a href="Show.jsp">ShowMovie</a>
-  <li><a href="UserdetailHistory.jsp">UserList</a>
-  <li><a href="BookingHistory.jsp">BookingList</a>
-  <li><a href="Login1.jsp">logout</a></li>
-    
+    <li><a href="ShowServlet">ShowMovie</a>
+  <li><a href="UserHistoryServlet">UserList</a>
+  <li><a href="BookingHistoryServlet">BookingList</a>
+  
+  <div class="Logs">
+  
+   <a href="Login1.jsp">Logout</a></li>
+  
+  </div>  
   
  
 </ul>

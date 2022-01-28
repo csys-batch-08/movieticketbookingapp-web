@@ -48,15 +48,21 @@ label{
 }
 
  body {
-  background-image: url('Rohini Sliver Screen.jpg');
+  background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('Rohini Sliver Screen.jpg');
   background-repeat: no-repeat;
   background-size:cover;
+  background-attachment: fixed;
+  font-weight: bold;
 }
 
 </style>
 </head>
   
 <body>
+
+
+
+
 <%
 if(session.getAttribute("lowbal") != null){%>
 <h1 id = "lowbalhead">Low Balance Please Top Up!!</h1>
@@ -80,7 +86,7 @@ session.removeAttribute("lowbal");
          
       <div class="ones">
 
-       <button><a href="Show.jsp"  class="btn btn-primary">Back</a></button>  
+       <button><a href="ShowServlet"  class="btn btn-primary">Back</a></button>  
 
        </div>
         

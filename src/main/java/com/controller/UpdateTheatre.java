@@ -21,8 +21,8 @@ import com.MovieticketBookingModel.Theatreinformation;
 public class UpdateTheatre extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+	
+		
 		HttpSession session=request.getSession();
 		DateTimeFormatter formatter =
 			    DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -35,7 +35,10 @@ public class UpdateTheatre extends HttpServlet {
 				int theatreratings=Integer.parseInt(request.getParameter("theatre Ratings"));
 				String theatreDate =request.getParameter(" Movie date and time"); //"2021-12-21 05:30";
 		        int price=Integer.parseInt(request.getParameter("Price"));
-		
+		        
+		    	session.setAttribute("moviedate",theatreDate );
+		        
+		        
 			    LocalDateTime mvTimeDate = LocalDateTime.parse(theatreDate);
 			
 				Theatreinformation dao=new Theatreinformation(theatrename,movieid,theatreid,numberseats,theatreaddress,theatreratings,price,mvTimeDate );
@@ -45,7 +48,7 @@ public class UpdateTheatre extends HttpServlet {
 			    try {
 					session.setAttribute("noofseats", rs.getInt(4));
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+				
 					e.printStackTrace();
 				}
 				System.out.println(session.getAttribute("noofseats"));

@@ -22,14 +22,14 @@ public class MovieDaoImpl {
 		try {
 				con = Connectionmv4.DBConnection();
 				PreparedStatement pstmt = con.prepareStatement(query);
-				pstmt.setString(1, Movie.getMovie_name());
-				pstmt.setInt(2, Movie.getMovie_id());
-				pstmt.setString(3, Movie.getMovie_type());
-				pstmt.setInt(4, Movie.getMovie_ratings() );
-				pstmt.setInt(5, Movie.getMovie_duration());
+				pstmt.setString(1, Movie.getMoviename());
+				pstmt.setInt(2, Movie.getMovieid());
+				pstmt.setString(3, Movie.getMovietype());
+				pstmt.setInt(4, Movie.getMovieratings() );
+				pstmt.setInt(5, Movie.getMovieduration());
 				pstmt.setString(6, Movie.getDirector());
-				pstmt.setString(7, Movie.getMusic_director());
-				pstmt.setString(8, Movie.getHero_name());
+				pstmt.setString(7, Movie.getMusicdirector());
+				pstmt.setString(8, Movie.getHeroname());
 				pstmt.setString(9, Movie.getImages());
 				pstmt.setString(10, Movie.getMovielink());
 				int i = pstmt.executeUpdate();
@@ -78,8 +78,8 @@ public class MovieDaoImpl {
 			try {
 				con = connection.DBConnection();
 				PreparedStatement pstmt=con.prepareStatement( showQuery);
-			    pstmt.setInt(1,Movie1.getMovie_id());
-			    pstmt.setString(2,Movie1.getMovie_name());
+			    pstmt.setInt(1,Movie1.getMovieid());
+			    pstmt.setString(2,Movie1.getMoviename());
 				ResultSet rs=pstmt.executeQuery();
 				while(rs.next()) {
 				System.out.println("movie name : "  + rs.getString(1)+"\t"+"movie id :" +rs.getInt(2)+ "\t" +"movietype:"+rs.getString(3)+"\t"+"movieratings:"+rs.getInt(4)+"\t"+"movie duration:"+rs.getInt(5)+"\t"+"Director:"+rs.getString(6)+"\t"+"music director:"+rs.getString(7)+"\t"+"Hero name:"+rs.getString(8));
@@ -105,15 +105,15 @@ public class MovieDaoImpl {
 	   try {
 				con = Connectionmv4.DBConnection();
 				PreparedStatement pstmt = con.prepareStatement(query);
-				pstmt.setString(1, Movie2.getMovie_name());
-				pstmt.setString(2, Movie2.getMovie_type());
+				pstmt.setString(1, Movie2.getMoviename());
+				pstmt.setString(2, Movie2.getMovietype());
 				//pstmt.setInt(3, Movie2.getMovie_ratings());
-				pstmt.setInt(3, Movie2.getMovie_duration());
+				pstmt.setInt(3, Movie2.getMovieduration());
 				//pstmt.setString(5, Movie2.getDirector());
 				//pstmt.setString(6, Movie2.getMusic_director());
 				//pstmt.setString(7,Movie2.getHero_name());
 				
-				pstmt.setInt(4,Movie2.getMovie_id());
+				pstmt.setInt(4,Movie2.getMovieid());
 				int i = pstmt.executeUpdate();
 			    System.out.println(i+"rows update successfully");
 		} catch (ClassNotFoundException e) {
@@ -134,7 +134,7 @@ public class MovieDaoImpl {
 		try {
 				con = Connectionmv4.DBConnection();
 				PreparedStatement pstmt = con.prepareStatement(query);
-				pstmt.setInt(1,Movie3.getMovie_id());
+				pstmt.setInt(1,Movie3.getMovieid());
 				int i = pstmt.executeUpdate();
 		 		System.out.println(i+"rows deleted successfully");
 		 		
@@ -158,7 +158,8 @@ public class MovieDaoImpl {
 			ResultSet rs=stmt.executeQuery(showQuery);
 			while(rs.next()) {
 		    mvproduct=new  Movie(rs.getString(1),rs.getInt(2),rs.getString(3),rs.getInt(4),rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10));
-			System.out.println(rs.getString(3));
+			System.out.println(rs.getString(1));
+			//System.out.println();
 		    movieList.add(mvproduct);
 		  
 			}
@@ -182,7 +183,7 @@ public class MovieDaoImpl {
 				con = Connectionmv4.DBConnection();
 				PreparedStatement Pstmt1 = con.prepareStatement(query);
 				
-				Pstmt1.setInt(1, movie5.getMovie_id());
+				Pstmt1.setInt(1, movie5.getMovieid());
 
 				ResultSet rs = Pstmt1.executeQuery();
 				while(rs.next()) {

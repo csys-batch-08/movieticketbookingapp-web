@@ -3,6 +3,7 @@
 <%@page import="java.util.*"%>
 <%@page import="com.MovieticketBookingModel.Movie"%>
 <%@page import="com.MovieTicketBookingDaoImpl.MovieDaoImpl"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         
     
 <!DOCTYPE html>
@@ -19,11 +20,6 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
-
-
-
-
 <style >
 
 .one
@@ -37,6 +33,7 @@ color:white;
   background-image: url('Rohini Sliver Screen.jpg');
   background-repeat: no-repeat;
   background-size:cover;
+  font-size: bold;
 }
 
 </style>
@@ -44,48 +41,38 @@ color:white;
 </head>
 <body>
 
-<div class="one">
-      <%
-      
-      List<Movie> searchList =(List<Movie>) session.getAttribute("moviename");
-      %>
+                     <div class="one">
+     
       
   
-     <h1><b>Search By Movie List:</b></h1>
+                     <h1><b>Search By Movie List:</b></h1>
 
-<%
+                      
+                         
+                                         
+                    <c:forEach items="${moviename}" var="SearchList">
+                                       
+                    <tr>
+                    <td><img src="images/${SearchList.getImages()}" width=300px alt="img"></td><br><br><br>
 
-for (Movie list : searchList) {
-int i=0;
-i++;
-
-
-%>
-<tr>
-<td><img src="images/<%=list.getImages()%>" width=300px alt="img"></td><br><br><br>
-
-<td>Movie Name:<%=list.getMovie_name()%></td><br><br>
-<td>Movie Type:<%=list.getMovie_type()%></td><br><br>
-<td>Movie Duration:<%=list.getMovie_duration()%></td><br><br>
-<td>Director:<%=list.getDirector()%></td><br><br>
-<td>Music Director:<%=list.getMusic_director() %></td><br><br>
-<td>Hero Name:<%=list.getHero_name() %></td><br><br>
+                    <td>Movie Name: ${SearchList.getMoviename()}</td><br><br>
+                    <td>Movie Type:${SearchList.getMovietype()}</td><br><br>
+                    <td>Movie Duration:${SearchList.getMovieduration()}</td><br><br>
+                    <td>Director:${SearchList.getDirector()}</td><br><br>
+                    <td>Music Director:${SearchList.getMusicdirector() }</td><br><br>
+                    <td>Hero Name:${SearchList.getHeroname() }</td><br><br>
 
 
- <td>  <button type = "submit"  value="theatre"> <a href="TheatreMovie1.jsp">Theatre</button></a></td>
+                    <td><button type = "submit"  value="theatre"> <a href="TheatreServlet">Theatre</button></a></td>
    
-     
-</tr>
-
-
-<%
-}
-
-%>
-      </tbody>
-      </table>
       
-   </div>   
+                    </tr>
+
+                    </c:forEach>             
+                    </tbody>
+                    </table>
+      
+                    </div>   
   
 </body>
 </html>

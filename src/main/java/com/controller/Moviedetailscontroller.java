@@ -16,9 +16,11 @@ import com.MovieTicketBookingDaoImpl.MovieDaoImpl;
 public class Moviedetailscontroller extends HttpServlet {
 @Override
 protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+	
 	int id = Integer.parseInt(req.getParameter("movlink"));
 	String movie_name=req.getParameter("movie name");
-	System.out.println(id);
+
 	
 	
 	HttpSession session = req.getSession();
@@ -30,13 +32,13 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
 		rs = mdi.getmovie();
 		rs.next();
 		session.setAttribute("todaymovie",rs.getString(1));
-//		session.setAttribute("movie name", movie_name);
-		resp.sendRedirect("TheatreMovie1.jsp");
+
+		resp.sendRedirect("TheatreServlet");
 	} catch (ClassNotFoundException e) {
-		// TODO Auto-generated catch block
+		
 		e.printStackTrace();
 	} catch (SQLException e) {
-		// TODO Auto-generated catch block
+		
 		e.printStackTrace();
 	}
 	

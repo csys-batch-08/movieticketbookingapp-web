@@ -15,18 +15,15 @@ public class MovieUpdate extends HttpServlet {
 
 	 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+		
 		
 		String moviename=request.getParameter("movie name");
 		
 		String movietype=request.getParameter("Move type");
-	//	int movieratings=Integer.parseInt(request.getParameter("Move ratings"));
+
 		int movieduration=Integer.parseInt(request.getParameter("Move duration"));
 		int movieid=Integer.parseInt(request.getParameter("Move id"));
-	//	String director=request.getParameter("Director");
-	//	String musicdirector=request.getParameter("Music director");
-	//	String heroname=request.getParameter("Hero name");
+
 		
 		
 		Movie add1=new Movie(moviename,movietype,movieduration, movieid);

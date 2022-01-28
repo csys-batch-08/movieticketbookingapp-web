@@ -1,28 +1,28 @@
 package com.MovieticketBookingModel;
 
 public class User {
-	  private int user_id;
-	  private String user_name ;
+	  private int userid;
+	  private String username ;
       private String gender;
-      private String email_id;
-      private long mobile_num;
-      private String e_password;
+      private String emailid;
+      private long mobilenum;
+      private String epassword;
       private int wallet;
       public int getwallet() {
 		return wallet;
 	}
 	
-	public int getUser_id() {
-  		return user_id;
+	public int getUserid() {
+  		return userid;
   	}
-  	public void setUser_id(int user_id) {
-  		this.user_id = user_id;
+  	public void setUserid(int userid) {
+  		this.userid = userid;
   	}
-	public String getUser_name() {
-		return user_name;
+	public String getUsername() {
+		return username;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getGender() {
 		return gender;
@@ -30,93 +30,93 @@ public class User {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getEmail_id() {
-		return email_id;
+	public String getEmailid() {
+		return emailid;
 	}
-	public void setEmail_id(String email_id) {
-		this.email_id = email_id;
+	public void setEmailid(String emailid) {
+		this.emailid = emailid;
 	}
-	public long getMobile_num() {
-		return mobile_num;
+	public long getMobilenum() {
+		return mobilenum;
 	}
-	public void setMobile_num(long mobile_num) {
-		this.mobile_num = mobile_num;
+	public void setMobilenum(long mobilenum) {
+		this.mobilenum = mobilenum;
 	}
-	public String getE_password() {
-		return e_password;
+	public String getEpassword() {
+		return epassword;
 	}
-	public void setE_password(String e_password) {
-		this.e_password = e_password;
+	public void setEpassword(String epassword) {
+		this.epassword = epassword;
 	}
 	@Override
 	public String toString() {
-		return "User [user_id=" + user_id + ", user_name=" + user_name + ", gender=" + gender + ", email_id=" + email_id
-				+ ", mobile_num=" + mobile_num + ", e_password=" + e_password + ", wallet=" + wallet + "]";
+		return "User [userid=" + userid + ", username=" + username + ", gender=" + gender + ", emailid=" + emailid
+				+ ", mobilenum=" + mobilenum + ", epassword=" + epassword + ", wallet=" + wallet + "]";
 	}
-	public User(String user_name, String gender, String email_id, long mobile_num,
-			String e_password) {
+	public User(String username, String gender, String emailid, long mobilenum,
+			String epassword) {
 		super();
-		this.user_name = user_name;
+		this.username = username;
 		this.gender = gender;
-		this.email_id = email_id;
-		this.mobile_num = mobile_num;
-		this.e_password = e_password;
+		this.emailid = emailid;
+		this.mobilenum = mobilenum;
+		this.epassword = epassword;
 	}
 	
-	public User(String user_name, String email_id, String e_password) {
+	public User(String username, String emailid, String epassword) {
 		super();
-		this.user_name = user_name;
-		this.email_id = email_id;
-		this.e_password = e_password;
+		this.username = username;
+		this.emailid = emailid;
+		this.epassword = epassword;
 	}
-	public User(String user_name,int userId, String email_id, String e_password) {
+	public User(String username,int userId, String emailid, String epassword) {
 		super();
-		this.user_name = user_name;
-		this.user_id=userId;
-		this.email_id = email_id;
-		this.e_password = e_password;
+		this.username = username;
+		this.userid=userId;
+		this.emailid = emailid;
+		this.epassword = epassword;
 	}
 	public User(int userId) {
 		
-		this.user_id=userId;
+		this.userid=userId;
 		
 	}
 	
 
-	public User(int user_id,
+	public User(int userid,
 			int wallet) {
 		super();
-		this.user_id = user_id;
+		this.userid = userid;
 		
 		this.wallet = wallet;
 	}
 
-	public User(int user_id, String user_name, String gender, String email_id, long mobile_num, String e_password,
+	public User(int userid, String username, String gender, String emailid, long mobilenum, String epassword,
 			int wallet) {
 		super();
-		this.user_id = user_id;
-		this.user_name = user_name;
+		this.userid = userid;
+		this.username = username;
 		this.gender = gender;
-		this.email_id = email_id;
-		this.mobile_num = mobile_num;
-		this.e_password = e_password;
+		this.emailid = emailid;
+		this.mobilenum = mobilenum;
+		this.epassword = epassword;
 		this.wallet = wallet;
 		
 	}
 
 	public User(int Wallet, String email) {
-		// TODO Auto-generated constructor stub
+	
 		this.wallet=Wallet;
-		this.email_id = email;
+		this.emailid = email;
 	}
 	public User(String email1, String password) {
-		// TODO Auto-generated constructor stub
-		this.email_id=email1;
-		this.e_password=password;
+		
+		this.emailid=email1;
+		this.epassword=password;
 	}
-	public User(String  user_name) {
-		// TODO Auto-generated constructor stub
-		this.user_name = user_name;
+	public User(String  username) {
+	
+		this.username = username;
 	}
 
 
@@ -125,23 +125,23 @@ public class User {
 			int wallet) {
 		super();
 	
-		this.user_name = user_name;
+		this.username = user_name;
 		this.gender = gender;
-		this.email_id = email_id;
-		this.mobile_num = mobile_num;
-		this.e_password = e_password;
+		this.emailid = email_id;
+		this.mobilenum = mobile_num;
+		this.epassword = e_password;
 		this.wallet = wallet;
 	}
 
 	public User(String user_name, int user_id, String gender, String email_id, long mobile_num, String e_password, int wallet) {
 		// TODO Auto-generated constructor stub
 		
-		this.user_name=user_name;
-		this.user_id=user_id;
+		this.username=user_name;
+		this.userid=user_id;
 		this.gender=gender;
-		this.email_id=email_id;
-		this.mobile_num=mobile_num;
-		this.e_password=e_password;
+		this.emailid=email_id;
+		this.mobilenum=mobile_num;
+		this.epassword=e_password;
 		this.wallet= wallet;
 
 	
@@ -149,8 +149,8 @@ public class User {
 
 	public User(String email1, long mobile_num) {
 		// TODO Auto-generated constructor stub
-		this.email_id=email1;
-		this.mobile_num=mobile_num;
+		this.emailid=email1;
+		this.mobilenum=mobile_num;
 		
 
 	}

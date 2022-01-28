@@ -6,14 +6,14 @@ import java.util.Objects;
 import java.util.Timer;
 
 public class Theatreinformation {
-	private String theatre_name;
-    private int movie_id;
-    private int theatre_id;
-    private int  number_seats;
-    private String theatre_address;
-    private int  theatre_rating;
+	private String theatrename;
+    private int movieid;
+    private int theatreid;
+    private int  numberseats;
+    private String theatreaddress;
+    private int  theatrerating;
     private int price;
-    private LocalDateTime movie_date_time;
+    private LocalDateTime moviedatetime;
     private String images;
 	
     public String getImages() {
@@ -26,41 +26,38 @@ public class Theatreinformation {
 	}
 
 
-	public Theatreinformation(String theatre_name, int movie_id2,int theatre_id, int number_seats, String theatre_address, int theatre_rating, LocalDateTime movie_date_time,
+	public Theatreinformation(String theatrename, int movieid2,int theatreid, int numberseats, String theatreaddress, int theatrerating, LocalDateTime moviedatetime,
 			int price,String images) {
     	super();
-		this.theatre_name = theatre_name;
-		this.movie_id = movie_id2;
-	    this.theatre_id=theatre_id;
-		this.number_seats = number_seats;
-		this.theatre_address = theatre_address;
-		this.theatre_rating = theatre_rating;
+		this.theatrename = theatrename;
+		this.movieid = movieid2;
+	    this.theatreid=theatreid;
+		this.numberseats = numberseats;
+		this.theatreaddress = theatreaddress;
+		this.theatrerating = theatrerating;
 		this.price = price;
-		this.movie_date_time = movie_date_time;
+		this.moviedatetime = moviedatetime;
 		this.images=images;
 	}
     
     
-//    public Theatreinformation(String theatre_name, int movie_id, int theatre_id, int number_seats,
-//			String theatre_address, int theatre_rating, int price, LocalDateTime movie_date_time) {
-//		
-//	}
-	public Theatreinformation(String theatre_name, int movie_id, int number_seats, String theatre_address,
-			int theatre_rating, int price, LocalDateTime movie_date_time,String images) {
+
+	public Theatreinformation(String theatrename, int movieid, int numberseats, String theatreaddress,
+			int theatrerating, int price, LocalDateTime moviedatetime,String images) {
 		super();
-		this.theatre_name = theatre_name;
-		this.movie_id = movie_id;
-		this.number_seats = number_seats;
-		this.theatre_address = theatre_address;
-		this.theatre_rating = theatre_rating;
+		this.theatrename = theatrename;
+		this.movieid = movieid;
+		this.numberseats = numberseats;
+		this.theatreaddress = theatreaddress;
+		this.theatrerating = theatrerating;
 		this.price = price;
-		this.movie_date_time = movie_date_time;
+		this.moviedatetime = moviedatetime;
 		this.images=images;
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(movie_date_time, movie_id, number_seats, price, theatre_address, theatre_id, theatre_name,
-				theatre_rating);
+		return Objects.hash(moviedatetime, movieid, numberseats, price, theatreaddress, theatreid, theatrename,
+				theatrerating);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -71,53 +68,53 @@ public class Theatreinformation {
 		if (getClass() != obj.getClass())
 			return false;
 		Theatreinformation other = (Theatreinformation) obj;
-		return Objects.equals(movie_date_time, other.movie_date_time) && movie_id == other.movie_id
-				&& number_seats == other.number_seats && price == other.price
-				&& Objects.equals(theatre_address, other.theatre_address) && theatre_id == other.theatre_id
-				&& Objects.equals(theatre_name, other.theatre_name) && theatre_rating == other.theatre_rating;
+		return Objects.equals(moviedatetime, other.moviedatetime) && movieid == other.movieid
+				&& numberseats == other.numberseats && price == other.price
+				&& Objects.equals(theatreaddress, other.theatreaddress) && theatreid == other.theatreid
+				&& Objects.equals(theatrename, other.theatrename) && theatrerating == other.theatrerating;
 	}
 	@Override
 	public String toString() {
-		return "Theatreinformation \ntheatre_name=" + theatre_name + "\n movie_id=" + movie_id + "\n theatre_id="
-				+ theatre_id + "\n number_seats=" + number_seats + "\n theatre_address=" + theatre_address
-				+ "\n theatre_rating=" + theatre_rating + "\n price=" + price + "\n movie_date_time=" + movie_date_time
+		return "Theatreinformation \ntheatrename=" + theatrename + "\n movieid=" + movieid + "\n theatreid="
+				+ theatreid + "\n numberseats=" + numberseats + "\n theatreaddress=" + theatreaddress
+				+ "\n theatrerating=" + theatrerating + "\n price=" + price + "\n moviedate_time=" + moviedatetime
 				+ "\n\n";
 	}
-	public String getTheatre_name() {
-		return theatre_name;
+	public String getTheatrename() {
+		return theatrename;
 	}
-	public void setTheatre_name(String theatre_name) {
-		this.theatre_name = theatre_name;
+	public void setTheatrename(String theatrename) {
+		this.theatrename = theatrename;
 	}
-	public int getMovie_id() {
-		return movie_id;
+	public int getMovieid() {
+		return movieid;
 	}
-	public void setMovie_id(int movie_id) {
-		this.movie_id = movie_id;
+	public void setMovieid(int movieid) {
+		this.movieid = movieid;
 	}
-	public int getTheatre_id() {
-		return theatre_id;
+	public int getTheatreid() {
+		return theatreid;
 	}
-	public void setTheatre_id(int theatre_id) {
-		this.theatre_id = theatre_id;
+	public void setTheatreid(int theatreid) {
+		this.theatreid = theatreid;
 	}
-	public int getNumber_seats() {
-		return number_seats;
+	public int getNumberseats() {
+		return numberseats;
 	}
-	public void setNumber_seats(int number_seats) {
-		this.number_seats = number_seats;
+	public void setNumberseats(int numberseats) {
+		this.numberseats = numberseats;
 	}
-	public String getTheatre_address() {
-		return theatre_address;
+	public String getTheatreaddress() {
+		return theatreaddress;
 	}
-	public void setTheatre_address(String theatre_address) {
-		this.theatre_address = theatre_address;
+	public void setTheatreaddress(String theatreaddress) {
+		this.theatreaddress = theatreaddress;
 	}
-	public int getTheatre_rating() {
-		return theatre_rating;
+	public int getTheatrerating() {
+		return theatrerating;
 	}
-	public void setTheatre_rating(int theatre_rating) {
-		this.theatre_rating = theatre_rating;
+	public void setTheatrerating(int theatrerating) {
+		this.theatrerating = theatrerating;
 	}
 	public int getPrice() {
 		return price;
@@ -125,61 +122,57 @@ public class Theatreinformation {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public LocalDateTime getMovie_date_time() {
-		return movie_date_time;
+	public LocalDateTime getMoviedatetime() {
+		return moviedatetime;
 	}
-	public void setMovie_date_time(LocalDateTime movie_date_time) {
-		this.movie_date_time = movie_date_time;
+	public void setMoviedatetime(LocalDateTime moviedatetime) {
+		this.moviedatetime = moviedatetime;
 	}
 	public Theatreinformation(String theatrename1, int theatreid1) {
-		// TODO Auto-generated constructor stub
-		this.theatre_name=theatrename1;
-		this.theatre_id=theatreid1;
+		
+		this.theatrename=theatrename1;
+		this.theatreid=theatreid1;
 	}
 	public Theatreinformation(int theatreid) {
-		// TODO Auto-generated constructor stub
-		this.theatre_id=theatreid;
+	
+		this.theatreid=theatreid;
 	}
 
 
-	public Theatreinformation(String theatrename, String movieid, int theatreid, int numberseats, String theatreaddress,
-			int theatreratings, int price2, String theatreDate) {
-		// TODO Auto-generated constructor stub
-	}
 
 
 	public Theatreinformation(String theatrename, int movieid, int numberseats, String theatreaddress,
 			int theatreratings, int price2, LocalDateTime mvTimeDate) {
-		// TODO Auto-generated constructor stub
-		this.theatre_name = theatrename;
-		this.movie_id = movieid;
-		this.number_seats = numberseats;
-		this.theatre_address = theatreaddress;
-		this.theatre_rating = theatreratings;
+	
+		this.theatrename = theatrename;
+		this.movieid = movieid;
+		this.numberseats = numberseats;
+		this.theatreaddress = theatreaddress;
+		this.theatrerating = theatreratings;
 		this.price = price2;
-		this.movie_date_time = mvTimeDate;
+		this.moviedatetime = mvTimeDate;
 	}
 
 
 	public Theatreinformation(int theatreid,String n) 
 			 {
-		// TODO Auto-generated constructor stub
 		
-		this.theatre_id = theatreid;
+		
+		this.theatreid = theatreid;
 		
 	}
 
 
 	public Theatreinformation(String theatrename, int movieid, int theatreid, int numberseats, String theatreaddress,
 			int theatreratings, int price2, LocalDateTime mvTimeDate) {
-		// TODO Auto-generated constructor stub
-		this.theatre_name = theatrename;
-		this.movie_id = movieid;
-		this.number_seats = numberseats;
-		this.theatre_address = theatreaddress;
-		this.theatre_rating = theatreratings;
+	
+		this.theatrename = theatrename;
+		this.movieid = movieid;
+		this.numberseats = numberseats;
+		this.theatreaddress = theatreaddress;
+		this.theatrerating = theatreratings;
 		this.price = price2;
-		this.movie_date_time = mvTimeDate;
+		this.moviedatetime = mvTimeDate;
 	}
 
 
@@ -187,27 +180,27 @@ public class Theatreinformation {
 	
 
 
-	public Theatreinformation(String theatre_name, int movie_id2, int theatre_id, int number_seats, String theatre_address , int theatre_rating, int price,
-			LocalDateTime movie_date_time, String images) {
-		// TODO Auto-generated constructor stub
-		this.theatre_name = theatre_name;
-		this.movie_id = movie_id2;
-	    this.theatre_id=theatre_id;
-		this.number_seats = number_seats;
-		this.theatre_address = theatre_address;
-		this.theatre_rating = theatre_rating;
+	public Theatreinformation(String theatrename, int movieid2, int theatreid, int numberseats, String theatreaddress , int theatrerating, int price,
+			LocalDateTime moviedatetime, String images) {
+	
+		this.theatrename = theatrename;
+		this.movieid = movieid2;
+	    this.theatreid=theatreid;
+		this.numberseats = numberseats;
+		this.theatreaddress = theatreaddress;
+		this.theatrerating = theatrerating;
 		this.price = price;
-		this.movie_date_time = movie_date_time;
+		this.moviedatetime = moviedatetime;
 	
 		this.images=images;
 	}
 
 
 	public Theatreinformation(String theatrename, int price2, int theatreid) {
-		// TODO Auto-generated constructor stub
-		this.theatre_name = theatrename;
+	
+		this.theatrename = theatrename;
 		this.price = price2;
-		this.theatre_id=theatreid;
+		this.theatreid=theatreid;
 	}
 	}
 

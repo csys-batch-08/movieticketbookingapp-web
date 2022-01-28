@@ -25,7 +25,7 @@ ul {
 
 li {
   float: left;
-  border-right:1px solid #bbb;
+ 
 }
 
 li:last-child {
@@ -38,15 +38,14 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-size:18px; 
 }
 
 li a:hover:not(.active) {
   background-color: #111;
 }
 
-.active {
-  background-color: #04AA6D;
-}
+
 .ones1{
   position:absolute;
   top:80px;
@@ -69,6 +68,16 @@ li a:hover:not(.active) {
   color:Block;
 }
 
+.Log
+{
+  position:absolute;
+  top:1px;
+  left:1250px;
+  text-decoration:none;
+  color:white;
+}
+
+
 Label{
 color:white;
 
@@ -84,20 +93,24 @@ color:white;
 h3{
 color:white;
 }
- body {
-  background-image: url('Rohini Sliver Screen.jpg');
+  body {
+  
+  background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('Rohini Sliver Screen.jpg');
   background-repeat: no-repeat;
   background-size:cover;
+  background-attachment: fixed;
+  font-weight: bold;
 }
 
-.one6{
+.list{
   position:absolute;
-  top:50px;
+  top:58px;
   left:1250px;
   text-decoration:none;
   color:white
 
 }
+
 
 </style>
 </head>
@@ -111,8 +124,15 @@ color:white;
   <li><a href="UserdetailHistory.jsp">UserList</a>
   <li><a href="BookingHistory.jsp">BookingList</a>
   <li><a href="AddTheatre.jsp">AddTheatre</a></li>
-    <li><a href="Login1.jsp">logout</a></li>
- 
+  
+   <div class="Log">
+  
+   <a href="Login1.jsp">Logout</a></li>
+  
+  </div>  
+  
+  
+   
 </ul>
 
  
@@ -120,7 +140,7 @@ color:white;
 
 <body>
 
-                      <div class="one6">
+                      <div class="list">
 
                       <button><a href="Addmovie.jsp"  class="btn btn-primary">Back</a></button>  
 

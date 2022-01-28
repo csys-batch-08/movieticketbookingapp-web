@@ -147,7 +147,11 @@ Date bookingdate=(Date) (session.getAttribute("bookingdate"));
 
       
   
-      User Id: <%=userid %><br>
+
+  
+       User Id: <%=userid %><br>  
+ 
+ 
 <!---  <%int movieid= Integer.parseInt(session.getAttribute("movieid").toString());
    //System.out.println(movieid+"Movwheuwh");
 %>
@@ -159,21 +163,38 @@ Date bookingdate=(Date) (session.getAttribute("bookingdate"));
   <!----    Movie Id : <%=movieid %><br>   ---->
       <%String movie_name=bookedmovie; %>
 
-
-      Movie name:<%=movie_name %><br>
+        
+        
+      
+        
+        
+        
+           Movie name:<%=movie_name %><br> 
+ 
  <!-- -   <% int theatreid=Integer.parseInt(session.getAttribute("theaterid").toString()); %>
        Theatre Id : <%=theatreid %><br>  ---->
        
-      <%int seatsno=Integer.parseInt(session.getAttribute("Seats").toString()); %>
-       Number of Seats  : <%=rs.getInt(4) %><br>
+          <span>   Number of Seats: ${rs.getInt(4) }</span><br><br>
+       
+       <%int seatsno=Integer.parseInt(session.getAttribute("Seats").toString()); %>
+       Number of Seats  : <%=rs.getInt(4) %><br>  
+       
+       
        
       <%String date=session.getAttribute("moviedate").toString(); %>
-       Movie date  : <%=date %><br>
+       Movie date  : <%=date %><br> 
+       
+     
        
       <%int price=Integer.parseInt(session.getAttribute("totalprice").toString()); %>
       Total Price : <%=price %><br>
       
-       Booking date :<%=rs.getDate(8) %><br><br><br>
+      
+      
+      
+       
+       
+       Booking date :<%=rs.getDate(8) %><br><br><br> 
     
    
       
@@ -183,7 +204,7 @@ Date bookingdate=(Date) (session.getAttribute("bookingdate"));
 
       </td>
 </tr>
-<%} %>
+
       </table>
       
       </div>

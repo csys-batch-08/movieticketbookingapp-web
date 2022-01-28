@@ -26,11 +26,11 @@ public class UserDaoImpl {
 		try {
 			Connection con = Connectionmv4.DBConnection();
 			PreparedStatement Pstmt1 = con.prepareStatement(query);
-			Pstmt1.setString(1, use.getUser_name());
+			Pstmt1.setString(1, use.getUsername());
 			Pstmt1.setString(2, use.getGender());
-			Pstmt1.setString(3, use.getEmail_id());
-			Pstmt1.setLong(4, use.getMobile_num());
-			Pstmt1.setString(5, use.getE_password());
+			Pstmt1.setString(3, use.getEmailid());
+			Pstmt1.setLong(4, use.getMobilenum());
+			Pstmt1.setString(5, use.getEpassword());
 			 i = Pstmt1.executeUpdate();
 
 			System.out.println("Registration Completed");
@@ -110,7 +110,7 @@ public class UserDaoImpl {
 			try {
 				 con = Connectionmv4.DBConnection();
 			    pstmt = con.prepareStatement(query);
-				pstmt.setString(1, email.getEmail_id());
+				pstmt.setString(1, email.getEmailid());
 				 rs = pstmt.executeQuery();
 			} catch (SQLException | ClassNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -128,7 +128,7 @@ public class UserDaoImpl {
 			try {
 				 con = Connectionmv4.DBConnection();
 			    pstmt = con.prepareStatement(query);
-				pstmt.setLong(1, mobile.getMobile_num());
+				pstmt.setLong(1, mobile.getMobilenum());
 				 rs = pstmt.executeQuery();
 			} catch (SQLException | ClassNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -145,14 +145,14 @@ public class UserDaoImpl {
 				 con = Connectionmv4.DBConnection();
 			PreparedStatement pstmt = null;
 				pstmt = con.prepareStatement(query);
-				pstmt.setString(1, userpasscheck.getEmail_id());
-				pstmt.setString(2, userpasscheck.getE_password());
+				pstmt.setString(1, userpasscheck.getEmailid());
+				pstmt.setString(2, userpasscheck.getEpassword());
 			ResultSet rs = null;
 			
 				rs = pstmt.executeQuery();
 				return "correct";
 			} catch (SQLException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
 			}
 			return "incorrect";	
@@ -167,8 +167,8 @@ public class UserDaoImpl {
 			con = conect.DBConnection();
 		String updateQuery = "update user_details set e_password=? where email_id=?";
 		PreparedStatement pstmt = con.prepareStatement(updateQuery);
-		pstmt.setString(1, user1.getE_password());
-		pstmt.setString(2, user1.getEmail_id());
+		pstmt.setString(1, user1.getEpassword());
+		pstmt.setString(2, user1.getEmailid());
 		pstmt.executeUpdate();
 //		while (rs.next()) {
 //
@@ -197,8 +197,8 @@ public class UserDaoImpl {
 		Connection con = conect.DBConnection();
 		String updateQuery = "update user_details set e_password=? where  email_id=?";
 		PreparedStatement pstmt = con.prepareStatement(updateQuery);
-		pstmt.setString(2, user2.getEmail_id());
-		pstmt.setString(1, user2.getE_password());
+		pstmt.setString(2, user2.getEmailid());
+		pstmt.setString(1, user2.getEpassword());
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
 
@@ -224,7 +224,7 @@ public class UserDaoImpl {
 			con = conect.DBConnection();
 			String deleteQuery = "delete from user_details where user_name=?";
 			PreparedStatement pstmt = con.prepareStatement(deleteQuery);
-			pstmt.setString(1, user3.getUser_name());
+			pstmt.setString(1, user3.getUsername());
 			int rs = pstmt.executeUpdate();
 
 			System.out.println("deleted");
@@ -247,7 +247,7 @@ public class UserDaoImpl {
 			Connection con = Connectionmv4.DBConnection();
 			PreparedStatement Pstmt1 = con.prepareStatement(query);
 			Pstmt1.setInt(1, user.getwallet());
-			Pstmt1.setInt(2, user.getUser_id());
+			Pstmt1.setInt(2, user.getUserid());
 			
 			int i=Pstmt1.executeUpdate();
 			System.out.println("wallet reduce");
@@ -318,7 +318,7 @@ public class UserDaoImpl {
 			Connection con = Connectionmv4.DBConnection();
 			PreparedStatement Pstmt1 = con.prepareStatement(query);
 			Pstmt1.setInt(1, user.getwallet());
-			Pstmt1.setInt(2, user.getUser_id());
+			Pstmt1.setInt(2, user.getUserid());
 
 			int rs = Pstmt1.executeUpdate();
 			Pstmt1.executeUpdate("commit");
@@ -390,7 +390,7 @@ public class UserDaoImpl {
 			con = Connectionmv4.DBConnection();
 			PreparedStatement Pstmt1 = con.prepareStatement(query);
 			
-			Pstmt1.setString(1, user5.getEmail_id());
+			Pstmt1.setString(1, user5.getEmailid());
 
 			ResultSet rs = Pstmt1.executeQuery();
 			while(rs.next()) {
@@ -418,8 +418,8 @@ public class UserDaoImpl {
 		Connection con=connection.DBConnection();
 		
 	    PreparedStatement stmt=con.prepareStatement(showuser);
-	    stmt.setInt(1, obj.getUser_id());
-	    System.out.println(obj.getUser_id());
+	    stmt.setInt(1, obj.getUserid());
+	    System.out.println(obj.getUserid());
 		ResultSet rs=stmt.executeQuery();
 		while(rs.next()) {
 			

@@ -3,6 +3,7 @@
     <%@ page import="com.MovieTicketBookingDaoImpl.*" %>
     <%@ page import="java.util.*" %>
     <%@ page import="com.MovieticketBookingModel.Bookingdetail" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,91 +20,86 @@
 
 
 <style>
+
 .one{
 
 color:white
 
 }
+
 h2
 {
  color:white;
 }
 
 .ones{
-  position:absolute;
-  top:20px;
-  left:1250px;
-  text-decoration:none;
-  color:white
+ position:absolute;
+ top:20px;
+ left:1250px;
+ text-decoration:none;
+ color:white
 
 }
 
 
  body {
-  background-image: url('Rohini Sliver Screen.jpg');
+  background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('Rohini Sliver Screen.jpg');
   background-repeat: no-repeat;
   background-size:cover;
+  background-attachment: fixed;
 }
 table
 {
    width:100%;
-   
+   border:2px solid 
 }
 
 </style>
 
-
-
-
 </head>
 <body>
-<%!
-       BookingDaoImpl dao= new BookingDaoImpl();
-               List<Bookingdetail> MyBooking;%>
-       <!-- -- HttpSession session = req.getSession();      ---> 
-               <%int userid=(int)session.getAttribute("userid");
-               MyBooking=dao.MyBooking(userid);
-               %>
-     <!---         Bookingdetail book=new  Bookingdetail(userid)  ----->
+
+    
 
 	
 	
 	
-        <h2 class="Userdetail">Booking Details</h2>
+                                   <h2 class="Userdetail">Booking Details</h2>
           
         
-        <div class="recentlyaddedlist">
-        <table border=1 >
-        <tbody>
-        <tr>
-                <%int count=0;
-                for(Bookingdetail bookingdetail: MyBooking){
-                	%>
-                    <td>
-                        <table id="user">
-                            <tbody>
-                                <tr>
+      -                            <div class="recentlyaddedlist">
+                                   <table border=1 >
+                                   <tbody>
+                                   <tr>
+                                   <c:set var="count" value="1"/>
+                                   <c:forEach items="${BookingObj}" var="BookingList">
+                                       
+             
+                                    <td>
+                                    <table id="user">
+                                    <tbody>
+                                    <tr>
                                      
                                     <td class="viewall">
                                     
                                     <div class="one">
-                                        <span>Booking Id: <%=bookingdetail.getBooking_id()%> </span><br>
-                                        <span>User Id: <%=bookingdetail.getUser_id()%> </span><br>
-                                        <span>Booked seats : <%=bookingdetail.getNo_seat()%> </span><br>
-                                        <span>Total Amount : <%=bookingdetail.getTotal_amount()%> </span><br>
-                                        <span>Status: <%=bookingdetail.getBooking_status()%></span><br>
-                                        <span>Movie Name: <%=bookingdetail.getMovie_name()%></span><br>  
-                                        <span>BookingDate : <%=bookingdetail.getBooking_date()%> </span><br> 
-                                        <%String date=session.getAttribute("moviedate").toString(); %>
-                                          Movie date  : <%=date %><br>
+                                        <span>Booking Id: ${BookingList.booking_id} </span><br>
+                                        <span>User Id: ${BookingList.user_id } </span><br>
+                                        <span>Booked seats : ${BookingList.no_seat } </span><br>
+                                        <span>Total Amount : ${BookingList.total_amount } </span><br>
+                                        <span>Status: ${BookingList.booking_status }</span><br>
+                                        <span>Movie Name: ${BookingList.getMovie_name() }</span><br>  
+                                        <span>BookingDate : ${BookingList.getBooking_date() } </span><br> 
+                                         <span> Date: ${moviedate}</span><br><br>
+                                         
                                          </div>   
                                          
                                         
-                     <div class="ones">
+                                     <div class="ones">
 
-                      <button><a href="Show.jsp"  class="btn btn-primary">Back</a></button>  
+                                     <button><a href="ShowServlet"  class="btn btn-primary">Back</a></button>  
 
-                      </div>
+                                    </div>
          
                                          
                                          
@@ -111,17 +107,27 @@ table
                                          
                                          
                                        
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>  
+                                   </td>
+                                   </tr>
+                                   </tbody>
+                                   </table>  
                             
-                    </td>
-                       <% count ++;
-                       if(count==5){ %> 
-                    	   </tr>
-                    	   <tr>              
-                     <%count=0; }}%>  
+                                   </td>
+                                   <c:choose>
+                                    
+                                   <c:when test="${count==5}">
+                                   <c:set var="count" value="1"/>
+                                     
+                                 
+                    	           </tr>
+                    	           <tr> 
+                    	           </c:when>
+                    	           <c:otherwise>
+                    	           <c:set var="count" value="${count+1}"/>
+                    	           </c:otherwise>             
+                                   </c:choose>
+                                   </c:forEach>  
+                      
                        
                 </tr>
             </tbody>

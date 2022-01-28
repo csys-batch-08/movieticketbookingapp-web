@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,17 +26,19 @@ import com.MovieticketBookingModel.User;
 public class BookingMovieController extends HttpServlet{
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	MovieDaoImpl movieDaoImpl = new MovieDaoImpl();
-
-
-	HttpSession session = req.getSession();
+	    
+	
+	     MovieDaoImpl movieDaoImpl = new MovieDaoImpl();
+	     HttpSession session = req.getSession();
 	     int userid=(int)session.getAttribute("userid");
+	     
 	     String mvname1=(String)session.getAttribute("moviename");
 	     
 //	     System.out.println("session issue "+userid);
 	     int mvid=Integer.parseInt(req.getParameter("Movie"));
 	     int thid=Integer.parseInt(req.getParameter("theatre"));
-	     session.setAttribute("theaterid", thid);
+	     
+	     req.setAttribute("theaterid", thid);
 	     int seat=Integer.parseInt(req.getParameter("Seats"));
 	     session.setAttribute("Seats",seat);
 	     Movie movie = new Movie(mvid);
@@ -56,9 +59,9 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 	     BookingDaoImpl bookingDaoImpl = new BookingDaoImpl();
 	     Bookingdetail bookingdetail = new Bookingdetail(userid,thid,seat,totalprice,mvname);
 
-	    bookingDaoImpl.insert(bookingdetail);
+	     bookingDaoImpl.insert(bookingdetail);
 	    
-	//    System.out.println("pothi");
+
 	    try {
 			ResultSet rs= bdi.getbookingidanddate(thid,userid);
 			
@@ -70,7 +73,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
+		
 			e1.printStackTrace();
 		}
 	    
@@ -86,20 +89,20 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
         if(wallet >= 180) {
         	 User users=new User(userid,totalprice); 
      	    
-       	  //  System.out.println(users);
-       	    UserDaoImpl dao1=new UserDaoImpl();
+    //  System.out.println(users);
+       	  UserDaoImpl dao1=new UserDaoImpl();
        	    
-       	     dao1.getwallet(users);
+       	  dao1.getwallet(users);
        	  com.MovieticketBookingModel.Theatreinformation theatreinformation = new com.MovieticketBookingModel.Theatreinformation(thid, mvname);
-  	    TheatreDaoImpl theatreDaoImpl = new TheatreDaoImpl();
+  	      TheatreDaoImpl theatreDaoImpl = new TheatreDaoImpl();
   	    try {
   	    	System.out.println(theatreDaoImpl.fetch(theatreinformation));
   			int dedseat = theatreDaoImpl.fetch(theatreinformation)-seat;
   			theatreDaoImpl.updateseat(dedseat, thid);
-  			resp.sendRedirect("BookingSuccess.jsp");
-
+  			RequestDispatcher rd=req.getRequestDispatcher("BookingSuccess.jsp");
+  			rd.forward(req, resp);
   		} catch (ClassNotFoundException | SQLException e) {
-  			// TODO Auto-generated catch block
+  			
   			e.printStackTrace();
   		}
         }else {

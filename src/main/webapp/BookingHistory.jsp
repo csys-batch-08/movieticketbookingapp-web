@@ -3,6 +3,7 @@
       <%@ page import="com.MovieTicketBookingDaoImpl.*" %>
     <%@ page import="java.util.*" %>
     <%@ page import="com.MovieticketBookingModel.Bookingdetail" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +32,7 @@ h2
 table
 {
    width:100%;
+   border:2px solid; 
    
 }
 
@@ -44,11 +46,12 @@ table
 }
 
 
+ 
  body {
- background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('Rohini Sliver Screen.jpg');
-  background-image: url('Rohini Sliver Screen.jpg');
+  background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('Rohini Sliver Screen.jpg');
   background-repeat: no-repeat;
   background-size:cover;
+  background-attachment: fixed;
 }
 </style>
 
@@ -69,52 +72,59 @@ table
                       </div>
         
 <body>
-  <% BookingDaoImpl dao= new BookingDaoImpl();
-  List<Bookingdetail> showBooking;
-	showBooking=dao.showBooking();
-	%>
+  
 	
 	
-          <h2 class="Bookingdetail">Booking Detail</h2>
+                         <h2 class="Bookingdetail">Booking Detail</h2>
           
         
-        <div class="Booking list">
-        <table border=1 >
-            <tbody>
-                <tr>
-                <%int count=0;
-                for(Bookingdetail bookingdetail: showBooking){
-                	%>
-                    <td>
-                    <table id="booking">
-                     <tbody>
-                     <tr>
+                          <div class="Booking list">
+                          <table border=1 >
+                          <tbody>
+                          <tr>
+                          <c:set var="count" value="1"/>
+                                         
+                          <c:forEach items="${Bookslist}" var="List">
+               
+                          <td>
+                          <table id="booking">
+                          <tbody>
+                          <tr>
                                      
                                    <td class="viewall">
                                     
                                    <div class="class">
                                     
-                                        <span>Booking Id: <%=bookingdetail.getBooking_id()%> </span><br>
-                                        <span>Theatre Id : <%=bookingdetail.getTheatre_id()%>  </span><br>
-                                        <span>User Id: <%=bookingdetail.getUser_id()%> </span><br>
-                                        <span>Booked seats : <%=bookingdetail.getNo_seat()%> </span><br>
-                                         <span>Total Amount : <%=bookingdetail.getTotal_amount()%> </span><br>
-                                        <span>Status: <%=bookingdetail.getBooking_status()%></span><br>
-                                         <span>Movie Name: <%=bookingdetail.getMovie_name()%></span><br>  
+                                        <span>Booking Id: ${List.booking_id } </span><br>
+                                        <span>Theatre Id : ${List.theatre_id }  </span><br>
+                                        <span>User Id: ${List.user_id } </span><br>
+                                        <span>Booked seats : ${List.no_seat } </span><br>
+                                        <span>Total Amount : ${List.total_amount } </span><br>
+                                        <span>Status: ${List.booking_status }</span><br>
+                                        <span>Movie Name: ${List.movie_name }</span><br>  
                                     </div>
                                     
                                     
-                                </td>
-                                </tr>
-                        </tbody>
-                        </table>  
+                                    </td>
+                                    </tr>
+                                    </tbody>
+                                    </table>  
                             
-                        </td>
-                       <% count ++;
-                       if(count==7){ %> 
-                    	   </tr>
-                    	   <tr>              
-                     <%count=0; }}%>  
+                                    </td>
+                                    <c:choose>
+                                    
+                                    <c:when test="${count==4}">
+                                    <c:set var="count" value="1"/>
+                                     
+                                 
+                    	             </tr>
+                    	             <tr> 
+                    	             </c:when>
+                    	             <c:otherwise>
+                    	             <c:set var="count" value="${count+1}"/>
+                    	             </c:otherwise>             
+                                     </c:choose>
+                                     </c:forEach>   
                        
                 </tr>
             </tbody>

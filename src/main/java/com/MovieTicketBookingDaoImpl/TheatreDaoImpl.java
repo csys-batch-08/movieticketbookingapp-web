@@ -18,20 +18,20 @@ public class TheatreDaoImpl {
 	private static final PreparedStatement Pstmt = null;
 
 	public void insert(Theatreinformation theatre ) {
-		    System.out.println(theatre.getMovie_date_time());
+		    System.out.println(theatre.getMoviedatetime());
 	        String  query="insert into theatre(theatre_name, movie_id,number_seats,theatre_address,theatre_rating,price,movie_date_time,images) values (?,?,?,?,?,?,?,?)";
 			Connection con;
 			try {
 				Connection 	con1 = Connectionmv4.DBConnection();
 				PreparedStatement Pstmt1 = con1.prepareStatement(query);
-			    Pstmt1.setString(1,theatre.getTheatre_name());
-			    Pstmt1.setInt(2,theatre.getMovie_id());
-			    Pstmt1.setInt(3,theatre.getNumber_seats());
-			    Pstmt1.setString(4,theatre.getTheatre_address());
-			    Pstmt1.setInt(5,theatre.getTheatre_rating());
+			    Pstmt1.setString(1,theatre.getTheatrename());
+			    Pstmt1.setInt(2,theatre.getMovieid());
+			    Pstmt1.setInt(3,theatre.getNumberseats());
+			    Pstmt1.setString(4,theatre.getTheatreaddress());
+			    Pstmt1.setInt(5,theatre.getTheatrerating());
 			   //ava.sql.Timestamp mvDateTime = java.sql.Timestamp.valueOf(theatre.getMovie_date_time());
 			    Pstmt1.setInt(6,theatre.getPrice());
-			    Pstmt1.setTimestamp(7,java.sql.Timestamp.valueOf(theatre.getMovie_date_time()));
+			    Pstmt1.setTimestamp(7,java.sql.Timestamp.valueOf(theatre.getMoviedatetime()));
 			    Pstmt1.setString(8,theatre.getImages());
 
 			    
@@ -80,8 +80,8 @@ public class TheatreDaoImpl {
 		try {
 			 con = Connectionmv4.DBConnection();
 			 PreparedStatement pstmt = con.prepareStatement(query);
-			 pstmt.setInt(1, theatres.getNumber_seats());
-			  pstmt.setInt(2, theatres.getMovie_id());
+			 pstmt.setInt(1, theatres.getNumberseats());
+			  pstmt.setInt(2, theatres.getMovieid());
 			 int i = pstmt.executeUpdate();
 		     System.out.println(i+"rows update successfully");
 		} catch (ClassNotFoundException e) {
@@ -122,7 +122,7 @@ public class TheatreDaoImpl {
 		try {
 		        Connection	con = Connectionmv4.DBConnection();
                 PreparedStatement pstmt = con.prepareStatement(query);
-		        pstmt.setString(1,theatre2.getTheatre_name());
+		        pstmt.setString(1,theatre2.getTheatrename());
 		       // pstmt.setInt(2, theatre2.getMovie_id());
 		       // pstmt.setInt(3, theatre2.getNumber_seats());
 	          //  pstmt.setString(4,theatre2.getTheatre_address());
@@ -132,7 +132,7 @@ public class TheatreDaoImpl {
 			    //pstmt.setTimestamp(6,java.sql.Timestamp.valueOf(theatre2.getMovie_date_time()));
 			    pstmt.setInt(2,theatre2.getPrice());
 	        
-	        	pstmt.setInt(3,theatre2.getTheatre_id());
+	        	pstmt.setInt(3,theatre2.getTheatreid());
 	        	int i = pstmt.executeUpdate();
 		        System.out.println(i+"rows update successfully");
 		}catch (ClassNotFoundException e) {
@@ -153,7 +153,7 @@ public class TheatreDaoImpl {
 		try {
 		         Connection	con = Connectionmv4.DBConnection();
                  PreparedStatement pstmt = con.prepareStatement(query);
-	        	 pstmt.setInt(1,theatre3.getTheatre_id());
+	        	 pstmt.setInt(1,theatre3.getTheatreid());
 	        	 int i = pstmt.executeUpdate();
 		
 	             System.out.println(i+"rows deleted successfully");
@@ -175,7 +175,7 @@ public class TheatreDaoImpl {
 			try {
 				con = connection.DBConnection();
 				PreparedStatement pstmt=con.prepareStatement( showQuery);
-			    pstmt.setInt(1,M1.getMovie_id());
+			    pstmt.setInt(1,M1.getMovieid());
 				ResultSet rs=pstmt.executeQuery();
 				while(rs.next()) {
 				System.out.println(rs.getString(1)+"\t"+rs.getInt(2)+"\t"+rs.getString(3)+"\t"+rs.getInt(4)+"\t"+rs.getInt(5)+"\t"+rs.getString(6)+"\t"+rs.getString(7)+"\t"+rs.getString(8));
@@ -214,8 +214,8 @@ public class TheatreDaoImpl {
 	String query = "Select  number_seats from theatre  where theatre_id=? ";
 	Connection	con = Connectionmv4.DBConnection();
    PreparedStatement pstmt = con.prepareStatement(query);
-   System.out.println(theatres1.getTheatre_id() + "jfdhn");
-   pstmt.setInt(1, theatres1.getTheatre_id());
+   System.out.println(theatres1.getTheatreid() + "jfdhn");
+   pstmt.setInt(1, theatres1.getTheatreid());
 ResultSet rs = pstmt.executeQuery();
 while(rs.next()) {
 	System.out.println(rs.getInt(1)+"gchj");

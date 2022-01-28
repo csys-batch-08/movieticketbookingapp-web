@@ -2,10 +2,12 @@
 <%@page import="com.MovieticketBookingModel.Movie"%>
 <%@page import="com.MovieTicketBookingDaoImpl.MovieDaoImpl"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
 <html>
 
@@ -24,9 +26,7 @@
 
 <style>
 
-body{
-	font-weight: bold;
-}
+
 img{
 width: 320px;
 padding:20px;
@@ -35,7 +35,8 @@ padding:20px;
 span{
 position : relative;
 top:240px;
-left: -200px;
+left: -270px;
+font-size:15px;
 
 }
 
@@ -58,7 +59,7 @@ visibility:hidden;
 {
   position:absolute;
   top:1px;
-  left:1200px;
+  left:1250px;
   text-decoration:none;
   color:white;
 }
@@ -83,8 +84,11 @@ visibility:hidden;
 
 }
 
-h1{
+p{
+margin-top:10px;
+margin-left:10px;
 color:white;
+font-size:24px;
 }
 
 
@@ -100,11 +104,12 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color:#333;
 }
 
 li {
   float: left;
+  padding-top:5px;
  
 }
 
@@ -119,11 +124,12 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-size:18px; 
 }
 
 li a:hover:not(.active) {
   background-color: #111;
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .active {
@@ -132,9 +138,12 @@ li a:hover:not(.active) {
 }
 
  body {
-  background-image: url('Rohini Sliver Screen.jpg');
+  
+  background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('Rohini Sliver Screen.jpg');
   background-repeat: no-repeat;
   background-size:cover;
+  background-attachment: fixed;
+  font-weight: bold;
 }
 .border{
 	border: 1px solid black;
@@ -160,9 +169,9 @@ padding-bottom:120px;
              
              <li><a class="active" href="Show.jsp">Home</a></li>
              <li><a href="News.jsp">News</a></li>
-             <li><a href="UserProfile.jsp">Profile</a></li>
+             <li><a href="UserServlet">Profile</a></li>
              <li><a href="Wallet.jsp">Recharge Wallet</a></li>
-             <li><a href="MyBooking.jsp">My Bookings</a></li>
+             <li><a href="MybookingServlet">My Bookings</a></li>
 
            </div>
    
@@ -185,81 +194,88 @@ padding-bottom:120px;
     
           </div>
    
-           
-          </ul>
-            <%!
-            MovieDaoImpl movieDaoImpl = new MovieDaoImpl();
-            List<Movie> showmovie;
-            %>
-            <%
-            showmovie = movieDaoImpl.showMovie();
-
-            %>
+ </ul>        
     
 
               <table>
-                  <tbody>
-                       <tr>
-         <h1></b>Movie List</h1><b>
+              <tbody>
+              <tr>
+   
                                         
                                          
-         <div class="searchbtn">
+                 <div class="searchbtn">
           
                  <form action="Search" method = "post">
 
                  <input type="text" name="moviename" id="moviename">
  
-                  <input type="submit" class="btn btn-primary" value="Search">
+                 <input type="submit" class="btn btn-primary" value="Search">
                   
                                         
-           </div>
-           </form>
-                                        
-                                        
-                                        <%int count=0;
-                                        for(Movie movie: showmovie){
-                                      	%>
+                 </div>
+                 </form>
+                                      <tr>  
+                                        <p>Movie List<p>
+                                       <c:set var="count" value="1"/>
+                                         
+                                       <c:forEach items="${Movielist}" var="MovieList">
+                                            
                                          <td>
                                         <table id="movietable">
                                         <tbody>
+                                        
                                          <tr>
-                                         <td> <img src="images/<%=movie.getImages()%>" width=100px alt="img"></td> 
+                                        
+                                         <td> <img src="images/${MovieList.getImages()}" width=100px alt="img"></td> 
                                          
                                          
                                          
                                         <td class="movie">
                                         
-                                        <span id="movie name">Movie name: <%=movie.getMovie_name() %> </span><br>
+                                        
+                                        <span id="movie name">Movie name: ${MovieList.getMoviename() } </span><br>
                                        
-                                        <span  style="visibility:hidden"> Movie id:<label id = "movieid"> <%=movie.getMovie_id() %></label> </span><br>
-                                        <span>Movie type: <%=movie.getMovie_type()%> </span><br>
-                                        <span>Movie ratings:<%=movie.getMovie_ratings() %> </span><br>
-                                        <span>Movie duration:<%=movie.getMovie_duration() %></span><br>
-                                        <span>Movie director:<%=movie.getDirector() %></span><br>
-                                        <span>Music director:<%=movie.getMusic_director() %></span><br>
-                                        <span>Hero name:<%=movie.getHero_name() %></span><br>
-                                        <span> <form action = "Moviedetails?movietoday=<%=movie.getMovie_name() %>">
-                                        <input type = "text" value = <%=movie.getMovielink()%> name = "movlink" class="movieid">
+       
+                                  <!-- - <span  style="visibility:hidden"> Movie id:<label id = "movieid"> ${MovieList.getMovieid() }</label> </span><br>    -->
+                                        <span>Movie type: ${MovieList.getMovietype() } </span><br>
+                                        <span>Movie ratings:${MovieList.getMovieratings() } </span><br>
+                                        <span>Movie duration:${MovieList.getMovieduration() }</span><br>
+                                        <span>Movie director:${MovieList.getDirector() }</span><br>
+                                        <span>Music director:${MovieList.getMusicdirector() }</span><br>
+                                        <span>Hero name:${MovieList.getHeroname() }</span><br>
+                                        
+                                        <span> <form action = "Moviedetails?movietoday=${MovieList.getMoviename()}">
+                                        
+                                        <input type = "text" value = ${MovieList.getMovielink() } name = "movlink" class="movieid">
                                         <button type = "submit" class="btn btn-primary" value="Theatre">Theatre</button></span></div>
                                       
-                                         </form>
-                                         </div>
+                                        </form>
+                                        </div>
                                        
-                            </td>
-                               </tr>
-                                  </tbody>
-                                    </table>  
+                                        </td>
+                                        </tr>
+                                        </tbody>
+                                        </table>  
                             
-                                     </td>
-                                     <% count ++;
-                                     if(count==3){ %> 
-                    	             </tr>
-                    	             <tr>              
-                                     <%count=0; }}%>  
+                                        </td>
+                                        <c:choose>
+                                    
+                                        <c:when test="${count==3}">
+                                        <c:set var="count" value="1"/>
+                                     
+                                 
+                    	                </tr>
+                    	                <tr> 
+                    	                </c:when>
+                    	                <c:otherwise>
+                    	                <c:set var="count" value="${count+1}"/>
+                    	                </c:otherwise>             
+                                        </c:choose>
+                                        </c:forEach>   
                        
-                          </tr>
-                             </tbody>
-                                 </table>
+                                        </tr>
+                                        </tbody>
+                                        </table>
                                  
                                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 

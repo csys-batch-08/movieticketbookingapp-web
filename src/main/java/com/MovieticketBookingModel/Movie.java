@@ -1,27 +1,27 @@
 package com.MovieticketBookingModel;
 
 public class Movie {
-	private String Movie_name;
-	private int Movie_id;
-	private String Movie_type;
-	private int movie_ratings;
-	private int movie_duration;
+	private String moviename;
+	private int movieid;
+	private String movietype;
+	private int movieratings;
+	private int movieduration;
 	private String director;
-	private String music_director;
-	private String hero_name;
+	private String musicdirector;
+	private String heroname;
 	private String images;
 	private String movielink;
 	
-	public Movie(String movie_name,int movie_id, String movie_type, int movie_duration, String director,String music_director, String hero_name,String images) {
+	public Movie(String moviename,int movieid, String movietype, int movieduration, String director,String musicdirector, String heroname,String images) {
 		super();
-		this.Movie_name = movie_name;
-		this.Movie_id=movie_id;
-		this.Movie_type = movie_type;
-		this.movie_duration = movie_duration;
+		this.moviename = moviename;
+		this.movieid=movieid;
+		this.movietype = movietype;
+		this.movieduration = movieduration;
 		this.director = director;
-		this.music_director = music_director;
-		this.hero_name = hero_name;
-		 this.images = images;
+		this.musicdirector = musicdirector;
+		this.heroname = heroname;
+	    this.images = images;
 	
 		
 	}
@@ -37,35 +37,35 @@ public class Movie {
 	public void setImages(String images) {
 		this.images = images;
 	}
-	public String getMovie_name() {
-		return Movie_name;
+	public String getMoviename() {
+		return moviename;
 	}
-	public void setMovie_name(String movie_name) {
-		Movie_name = movie_name;
+	public void setMoviename(String moviename) {
+		this.moviename = moviename;
 	}
-	public int getMovie_id() {
-		return Movie_id;
+	public int getMovieid() {
+		return movieid;
 	}
-	public void setMovie_id(int movie_id) {
-		Movie_id = movie_id;
+	public void setMovieid(int movieid) {
+		this.movieid = movieid;
 	}
-	public String getMovie_type() {
-		return Movie_type;
+	public String getMovietype() {
+		return movietype;
 	}
-	public void setMovie_type(String movie_type) {
-		Movie_type = movie_type;
+	public void setMovietype(String movietype) {
+		this.movietype = movietype;
 	}
-	public int getMovie_ratings() {
-		return movie_ratings;
+	public int getMovieratings() {
+		return movieratings;
 	}
-	public void setMovie_ratings(int movie_ratings) {
-		this.movie_ratings = movie_ratings;
+	public void setMovieratings(int movieratings) {
+		this.movieratings = movieratings;
 	}
-	public int getMovie_duration() {
-		return movie_duration;
+	public int getMovieduration() {
+		return movieduration;
 	}
-	public void setMovie_duration(int movie_duration) {
-		this.movie_duration = movie_duration;
+	public void setMovieduration(int movieduration) {
+		this.movieduration = movieduration;
 	}
 	public String getDirector() {
 		return director;
@@ -73,88 +73,81 @@ public class Movie {
 	public void setDirector(String director) {
 		this.director = director;
 	}
-	public String getMusic_director() {
-		return music_director;
+	public String getMusicdirector() {
+		return musicdirector;
 	}
-	public void setMusic_director(String music_director) {
-		this.music_director = music_director;
+	public void setMusicdirector(String musicdirector) {
+		this.musicdirector = musicdirector;
 	}
-	public String getHero_name() {
-		return hero_name;
+	public String getHeroname() {
+		return heroname;
 	}
-	public void setHero_name(String hero_name) {
-		this.hero_name = hero_name;
+	public void setHeroname(String heroname) {
+		this.heroname = heroname;
 	}
-	public Movie(String movie_name, int movie_id, String movie_type, int movie_ratings, int movie_duration,
-			String director, String music_director, String hero_name,String images,String movielink) {
+	public Movie(String moviename, int movieid, String movietype, int movieratings, int movieduration,
+			String director, String musicdirector, String heroname,String images,String movielink) {
 		super();
-		Movie_name = movie_name;
-		Movie_id = movie_id;
-		Movie_type = movie_type;
-		this.movie_ratings = movie_ratings;
-		this.movie_duration = movie_duration;
+	     this.moviename = moviename;
+	 this.movieid = movieid;
+	 this.movietype = movietype;
+		this.movieratings = movieratings;
+		this.movieduration = movieduration;
 		this.director = director;
-		this.music_director = music_director;
-		this.hero_name = hero_name;
+		this.musicdirector = musicdirector;
+		this.heroname = heroname;
 		this.images = images;
 		this.movielink = movielink;
 	}
-	public Movie() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Movie(String string, String string2, String string3, String string4, String string5, String string6,
-			String string7, String string8) {
-		// TODO Auto-generated constructor stub
-	}
+	
 	public Movie(String movietype,int movieid) {
 		// TODO Auto-generated constructor stub
-		this.Movie_type=movietype;
-		this.Movie_id=movieid;
+		this.movietype=movietype;
+		this.movieid=movieid;
 	}
 	public Movie(int movieid1) {
 		// TODO Auto-generated constructor stub
-		this.Movie_id=movieid1;
+		this.movieid=movieid1;
 	}
 	public Movie(int id1, String name) {
 		// TODO Auto-generated constructor stub
-		this.Movie_id=id1;
-		this.Movie_name=name;
+		this.movieid=id1;
+		this.moviename=name;
 	}
 	public Movie(String moviename, int movieid, String movietype, int movieratings, int movieduration, String director2,
 			String musicdirector, String heroname,String images2) {
 		// TODO Auto-generated constructor stub
-	 this.	Movie_name = moviename;
-	this.	Movie_id = movieid;
-	this.	Movie_type = movietype;
-		this.movie_ratings = movieratings;
-		this.movie_duration = movieduration;
+	 this.moviename = moviename;
+	    this.movieid = movieid;
+	   this.movietype = movietype;
+		this.movieratings = movieratings;
+		this.movieduration = movieduration;
 		this.director = director2;
-		this.music_director = musicdirector;
-		this.hero_name = heroname;
+		this.musicdirector = musicdirector;
+		this.heroname = heroname;
 		this.images=images2;
 	}
 	public Movie(String moviename, String movietype, int movieduration, int movieid) {
 		
-		// TODO Auto-generated constructor stub
-	this.Movie_name = moviename;
-	this.Movie_type = movietype;
-	this.movie_duration = movieduration;
-	 this.Movie_id = movieid;
+		
+	this.moviename = moviename;
+	this.movietype = movietype;
+	this.movieduration = movieduration;
+	 this.movieid = movieid;
 	}
 	public Movie(String string, int int1, String string2, int int2, String string3, String string4, String string5,
 			String string6, String string7) {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	@Override
 	public String toString() {
-		return "Movie \nMovie_name=" + Movie_name + "\n Movie_id=" + Movie_id + "\n Movie_type=" + Movie_type
-				+ "\n movie_ratings=" + movie_ratings + "\n movie_duration=" + movie_duration + "\n director=" + director
-				+ "\n music_director=" + music_director + "\n hero_name=" + hero_name + "]";
+		return "Movie \nMoviename=" + moviename + "\n Movieid=" + movieid + "\n Movietype=" + movietype
+				+ "\n movieratings=" + movieratings + "\n movieduration=" + movieduration + "\n director=" + director
+				+ "\n musicdirector=" + musicdirector + "\n heroname=" + heroname + "]";
 	}
 	public static void add(Movie product) {
-		// TODO Auto-generated method stub
+
 		
 	}
 }
