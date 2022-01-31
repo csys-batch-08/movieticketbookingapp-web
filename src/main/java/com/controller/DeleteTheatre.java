@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.MovieTicketBookingDaoImpl.TheatreDaoImpl;
 import com.MovieticketBookingModel.Theatreinformation;
+import com.movieticketbookingdaoimpl.TheatreDaoImpl;
 
 @WebServlet("/Deletetheatre4")
 public class DeleteTheatre extends HttpServlet {
@@ -21,7 +21,7 @@ public class DeleteTheatre extends HttpServlet {
 		Theatreinformation dao=new Theatreinformation(theatreid);
 		TheatreDaoImpl theatre1=new TheatreDaoImpl();
 	    theatre1.delete(dao);
-		response.sendRedirect("AddTheatre.jsp");
+		response.sendRedirect("addTheatre.jsp");
 	}
 
 }

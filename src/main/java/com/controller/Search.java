@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.MovieTicketBookingDaoImpl.MovieDaoImpl;
 import com.MovieticketBookingModel.Movie;
+import com.movieticketbookingdaoimpl.MovieDaoImpl;
 
 /**
  * Servlet implementation class Search
@@ -21,6 +21,9 @@ import com.MovieticketBookingModel.Movie;
 
 public class Search extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		try {
@@ -29,8 +32,8 @@ public class Search extends HttpServlet {
 			 String moviename = request.getParameter("moviename");
 	       
 
-			  List<Movie> searchlist = search.Search(moviename);
-			    System.out.println(searchlist);       
+			  List<Movie> searchlist = search.search(moviename);
+			      
 			           
 			   HttpSession session = request.getSession();
 			   session.setAttribute("moviename",searchlist );
@@ -38,22 +41,22 @@ public class Search extends HttpServlet {
 			   session.setAttribute("bookedmovie", moviename);
 			   
 			//   request.setAttribute("searchlist", searchlist);
-				RequestDispatcher requestDispatcher=request.getRequestDispatcher("searchmovies.jsp");
+				RequestDispatcher requestDispatcher=request.getRequestDispatcher("searchMovies.jsp");
 				requestDispatcher.forward(request, response);      
 			           
 			           
-		//	   response.sendRedirect("searchmovies.jsp");
+	
 
               		       
 			  response.getWriter().print("Search Suceessfully");
 
 
 			} catch (Exception e) {
-			System.out.println(e);
+		
 
 			}
 
-			System.out.println("welcome");
+		
 
 			}
 			

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-      <%@ page import="com.MovieTicketBookingDaoImpl.*" %>
+      <%@ page import="com.movieticketbookingdaoimpl.*" %>
     <%@ page import="java.util.*" %>
     <%@ page import="com.MovieticketBookingModel.Bookingdetail" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -95,13 +95,13 @@ table
                                     
                                    <div class="class">
                                     
-                                        <span>Booking Id: ${List.booking_id } </span><br>
-                                        <span>Theatre Id : ${List.theatre_id }  </span><br>
-                                        <span>User Id: ${List.user_id } </span><br>
-                                        <span>Booked seats : ${List.no_seat } </span><br>
-                                        <span>Total Amount : ${List.total_amount } </span><br>
-                                        <span>Status: ${List.booking_status }</span><br>
-                                        <span>Movie Name: ${List.movie_name }</span><br>  
+                                        <span>Booking Id: ${List.bookingid } </span><br>
+                                        <span>Theatre Id : ${List.theatreid }  </span><br>
+                                        <span>User Id: ${List.userid } </span><br>
+                                        <span>Booked seats : ${List.noseat } </span><br>
+                                        <span>Total Amount : ${List.totalamount } </span><br>
+                                        <span>Status: ${List.bookingstatus }</span><br>
+                                        <span>Movie Name: ${List.moviename }</span><br>  
                                     </div>
                                     
                                     

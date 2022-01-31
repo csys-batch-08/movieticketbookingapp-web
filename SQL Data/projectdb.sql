@@ -203,7 +203,7 @@ select * from user_details;
 select * from Movie;
 select * from theatre;
 update theatre set Images='Rohini Sliver Screen.jpg' where Movie_id=12;
-
+update Movie set music_director='yuvansankar Raja' where movie_id=12;
 commit;
-
+desc booking_detail;
 Select Wallet from user_details where user_id = 183;

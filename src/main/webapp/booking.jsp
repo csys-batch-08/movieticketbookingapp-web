@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="com.MovieTicketBookingDaoImpl.*" %>
+    <%@page import="com.movieticketbookingdaoimpl.*" %>
     <%@page import=" java.util.List" %>
     <%@page import="com.MovieticketBookingModel.*" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -138,7 +138,7 @@ input[type:number]
    
          <div class="log">
    
-               <li><a href="Login1.jsp">Logout</a></li>
+               <li><a href="login.jsp">Logout</a></li>
                
         </div>
    

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.MovieTicketBookingDaoImpl.UserDaoImpl;
 import com.MovieticketBookingModel.User;
+import com.movieticketbookingdaoimpl.UserDaoImpl;
 
 /**
  * Servlet implementation class UserHistoryServlet
@@ -27,18 +27,10 @@ public class UserHistoryServlet extends HttpServlet {
 		 int usen=(int)session.getAttribute("userid");
 		 User usew=new User(usen);
 		 UserDaoImpl dao=new UserDaoImpl();
-		 try {
-			List<User> showUser=dao.showUser();
-			request.setAttribute("UserListObj", showUser);
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("UserdetailHistory.jsp");
-			requestDispatcher.forward(request, response);
-		} catch (ClassNotFoundException e) {
-			
-			e.printStackTrace();
-		} catch (SQLException e) {
-		
-			e.printStackTrace();
-		}
+		 List<User> showUser=dao.showUser();
+		request.setAttribute("UserListObj", showUser);
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("userdetailHistory.jsp");
+		requestDispatcher.forward(request, response);
 		 
 	}
 

@@ -8,15 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.MovieTicketBookingDaoImpl.UserDaoImpl;
 import com.MovieticketBookingModel.User;
+import com.movieticketbookingdaoimpl.UserDaoImpl;
 
 @WebServlet("/Wallet")
 public class Wallet extends HttpServlet {
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	//	doGet(request, response);
+
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
 		HttpSession session = request.getSession();
 		int userid=(int)session.getAttribute("userid");
@@ -25,7 +27,7 @@ public class Wallet extends HttpServlet {
 		User use=new User(userid,wallet);
 		UserDaoImpl dao=new UserDaoImpl();
 		dao.updatewallet(use);
-		response.sendRedirect("Show.jsp");
+		response.sendRedirect("showMovie.jsp");
 	}
 
 }

@@ -28,12 +28,15 @@ background:FAEBD7;
 }
 
 .ones{
-  position:absolute;
-  top:50px;
+ position:absolute;
+ top:50px;
   left:1250px;
   text-decoration:none;
   color:white
 
+}
+a{
+color:white;
 }
 h1{
   color:white;
@@ -78,7 +81,7 @@ session.removeAttribute("lowbal");
      <input type="number" name="amount" id="number" min=1><br><br>
     
      
-     <button type="submit"  class="btn btn-primary">Wallet Recharge</button><br><br>
+    <button type="submit"  class="btn btn-primary"><a href="ShowServlet" >Wallet Recharge</button></a><br><br>
      <p> Note:Wallet Amount Check Your Profile</p>
         
       </div>

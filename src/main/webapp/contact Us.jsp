@@ -47,7 +47,7 @@ margin-top:10px;
                                         
                                         <div class="class">
    
-                                        <button type="submit" ><a href="Show.jsp" class="btn btn-primary">Back</a></button>  
+                                        <button type="submit" ><a href="ShowServlet" class="btn btn-primary">Back</a></button>  
    
                                         </div>      
                                       

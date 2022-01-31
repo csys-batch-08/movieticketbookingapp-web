@@ -6,11 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.connector.Request;
-
-import com.MovieTicketBookingDaoImpl.AdminDaoImpl;
-
 import com.MovieticketBookingModel.Admin;
+import com.movieticketbookingdaoimpl.AdminDaoImpl;
 
 
 
@@ -22,7 +19,7 @@ public class Adminlogin extends HttpServlet {
       
 	 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 		
 		String email=request.getParameter("Email");

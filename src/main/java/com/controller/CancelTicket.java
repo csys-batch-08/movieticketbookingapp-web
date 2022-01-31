@@ -10,18 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.MovieTicketBookingDaoImpl.BookingDaoImpl;
-import com.MovieTicketBookingDaoImpl.TheatreDaoImpl;
-import com.MovieTicketBookingDaoImpl.UserDaoImpl;
-import com.MovieticketBookingModel.Bookingdetail;
-import com.MovieticketBookingModel.User;
+
+import com.movieticketbookingdaoimpl.BookingDaoImpl;
+import com.movieticketbookingdaoimpl.TheatreDaoImpl;
+import com.movieticketbookingdaoimpl.UserDaoImpl;
 
 @WebServlet("/bookcancel")
 public class CancelTicket extends HttpServlet{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+		
 		
          int booking=Integer.parseInt(request.getParameter("cancel"));
          String ticket=request.getParameter("status");
@@ -55,7 +59,7 @@ public class CancelTicket extends HttpServlet{
 	     
 	     book1.book(booking,ticket);
 	    
-	     obj.Refundwallet(userid,total );
+	     obj.refundwallet(userid,total );
 	     
 	     book.seatupdate(seatno,theatreid);
 	     
@@ -67,7 +71,7 @@ public class CancelTicket extends HttpServlet{
          
          PrintWriter out  =  response.getWriter();
          
-          response.sendRedirect("Show.jsp");    
+          response.sendRedirect("showMovie.jsp");    
           
           
          

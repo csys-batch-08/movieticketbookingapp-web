@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="com.MovieTicketBookingDaoImpl.*" %>
+    <%@ page import="com.movieticketbookingdaoimpl.*" %>
     <%@ page import="java.util.*" %>
     <%@ page import="com.MovieticketBookingModel.Bookingdetail" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,14 +84,15 @@ table
                                     <td class="viewall">
                                     
                                     <div class="one">
-                                        <span>Booking Id: ${BookingList.booking_id} </span><br>
-                                        <span>User Id: ${BookingList.user_id } </span><br>
-                                        <span>Booked seats : ${BookingList.no_seat } </span><br>
-                                        <span>Total Amount : ${BookingList.total_amount } </span><br>
-                                        <span>Status: ${BookingList.booking_status }</span><br>
-                                        <span>Movie Name: ${BookingList.getMovie_name() }</span><br>  
-                                        <span>BookingDate : ${BookingList.getBooking_date() } </span><br> 
-                                         <span> Date: ${moviedate}</span><br><br>
+                                        <span>Booking Id: ${BookingList.bookingid} </span><br>
+                                        <span>User Id: ${BookingList.userid } </span><br>
+                                        <span>Booked seats : ${BookingList.noseat } </span><br>
+                                        <span>Total Amount : ${BookingList.totalamount } </span><br>
+                                        <span>Status: ${BookingList.bookingstatus }</span><br>
+                                        <span>Movie Name: ${BookingList.getMoviename() }</span><br>  
+                                        <fmt:parseDate value="${BookingList.bookingdate}" pattern="yyyy-MM-dd" var="bookingdate" type="date" />
+                                         BookingDate :<fmt:formatDate pattern="dd-MM-yyyy" value="${bookingdate}"/><br>
+                                         <span> MovieDate: ${moviedate}</span><br><br>
                                          
                                          </div>   
                                          

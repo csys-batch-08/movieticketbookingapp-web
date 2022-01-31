@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.MovieTicketBookingDaoImpl.MovieDaoImpl;
 import com.MovieticketBookingModel.Movie;
+import com.movieticketbookingdaoimpl.MovieDaoImpl;
 
 @WebServlet("/updateMovie")
 public class MovieUpdate extends HttpServlet {
@@ -29,7 +29,7 @@ public class MovieUpdate extends HttpServlet {
 		Movie add1=new Movie(moviename,movietype,movieduration, movieid);
 		MovieDaoImpl addmovie1=new MovieDaoImpl();
 		addmovie1.update(add1);
-		response.sendRedirect("Addmovie.jsp");
+		response.sendRedirect("addmovie.jsp");
 	}
 
 }

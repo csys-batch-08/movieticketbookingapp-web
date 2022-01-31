@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.MovieTicketBookingDaoImpl.TheatreDaoImpl;
 import com.MovieticketBookingModel.Theatreinformation;
+import com.movieticketbookingdaoimpl.TheatreDaoImpl;
 
 
 @WebServlet("/Updatetheatre")
@@ -38,6 +38,7 @@ public class UpdateTheatre extends HttpServlet {
 		        
 		    	session.setAttribute("moviedate",theatreDate );
 		        
+		    	
 		        
 			    LocalDateTime mvTimeDate = LocalDateTime.parse(theatreDate);
 			
@@ -52,7 +53,7 @@ public class UpdateTheatre extends HttpServlet {
 					e.printStackTrace();
 				}
 				System.out.println(session.getAttribute("noofseats"));
-				response.sendRedirect("AddTheatre.jsp");
+				response.sendRedirect("addTheatre.jsp");
 				
 	} 
 

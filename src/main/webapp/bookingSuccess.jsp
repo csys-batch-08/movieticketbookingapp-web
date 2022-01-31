@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.util.*"%>
 <%@page import="com.MovieticketBookingModel.Movie"%>
-<%@page import="com.MovieTicketBookingDaoImpl.MovieDaoImpl"%>
+<%@page import="com.movieticketbookingdaoimpl.MovieDaoImpl"%>
 <%@page import="java.sql.ResultSet" %>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -115,7 +115,7 @@ input[type:number]
    
    <div class="log">
    
-   <li><a href="Login1.jsp">Logout</a></li>
+   <li><a href="login.jsp">Logout</a></li>
    </div>
   
     
@@ -144,40 +144,24 @@ input[type:number]
       
   
 
-  
-       User Id: ${usersList.user_id }<br>  
- 
- 
-
-
-
-      Movie Id : ${movieid } <br>  
-      
-    
-
-        
-        
-      
-        
-        
-        
-           Movie name:${usersList.movie_name }<br> 
- 
- 
-       
-             Number of Seats: ${Seats}<br><br>
-       
-      
+       Booking ID: ${usersList.bookingid }<br> 
+       User Id: ${usersList.userid }<br>  
+       Theater ID: ${usersList.theatreid}<br> 
+       Movie name:${usersList.moviename }<br> 
+       Number of Seats: ${Seats}<br>
+       Movie date  : ${movietime }<br> 
+       Total Price : ${totalprice }<br>
+       Moviedatetime :<fmt:formatDate pattern="dd-MM-yyyy" value="${moviedatetime}"/></button></span><br><br>
        
        
        
     
-       Movie date  : ${moviedate }<br> 
+      
        
      
        
       
-      Total Price : ${totalprice }<br>
+     
       
       
       

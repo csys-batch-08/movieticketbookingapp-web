@@ -113,7 +113,7 @@ html,body{
     
     <h1>Login Page</h1> 
       
-    <form action="login1" method="get">
+    <form action="login" method="get">
  
     <div class="login"> 
        

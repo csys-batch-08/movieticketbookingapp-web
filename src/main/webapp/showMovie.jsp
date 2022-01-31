@@ -1,6 +1,6 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.MovieticketBookingModel.Movie"%>
-<%@page import="com.MovieTicketBookingDaoImpl.MovieDaoImpl"%>
+<%@page import="com.movieticketbookingdaoimpl.MovieDaoImpl"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -177,7 +177,7 @@ padding-bottom:120px;
    
           <div class="log">
    
-            <li><a href="Login1.jsp">Logout</a></li>
+            <li><a href="login.jsp">Logout</a></li>
             
           </div>
    
@@ -236,7 +236,7 @@ padding-bottom:120px;
                                         <span id="movie name">Movie name: ${MovieList.getMoviename() } </span><br>
                                        
        
-                                  <!-- - <span  style="visibility:hidden"> Movie id:<label id = "movieid"> ${MovieList.getMovieid() }</label> </span><br>    -->
+                              
                                         <span>Movie type: ${MovieList.getMovietype() } </span><br>
                                         <span>Movie ratings:${MovieList.getMovieratings() } </span><br>
                                         <span>Movie duration:${MovieList.getMovieduration() }</span><br>
@@ -244,10 +244,10 @@ padding-bottom:120px;
                                         <span>Music director:${MovieList.getMusicdirector() }</span><br>
                                         <span>Hero name:${MovieList.getHeroname() }</span><br>
                                         
-                                        <span> <form action = "Moviedetails?movietoday=${MovieList.getMoviename()}">
+                                       
                                         
                                         <input type = "text" value = ${MovieList.getMovielink() } name = "movlink" class="movieid">
-                                        <button type = "submit" class="btn btn-primary" value="Theatre">Theatre</button></span></div>
+                                   <button><a href="Moviedetails?mvname=${MovieList.getMoviename()}&movlink=${MovieList.getMovielink()}" class="btn btn-primary">Theatre</a></button> </span></div>
                                       
                                         </form>
                                         </div>

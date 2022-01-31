@@ -1,7 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.MovieTicketBookingDaoImpl.MovieDaoImpl;
 import com.MovieticketBookingModel.Movie;
+import com.movieticketbookingdaoimpl.MovieDaoImpl;
 
 /**
  * Servlet implementation class ShowServlet
@@ -20,24 +20,19 @@ import com.MovieticketBookingModel.Movie;
 @WebServlet("/ShowServlet")
 public class ShowServlet extends HttpServlet {
 
+	
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.println("sssssssssssssssssssssssssssssssssssssssssssss");
-		  MovieDaoImpl movieDaoImpl = new MovieDaoImpl();
-          List<Movie> showmovie;
-          try {
-			showmovie = movieDaoImpl.showMovie();
-			request.setAttribute("Movielist", showmovie);
-			RequestDispatcher requestDispatcher=request.getRequestDispatcher("Show.jsp");
-			requestDispatcher.forward(request, response);
-			
-		} catch (ClassNotFoundException e) {
 		
-			e.printStackTrace();
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
+	 MovieDaoImpl movieDaoImpl = new MovieDaoImpl();
+        List<Movie> showmovie;
+        showmovie = movieDaoImpl.showMovie();
+		request.setAttribute("Movielist", showmovie);
+		RequestDispatcher requestDispatcher=request.getRequestDispatcher("showMovie.jsp");
+		requestDispatcher.forward(request, response);
 	}
 
 	

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.Exception.ExistEmailIdException;
 import com.Exception.ExistMobileNoException;
-import com.MovieTicketBookingDaoImpl.*;
 import com.MovieticketBookingModel.User;
+import com.movieticketbookingdaoimpl.*;
 
 @WebServlet("/registerpage")
 public class Register extends HttpServlet {
@@ -57,7 +57,7 @@ try {
 	         int i=use1.insert(use2);
 		   if(i==1)
 		   {
-		   response.sendRedirect("Login1.jsp");
+		   response.sendRedirect("login.jsp");
 		   }
 
 }

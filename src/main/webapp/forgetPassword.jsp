@@ -27,7 +27,8 @@ width:280px;
   color:white
  
 }
-
+label;
+text color:white;
 .ones{
   position:absolute;
   top:50px;
@@ -70,9 +71,9 @@ body {
  <input type="text" name="forget" id="forget"><br><br>
  <label>Enter your new password:</label><br>
  <input type="text" name="password" id="password"><br><br>
- <button type="submit" class="btn btn-primary">Forgot password</button>
+ <button type="submit" class="btn btn-primary"> Submit</button>
  
-  <button type="submit" class="btn btn-primary">Reset</button>
+ 
  
  </div>
  

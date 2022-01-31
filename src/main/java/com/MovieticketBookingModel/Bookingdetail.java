@@ -4,136 +4,136 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-import com.MovieTicketBookingDaoImpl.BookingDaoImpl;
+import com.movieticketbookingdaoimpl.BookingDaoImpl;
 
 public class Bookingdetail {
-	private int booking_id;
-	private int user_id ;
-	private int theatre_id;
-	private int no_seat;
-	private int total_amount;
-	private String booking_status;
-	private String movie_name;
-	private Date Booking_date;
+	private int bookingid;
+	private int userid ;
+	private int theatreid;
+	private int noseat;
+	private int totalamount;
+	private String bookingstatus;
+	private String moviename;
+	private Date bookingdate;
 	
-	public Date getBooking_date() {
-		return Booking_date;
+	public Date getBookingdate() {
+		return bookingdate;
 	}
-	public void setBooking_date(Date booking_date) {
-		Booking_date = booking_date;
+	public void setBookingdate(Date bookingdate) {
+	  this.bookingdate = bookingdate;
 	}
-	public int getBooking_id() {
-		return booking_id;
+	public int getBookingid() {
+		return bookingid;
 	}
-	public void setBooking_id(int booking_id) {
-		this.booking_id = booking_id;
+	public void setBookingid(int bookingid) {
+		this.bookingid = bookingid;
 	}
-	public int getUser_id() {
-		return user_id;
+	public int getUserid() {
+		return userid;
 	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
-	public int getTheatre_id() {
-		return theatre_id;
+	public int getTheatreid() {
+		return theatreid;
 	}
-	public void setTheatre_id(int theatre_id) {
-		this.theatre_id = theatre_id;
+	public void setTheatreid(int theatreid) {
+		this.theatreid = theatreid;
 	}
-	public int getNo_seat() {
-		return no_seat;
+	public int getNoseat() {
+		return noseat;
 	}
-	public void setNo_seat(int no_seat) {
-		this.no_seat = no_seat;
+	public void setNoseat(int noseat) {
+		this.noseat = noseat;
 	}
-	public int getTotal_amount() {
-		return total_amount;
+	public int getTotalamount() {
+		return totalamount;
 	}
-	public void setTotal_amount(int total_amount) {
-		this.total_amount = total_amount;
+	public void setTotalamount(int totalamount) {
+		this.totalamount = totalamount;
 	}
-	public String getBooking_status() {
-		return booking_status;
+	public String getBookingstatus() {
+		return bookingstatus;
 	}
-	public void setBooking_status(String booking_status) {
-		this.booking_status = booking_status;
+	public void setBookingstatus(String bookingstatus) {
+		this.bookingstatus = bookingstatus;
 	}
 
 	
-	public String getMovie_name() {
-		return movie_name;
+	public String getMoviename() {
+		return moviename;
 	}
-	public void setMovie_name(String movie_name) {
-		this.movie_name = movie_name;
+	public void setMoviename(String moviename) {
+		this.moviename = moviename;
 	}
 
 	@Override
 	public String toString() {
-		return "Bookingdetail \nbooking_id=" + booking_id + "\n user_id=" + user_id + "\n theatre_id=" + theatre_id
-				+ "\n no_seat=" + no_seat + "\n total_amount=" + total_amount + "\n booking_status=" + booking_status
+		return "Bookingdetail \nbookingid=" + bookingid + "\n userid=" + userid + "\n theatreid=" + theatreid
+				+ "\n noseat=" + noseat + "\n totalamount=" + totalamount + "\n bookingstatus=" + bookingstatus
 				+ "\n\n";
 	}
-	public Bookingdetail( int user_id, int theatre_id, int no_seat, int total_amount,
-			String booking_status,String movie_name) {
+	public Bookingdetail( int userid, int theatreid, int noseat, int totalamount,
+			String bookingstatus,String moviename) {
 		super();
 		
-		this.user_id = user_id;
-		this.theatre_id = theatre_id;
-		this.no_seat = no_seat;
-		this.total_amount = total_amount;
-		this.booking_status = booking_status;
-		this.movie_name=movie_name;
+		this.userid = userid;
+		this.theatreid = theatreid;
+		this.noseat = noseat;
+		this.totalamount = totalamount;
+		this.bookingstatus = bookingstatus;
+		this.moviename=moviename;
 	}
-	public Bookingdetail( int user_id, int theatre_id, int no_seat, int total_amount,
-			String movie_name,Date Bookingdate) {
+	public Bookingdetail( int bookingid,int userid, int theatreid, int noseat, int totalamount,
+			String moviename,Date bookingdate) {
 		super();
-		
-		this.user_id = user_id;
-		this.theatre_id = theatre_id;
-		this.no_seat = no_seat;
-		this.total_amount = total_amount;
-		this.movie_name=movie_name;
-		this.Booking_date=Bookingdate;
+		this.bookingid= bookingid; 
+		this.userid = userid;
+		this.theatreid = theatreid;
+		this.noseat = noseat;
+		this.totalamount = totalamount;
+		this.moviename=moviename;
+		this.bookingdate=bookingdate;
 	}
 	
-	public Bookingdetail(int theatre_id) {
+	public Bookingdetail(int theatreid) {
 		super();
 		
 		
-		this.theatre_id = theatre_id;
+		this.theatreid = theatreid;
 	}
 	
 	public Bookingdetail(int booking,String ticket) {
-		// TODO Auto-generated constructor stub
-		this.booking_id=booking;
-		this.booking_status=ticket;
+		
+		this.bookingid=booking;
+		this.bookingstatus=ticket;
 		
 	}
-	public Bookingdetail(int Booking_id,int user_id, int theatre_id, int no_seat, int total_amount,String Booking_status,String movie_name,Date Booking_date) {
-		// TODO Auto-generated constructor stub
-        this.booking_id= Booking_id; 
-		this.user_id = user_id;
-		this.theatre_id = theatre_id;
-		this.no_seat = no_seat;
-		this.total_amount = total_amount;
-		this.booking_status = Booking_status;
-		this.movie_name=movie_name;
-		this.Booking_date=Booking_date;
+	public Bookingdetail(int bookingid,int userid, int theatreid, int noseat, int totalamount,String bookingstatus,String moviename,Date bookingdate) {
+	
+        this.bookingid= bookingid; 
+		this.userid = userid;
+		this.theatreid = theatreid;
+		this.noseat = noseat;
+		this.totalamount = totalamount;
+		this.bookingstatus = bookingstatus;
+		this.moviename=moviename;
+		this.bookingdate=bookingdate;
 	}
 
 	public Bookingdetail(int userid, int thid, int seat, int totalprice, String mvname) {
-		// TODO Auto-generated constructor stub
-		this.user_id = userid;
-		this.theatre_id = theatre_id;
-		this.no_seat = no_seat;
-		this.total_amount = total_amount;
-		this.movie_name=movie_name;
+		
+	
+		this.userid = userid;
+		this.theatreid = thid;
+		this.noseat = seat;
+		this.totalamount = totalprice;
+		this.moviename=mvname;
 	}
+	
 
 	
-}
-
-		
+}	
 	
 
 

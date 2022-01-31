@@ -1,5 +1,5 @@
 <%@page import="com.MovieticketBookingModel.*"%>
-<%@page import="com.MovieTicketBookingDaoImpl.*"%>
+<%@page import="com.movieticketbookingdaoimpl.*"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -197,7 +197,7 @@ html,body{
     
    <div class="log">
    
-   <li><a href="Login1.jsp">Logout</a></li>
+   <li><a href="login.jsp">Logout</a></li>
    
    </div>
    
@@ -242,10 +242,8 @@ html,body{
                               <fmt:parseDate value="${theatrelist.moviedatetime}" pattern="yyyy-MM-dd" var="moviedatetime" type="date" />
                               <span><button type="button" class="btn btn-light">  Moviedatetime :<fmt:formatDate pattern="dd-MM-yyyy" value="${moviedatetime}"/></button></span><br><br>
 
-                                      
-                              
-                                 
-                               <span><a href="BookingServlet?movieid=${theatrelist.movieid }&theatreid=${theatrelist.theatreid}" >
+                             <c:set var="movietime"
+											value="${theatrelist.moviedatetime}" scope="session" /> <span><a href="BookingServlet?movieid=${theatrelist.movieid }&theatreid=${theatrelist.theatreid}" >
                                     
                                <button type="button" class="btn btn-primary">Booking Ticket</button>
                                         

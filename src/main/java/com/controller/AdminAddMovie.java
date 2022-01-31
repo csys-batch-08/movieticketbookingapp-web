@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.MovieTicketBookingDaoImpl.MovieDaoImpl;
 import com.MovieticketBookingModel.Movie;
+import com.movieticketbookingdaoimpl.MovieDaoImpl;
 
 
 @WebServlet("/Addmovie")
@@ -16,8 +16,7 @@ public class AdminAddMovie extends HttpServlet {
 	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		doGet(request, response);
+
 		String moviename=request.getParameter("movie name");
 		int movieid=Integer.parseInt(request.getParameter("Move id"));
 		String movietype=request.getParameter("Move type");
@@ -34,7 +33,7 @@ public class AdminAddMovie extends HttpServlet {
 		Movie add=new Movie(moviename, movieid,movietype,movieratings,movieduration,director,musicdirector, heroname,images,movie);
 		MovieDaoImpl addmovie=new MovieDaoImpl();
 		addmovie.insert(add);
-		response.sendRedirect("Addmovie.jsp");
+		response.sendRedirect("addmovie.jsp");
 	}
 
 }

@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*"%>
 <%@page import="com.MovieticketBookingModel.Movie"%>
-<%@page import="com.MovieTicketBookingDaoImpl.MovieDaoImpl"%>
+<%@page import="com.movieticketbookingdaoimpl.MovieDaoImpl"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         
     

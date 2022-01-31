@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.MovieTicketBookingDaoImpl.BookingDaoImpl;
 import com.MovieticketBookingModel.Bookingdetail;
+import com.movieticketbookingdaoimpl.BookingDaoImpl;
 
 /**
  * Servlet implementation class BookingHistoryServlet
@@ -20,24 +20,21 @@ import com.MovieticketBookingModel.Bookingdetail;
 @WebServlet("/BookingHistoryServlet")
 public class BookingHistoryServlet extends HttpServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		
 		  BookingDaoImpl dao= new BookingDaoImpl();
 		  List<Bookingdetail> showBooking;
-			try {
-				showBooking=dao.showBooking();
-				request.setAttribute("Bookslist", showBooking);
-				RequestDispatcher requestDispatcher=request.getRequestDispatcher("BookingHistory.jsp");
-				requestDispatcher.forward(request, response);
-				
-			} catch (ClassNotFoundException e) {
-				
-				e.printStackTrace();
-			} catch (SQLException e) {
-				
-				e.printStackTrace();
-			}
+			showBooking=dao.showBooking();
+			request.setAttribute("Bookslist", showBooking);
+			RequestDispatcher requestDispatcher=request.getRequestDispatcher("bookingHistory.jsp");
+			requestDispatcher.forward(request, response);
 			
 	}
 

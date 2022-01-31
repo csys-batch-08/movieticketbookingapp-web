@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Connectionmv4 {
+public class Connectionutil {
 public static Connection DBConnection() throws ClassNotFoundException, SQLException {
 		
 		Class.forName("oracle.jdbc.OracleDriver");

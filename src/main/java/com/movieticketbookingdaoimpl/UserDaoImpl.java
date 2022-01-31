@@ -1,0 +1,699 @@
+package com.movieticketbookingdaoimpl;
+
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.MovieticketBookingModel.User;
+import com.Movieticketbooking.util.Connectionutil;
+
+public class UserDaoImpl {
+	public int insert(User use) {
+		int i = 0;
+		String query = "insert into user_details(user_name,gender,email_id,mobile_num,e_password) values (?,?,?,?,?)";
+		Connection con = null;
+		PreparedStatement statement = null;
+		try {
+			con = Connectionutil.DBConnection();
+			statement = con.prepareStatement(query);
+			statement.setString(1, use.getUsername());
+			statement.setString(2, use.getGender());
+			statement.setString(3, use.getEmailid());
+			statement.setLong(4, use.getMobilenum());
+			statement.setString(5, use.getEpassword());
+			i = statement.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+		return i;
+	}
+
+	public String validateUser(String email, String password) {
+		Connection con = null;
+		PreparedStatement statement = null;
+		ResultSet resultset = null;
+
+		try {
+			con = Connectionutil.DBConnection();
+
+			String query = "select user_role from user_details where email_id=? and e_password=?";
+			statement = con.prepareStatement(query);
+			statement.setString(1, email);
+			statement.setString(2, password);
+			resultset = statement.executeQuery();
+			resultset.next();
+			return resultset.getString(1);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+			}
+			if (resultset != null) {
+				try {
+					resultset.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		return "invalid";
+
+	}
+
+	public ResultSet getEmail(User email) {
+		String query = "select * from user_details where email_id = ?";
+		Connection con = null;
+		PreparedStatement statement = null;
+		ResultSet resultset = null;
+		try {
+			con = Connectionutil.DBConnection();
+			statement = con.prepareStatement(query);
+			statement.setString(1, email.getEmailid());
+			resultset = statement.executeQuery();
+		} catch (SQLException | ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				if (resultset != null) {
+					try {
+						resultset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+		}
+		return resultset;
+	}
+
+	public ResultSet getmobile(User mobile) {
+		String query = "select * from user_details where mobile_num = ?";
+		Connection con = null;
+		PreparedStatement statement = null;
+		ResultSet resultset = null;
+		try {
+			con = Connectionutil.DBConnection();
+			statement = con.prepareStatement(query);
+			statement.setLong(1, mobile.getMobilenum());
+			resultset = statement.executeQuery();
+		} catch (SQLException | ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				if (resultset != null) {
+					try {
+						resultset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+		}
+		return resultset;
+	}
+
+	public String fetch(User userpasscheck) {
+		String query = "select Email_id,e_password from user_details where Email_id = ? and e_password = ?";
+		Connection con = null;
+		ResultSet resultset = null;
+		PreparedStatement statement = null;
+		try {
+			con = Connectionutil.DBConnection();
+
+			statement = con.prepareStatement(query);
+			statement.setString(1, userpasscheck.getEmailid());
+			statement.setString(2, userpasscheck.getEpassword());
+			resultset = statement.executeQuery();
+			return "correct";
+		} catch (SQLException | ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				if (resultset != null) {
+					try {
+						resultset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+		}
+		return "incorrect";
+	}
+
+	public void updateUser(User user) {
+
+		PreparedStatement statement = null;
+		Connection con = null;
+
+		try {
+			con = Connectionutil.DBConnection();
+			String updateQuery = "update user_details set e_password=? where email_id=?";
+			statement = con.prepareStatement(updateQuery);
+			statement.setString(1, user.getEpassword());
+			statement.setString(2, user.getEmailid());
+			statement.executeUpdate();
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public User updateUser1(User user2) {
+		Connection con = null;
+		PreparedStatement statement = null;
+		ResultSet resultset = null;
+		try {
+
+			con = Connectionutil.DBConnection();
+			String updateQuery = "update user_details set e_password=? where  email_id=?";
+			statement = con.prepareStatement(updateQuery);
+			statement.setString(2, user2.getEmailid());
+			statement.setString(1, user2.getEpassword());
+			resultset = statement.executeQuery();
+			while (resultset.next()) {
+
+				System.out.println("Updated");
+				User user = new User(resultset.getString(3), resultset.getString(5));
+				return user;
+
+			}
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				if (resultset != null) {
+					try {
+						resultset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+
+			}
+		}
+		return null;
+	}
+
+	public void deleteUser2(User user3) {
+		
+		Connection con = null;
+		PreparedStatement statement = null;
+		try {
+			con = Connectionutil.DBConnection();
+			String deleteQuery = "delete from user_details where user_name=?";
+			statement = con.prepareStatement(deleteQuery);
+			statement.setString(1, user3.getUsername());
+			int rs = statement.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+			}
+
+		}
+	}
+
+	// get wallet:
+	public void getwallet(User user) {
+		String query = "update user_details set wallet=wallet - ? where user_id = ?";
+		Connection con = null;
+		PreparedStatement statement = null;
+
+		try {
+			con = Connectionutil.DBConnection();
+			statement = con.prepareStatement(query);
+			statement.setInt(1, user.getwallet());
+			statement.setInt(2, user.getUserid());
+			int i = statement.executeUpdate();
+			System.out.println("wallet reduce");
+
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+			}
+
+		}
+	}
+
+	public void refundwallet(int userid, int totalprice) {
+		String query = "update user_details set wallet=wallet + ? where user_id = ?";
+		Connection con = null;
+		PreparedStatement statement = null;
+
+		try {
+			con = Connectionutil.DBConnection();
+			statement = con.prepareStatement(query);
+			System.out.println("vdnkvgvdhjvdgfdgsjvcdsghdcv come insideee");
+			statement.setInt(1, totalprice);
+			statement.setInt(2, userid);
+			int i = statement.executeUpdate();
+
+			System.out.println("Row Up[dated" + i);
+			System.out.println("wallet reduce");
+
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+			}
+
+		}
+	}
+
+//update wallet:
+	public int updatewallet(User user) {
+		String query = "update user_details set wallet =wallet + ? where user_id = ?";
+		Connection con = null;
+		PreparedStatement statement = null;
+		try {
+			con = Connectionutil.DBConnection();
+			statement = con.prepareStatement(query);
+			statement.setInt(1, user.getwallet());
+			statement.setInt(2, user.getUserid());
+
+			int rs = statement.executeUpdate();
+			statement.executeUpdate("commit");
+
+			return rs;
+
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+			}
+
+		}
+		return -1;
+	}
+
+	// low wallet:
+	public int walletbalance(int userid) {
+		String query = "Select Wallet from user_details where user_id = ?";
+		Connection con = null;
+		ResultSet resultset = null;
+		PreparedStatement statement = null;
+		try {
+			con = Connectionutil.DBConnection();
+			statement = con.prepareStatement(query);
+			statement.setInt(1, userid);
+
+			resultset = statement.executeQuery();
+			while (resultset.next()) {
+				return resultset.getInt(1);
+			}
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				if (resultset != null) {
+					try {
+						resultset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+
+			}
+
+		}
+		return -1;
+	}
+
+	public List<User> showUser()  {
+
+		List<User> userList = new ArrayList<>();
+		User userproducts = null;
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultset = null;
+
+		String showQuery = "select  user_name,user_id,gender,email_id,mobile_num,e_password,wallet  from user_details";
+
+		try {
+			con = Connectionutil.DBConnection();
+			statement = con.createStatement();
+			resultset = statement.executeQuery(showQuery);
+			while (resultset.next()) {
+			userproducts = new User(resultset.getString(1), resultset.getInt(2), resultset.getString(3), resultset.getString(4), resultset.getLong(5),
+			resultset.getString(6), resultset.getInt(7));
+            userList.add(userproducts);
+
+			}
+
+		} catch (ClassNotFoundException e) {
+		
+			e.printStackTrace();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				if (resultset != null) {
+					try {
+						resultset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+
+			}
+
+		}
+		
+		return userList;
+
+	}
+
+	public int user(User user5) {
+		String query = "Select user_id from user_details where email_id=? ";
+		Connection con = null;
+		PreparedStatement statement = null;
+		ResultSet resultset = null;
+		try {
+			con = Connectionutil.DBConnection();
+			statement = con.prepareStatement(query);
+			statement.setString(1, user5.getEmailid());
+			resultset = statement.executeQuery();
+			while (resultset.next()) {
+
+				return resultset.getInt(1);
+			}
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				if (resultset != null) {
+					try {
+						resultset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+		}
+		return -1;
+	}
+
+	public List<User> currentUser1(User obj) {
+
+		List<User> userList = new ArrayList<>();
+		User userproducts = null;
+		Connection con = null;
+		PreparedStatement statement = null;
+		ResultSet resultset = null;
+		String showuser = "select user_name,user_id,gender,email_id,mobile_num,e_password,wallet from user_details where user_id= ?";
+
+		try {
+			con = Connectionutil.DBConnection();
+			statement = con.prepareStatement(showuser);
+			statement.setInt(1, obj.getUserid());
+			resultset = statement.executeQuery();
+			while (resultset.next()) {
+
+			userproducts = new User(resultset.getString(1), resultset.getInt(2), resultset.getString(3),
+						resultset.getString(4), resultset.getLong(5), resultset.getString(6), resultset.getInt(7));
+
+		   userList.add(userproducts);
+
+			}
+
+		} catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+			}
+			if (resultset != null) {
+				try {
+					resultset.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		return userList;
+	}
+}

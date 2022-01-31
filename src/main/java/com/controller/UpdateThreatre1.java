@@ -7,15 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.MovieTicketBookingDaoImpl.TheatreDaoImpl;
 import com.MovieticketBookingModel.Theatreinformation;
+import com.movieticketbookingdaoimpl.TheatreDaoImpl;
 
 @WebServlet("/Updatetheatre1")
 public class UpdateThreatre1 extends HttpServlet {
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	//	doGet(request, response);
+	private static final long serialVersionUID = 1L;
+
+@Override
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		
 		  String theatrename=request.getParameter("theatrename");
 	
@@ -26,7 +28,7 @@ public class UpdateThreatre1 extends HttpServlet {
 			Theatreinformation dao=new Theatreinformation(theatrename,price,theatreid );
 			TheatreDaoImpl theatre1=new TheatreDaoImpl();
 		    theatre1.update(dao);;
-		    response.sendRedirect("Addmovie.jsp");
+		    response.sendRedirect("addmovie.jsp");
 	}  
 
 }
