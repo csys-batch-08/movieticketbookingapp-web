@@ -2,13 +2,13 @@
     pageEncoding="ISO-8859-1"%>
      <%@ page import="com.movieticketbookingdaoimpl.*" %>
     <%@ page import="java.util.*" %>
-    <%@ page import="com.MovieticketBookingModel.User" %>
+    <%@ page import="com.movieticketbookingmodel.User" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>User Profile</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -20,37 +20,37 @@
 
 
 <style>
-
-.one
-{
-position:relative;
-margin-left:550px;
-border:4px solid black;
-top:90px;
-padding:20px;
-color:white;
+body {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+		url("images/Rohini Sliver Screen.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	font-weight: bold;
+}
+.one {
+	position: relative;
+	margin-left: 550px;
+	border: 4px solid black;
+	top: 90px;
+	padding: 20px;
+	color: white;
+	background-color: rgba(180, 228, 230, 0.2);
+	font-size: bold;
 }
 
-h2{
-color:white;
-
-}
-.ones{
-  position:absolute;
-  top:50px;
-  left:1250px;
-  text-decoration:none;
-  color:white;
-
+h2 {
+	color: white;
 }
 
- body {
-  background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('Rohini Sliver Screen.jpg');
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-attachment: fixed;
-  font-weight: bold;
+.ones {
+	position: absolute;
+	top: 50px;
+	left: 1250px;
+	text-decoration: none;
+	color: white;
 }
+
 
 </style>
 </head>
@@ -91,11 +91,12 @@ color:white;
                                         <span>Email ID: ${Bookinglist.emailid } </span><br>
                                         <span>Mobile number: ${Bookinglist.mobilenum }</span><br>
                                         <span>Password: ${Bookinglist.epassword }</span><br>
-                                        <span>Wallet Amount: ${Bookinglist.wallet } </span><br>
+                                        <span>Wallet Amount: ${Bookinglist.wallet } rs </span><br>
                                           
                                          </div> 
                                            
-                                           
+                                            <c:set var="WalletAmount"
+											value="${Bookinglist.wallet}" scope="session" />    
                                            
                                          <div class="ones">
 
@@ -126,7 +127,7 @@ color:white;
                     	             </c:otherwise>             
                                      </c:choose>
                                      </c:forEach>
-                      
+                                      
                                      </tr>
                                      </tbody>
                                      </table>

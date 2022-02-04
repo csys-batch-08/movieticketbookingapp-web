@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*"%>
-<%@page import="com.MovieticketBookingModel.Movie"%>
+<%@page import="com.movieticketbookingmodel.Movie"%>
 <%@page import="com.movieticketbookingdaoimpl.MovieDaoImpl"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         
     
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Search</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -20,22 +20,22 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<style >
-
-.one
-{
-position:relative;
-margin-left:500px;
-color:white;
+<style>
+.one {
+	position: relative;
+	margin-left: 500px;
+	color: white;
 }
 
- body {
-  background-image: url('Rohini Sliver Screen.jpg');
-  background-repeat: no-repeat;
-  background-size:cover;
-  font-size: bold;
+body {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
+	                             url('Rohini Sliver Screen.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 700px;
+	position: absolute;
+	width: 100%;
+	color: white;
 }
-
 </style>
 
 </head>
@@ -45,7 +45,7 @@ color:white;
      
       
   
-                     <h1><b>Search By Movie List:</b></h1>
+                     <h1><b> Movie</b></h1>
 
                       
                          

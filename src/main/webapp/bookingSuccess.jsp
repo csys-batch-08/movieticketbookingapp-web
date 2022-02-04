@@ -1,134 +1,129 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.util.*"%>
-<%@page import="com.MovieticketBookingModel.Movie"%>
+<%@page import="com.movieticketbookingmodel.Movie"%>
 <%@page import="com.movieticketbookingdaoimpl.MovieDaoImpl"%>
 <%@page import="java.sql.ResultSet" %>
-  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Booking Conform</title>
+
 <style>
-.one
-{
-Top:40px;
-position:relative;
-margin-left:520px;
-}
-.movie{
-
+.one {
+	Top: 40px;
+	position: relative;
+	margin-left: 520px;
 }
 
-
-
-html,body{
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.6)),url(https://www.vetbossel.in/wp-content/uploads/2020/08/movie-ticketing-768x576.jpg);
-     background-repeat: no-repeat;
-     background-size: 100% 1500px;
-     position: absolute;  
-     width: 100%;
-     color:white;
-}
-   
-
-.five
-{
-position:relative;
-margin-left:550px;
-}
-img
-{
- width:600px;
- position:absolute;
- top:120px;
- left:-500px;
+.movie {
+	
 }
 
+html, body {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+		url(https://www.vetbossel.in/wp-content/uploads/2020/08/movie-ticketing-768x576.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 1500px;
+	position: absolute;
+	width: 100%;
+	color: white;
+}
+
+.five {
+	position: relative;
+	margin-left: 550px;
+}
+
+img {
+	width: 600px;
+	position: absolute;
+	top: 120px;
+	left: -500px;
+}
 
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
 }
 
 li {
-  float: left;
- 
+	float: left;
 }
 
 li:last-child {
-  border-right: none;
+	border-right: none;
 }
 
 li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
 
 li a:hover:not(.active) {
-  background-color: #111;
+	background-color: #111;
 }
 
 .active {
-
-  font-size:x-large;
+	font-size: x-large;
 }
-.border{
+
+.border {
 	border: 1px solid black;
 	position: relative;
 	top: 200px;
 }
-.border{
+
+.border {
 	border: 1px solid black;
 	position: relative;
 	top: 200px;
 }
-input[type:number]
-{
-   background:black;
+
+input[type :number] {
+	background: black;
 }
-
- 
-
-</style>  
-</head>
-<body> 
-
-<ul>
-
-
-     <div class="top">
-   <li><a class="active" href="Show.jsp">Home</a></li>
-   <li><a href="News.jsp">News</a></li>
-   <li><a href="UserProfile.jsp">Profile</a></li>
-   <li><a href="Wallet.jsp">Recharge Wallet</a></li>
-    <li><a href="MyBooking.jsp">MyBooking</a></li>
-    <li><a href="CancelBooking.jsp">Cancel Booking</a></li>
-   </div>
-   
-   <div class="log">
-   
-   <li><a href="login.jsp">Logout</a></li>
-   </div>
-  
-    
-</ul>
 </style>
-
-
-
-
-
 </head>
 <body>
 
+	<ul>
+
+
+		<div class="top">
+			<li><a class="active" href="Show.jsp">Home</a></li>
+			<li><a href="News.jsp">News</a></li>
+			<li><a href="UserProfile.jsp">Profile</a></li>
+			<li><a href="Wallet.jsp">Recharge Wallet</a></li>
+			<li><a href="MyBooking.jsp">MyBooking</a></li>
+			<li><a href="CancelBooking.jsp">Cancel Booking</a></li>
+		</div>
+
+		<div class="log">
+
+			<li><a href="login.jsp">Logout</a></li>
+		</div>
+
+
+</ul>
+</style>
+</head>
+<body>
+
+           <%String errorMessage = (String)request.getAttribute("errorMessage");
+         if(errorMessage !=null)
+         {%>
+<center><font color="green" style="font:bold; size:30"><%=errorMessage%></font></center>
+<%}%>
 
   <div class="one">
        <c:set var="count" value="1"/>
@@ -146,13 +141,13 @@ input[type:number]
 
        Booking ID: ${usersList.bookingid }<br> 
        User Id: ${usersList.userid }<br>  
-       Theater ID: ${usersList.theatreid}<br> 
        Movie name:${usersList.moviename }<br> 
        Number of Seats: ${Seats}<br>
-       Movie date  : ${movietime }<br> 
-       Total Price : ${totalprice }<br>
-       Moviedatetime :<fmt:formatDate pattern="dd-MM-yyyy" value="${moviedatetime}"/></button></span><br><br>
-       
+       <fmt:parseDate value="${movietime}" pattern="yyyy-MM-dd'T'HH:mm" var="moviedatetime" type="date" />
+       <span> MovieDateandtime:<fmt:formatDate pattern="dd-MM-yyyy HH:mm" value="${moviedatetime}"/><br>
+     
+       Total Price : ${totalprice } rupees<br>
+     
        
        
     

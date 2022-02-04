@@ -7,10 +7,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.MovieticketBookingModel.User;
+
 import com.Movieticketbooking.util.Connectionutil;
+import com.movieticketbookingmodel.User;
 
 public class UserDaoImpl {
+	
+/*
+ User Register	
+ */
 	public int insert(User use) {
 		int i = 0;
 		String query = "insert into user_details(user_name,gender,email_id,mobile_num,e_password) values (?,?,?,?,?)";
@@ -54,6 +59,10 @@ public class UserDaoImpl {
 		return i;
 	}
 
+/*
+ Validate User	
+ */
+	
 	public String validateUser(String email, String password) {
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -103,6 +112,9 @@ public class UserDaoImpl {
 
 	}
 
+/*
+ Email Validate	
+ */
 	public ResultSet getEmail(User email) {
 		String query = "select * from user_details where email_id = ?";
 		Connection con = null;
@@ -116,31 +128,7 @@ public class UserDaoImpl {
 		} catch (SQLException | ClassNotFoundException e) {
 
 			e.printStackTrace();
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-
-					e.printStackTrace();
-				}
-				if (resultset != null) {
-					try {
-						resultset.close();
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-
-		}
+		} 
 		return resultset;
 	}
 
@@ -157,34 +145,14 @@ public class UserDaoImpl {
 		} catch (SQLException | ClassNotFoundException e) {
 
 			e.printStackTrace();
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-
-					e.printStackTrace();
-				}
-				if (resultset != null) {
-					try {
-						resultset.close();
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-
-		}
+		} 
 		return resultset;
 	}
 
+/*
+ Password Validate	
+ */
+	
 	public String fetch(User userpasscheck) {
 		String query = "select Email_id,e_password from user_details where Email_id = ? and e_password = ?";
 		Connection con = null;
@@ -229,6 +197,10 @@ public class UserDaoImpl {
 		return "incorrect";
 	}
 
+/*
+ Update Password	
+ */
+	
 	public void updateUser(User user) {
 
 		PreparedStatement statement = null;
@@ -320,7 +292,9 @@ public class UserDaoImpl {
 		}
 		return null;
 	}
-
+/*
+ Delete User
+ */
 	public void deleteUser2(User user3) {
 		
 		Connection con = null;
@@ -358,7 +332,9 @@ public class UserDaoImpl {
 		}
 	}
 
-	// get wallet:
+/*
+  get wallet:
+ */
 	public void getwallet(User user) {
 		String query = "update user_details set wallet=wallet - ? where user_id = ?";
 		Connection con = null;
@@ -398,6 +374,10 @@ public class UserDaoImpl {
 		}
 	}
 
+/*
+* refundwallet	
+ */
+	
 	public void refundwallet(int userid, int totalprice) {
 		String query = "update user_details set wallet=wallet + ? where user_id = ?";
 		Connection con = null;
@@ -420,29 +400,16 @@ public class UserDaoImpl {
 		} catch (Exception e) {
 
 			e.printStackTrace();
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-
-					e.printStackTrace();
-				}
-			}
-
-		}
+		} 
 	}
-
-//update wallet:
+	
+/*
+ * update wallet:
+ */
 	public int updatewallet(User user) {
 		String query = "update user_details set wallet =wallet + ? where user_id = ?";
+		
+		 
 		Connection con = null;
 		PreparedStatement statement = null;
 		try {
@@ -452,7 +419,7 @@ public class UserDaoImpl {
 			statement.setInt(2, user.getUserid());
 
 			int rs = statement.executeUpdate();
-			statement.executeUpdate("commit");
+			statement.executeUpdate();
 
 			return rs;
 
@@ -462,28 +429,13 @@ public class UserDaoImpl {
 		} catch (Exception e) {
 
 			e.printStackTrace();
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-
-					e.printStackTrace();
-				}
-			}
-
-		}
+		} 
 		return -1;
 	}
 
-	// low wallet:
+/*
+ * low wallet:
+ */
 	public int walletbalance(int userid) {
 		String query = "Select Wallet from user_details where user_id = ?";
 		Connection con = null;
@@ -532,10 +484,12 @@ public class UserDaoImpl {
 		}
 		return -1;
 	}
-
+/*
+ * Showuser
+ */
 	public List<User> showUser()  {
 
-		List<User> userList = new ArrayList<>();
+		List<User> userList = new ArrayList<User>();
 		User userproducts = null;
 		Connection con = null;
 		Statement statement = null;
@@ -592,7 +546,7 @@ public class UserDaoImpl {
 
 	}
 
-	public int user(User user5) {
+	public int user(User user) {
 		String query = "Select user_id from user_details where email_id=? ";
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -600,7 +554,7 @@ public class UserDaoImpl {
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
-			statement.setString(1, user5.getEmailid());
+			statement.setString(1, user.getEmailid());
 			resultset = statement.executeQuery();
 			while (resultset.next()) {
 
@@ -640,6 +594,9 @@ public class UserDaoImpl {
 		return -1;
 	}
 
+/*
+ * CurrentUser	
+ */
 	public List<User> currentUser1(User obj) {
 
 		List<User> userList = new ArrayList<>();

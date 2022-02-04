@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.MovieticketBookingModel.Admin;
-import com.MovieticketBookingModel.Bookingdetail;
-import com.MovieticketBookingModel.Movie;
-import com.MovieticketBookingModel.User;
 import com.Movieticketbooking.util.Connectionutil;
+import com.movieticketbookingmodel.Admin;
+import com.movieticketbookingmodel.Bookingdetail;
+import com.movieticketbookingmodel.Movie;
+import com.movieticketbookingmodel.User;
 
 public class AdminDaoImpl {
 

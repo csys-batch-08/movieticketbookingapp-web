@@ -12,15 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.Exception.ExistEmailIdException;
 import com.Exception.ExistMobileNoException;
-import com.MovieticketBookingModel.User;
-import com.movieticketbookingdaoimpl.*;
+import com.movieticketbookingdaoimpl.UserDaoImpl;
+import com.movieticketbookingmodel.User;
 
 @WebServlet("/registerpage")
 public class Register extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+
 		System.out.println("Hello");
 		String username=request.getParameter("User");
 		String gender=request.getParameter("gender");
@@ -53,7 +58,7 @@ try {
 
 		
 		    
-		//	System.out.println("hello");
+	
 	         int i=use1.insert(use2);
 		   if(i==1)
 		   {
@@ -63,18 +68,19 @@ try {
 }
 catch (ExistMobileNoException e)
 {
-//TODO Auto-generated catch block
+
 	  String invalidmobile = e.getMessage();
 	   response.sendRedirect("MovieBooking.jsp?message="+e.getMessage()+"&url=Register.jsp");
  } 
 catch (ExistEmailIdException e)
 {
  String invalidemail = e.getMessage();
+ 
  response.sendRedirect("MovieBooking.jsp?message="+e.getMessage()+"&url=Register.jsp");
 }
 catch (IOException | SQLException e) 
          {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		   }
 	   }

@@ -10,13 +10,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import com.MovieticketBookingModel.Theatreinformation;
 import com.Movieticketbooking.util.Connectionutil;
+import com.movieticketbookingmodel.Theatreinformation;
 
 public class TheatreDaoImpl {
 	private static final PreparedStatement Pstmt = null;
-
+/*
+ * Insert Theatre
+ */
 	public void insert(Theatreinformation theatre ) {
 		  
 	        String  query="insert into theatre(theatre_name, movie_id,number_seats,theatre_address,theatre_rating,price,movie_date_time,images) values (?,?,?,?,?,?,?,?)";
@@ -66,7 +67,9 @@ public class TheatreDaoImpl {
 			}
 	}
 			
-			
+/*
+ * Show Theatre			
+ */
 			
 			
 	public  List<Theatreinformation> showtheatre(int id)  {
@@ -76,7 +79,7 @@ public class TheatreDaoImpl {
 	           Connection con=null;
 	           PreparedStatement statement=null;
 	           ResultSet resultset=null;
-		       String showQuery="select * from theatre where movie_id=? ";
+		       String showQuery="select * from theatre where movie_id =? ";
 		       
 		       try {
 				con=Connectionutil.DBConnection();
@@ -128,7 +131,73 @@ public class TheatreDaoImpl {
 		       return movietheatre;
 			
 	}
+	
+/*
+ * ShowTheatreDetails	
+ */
+	
+	public  List<Theatreinformation> showtheatredetails(int id)  {
+		
+	       List<Theatreinformation> movietheatre=new ArrayList<Theatreinformation>();
+        Theatreinformation mvtheatre=null;
+        Connection con=null;
+        PreparedStatement statement=null;
+        ResultSet resultset=null;
+	       String showQuery="select * from theatre where theatre_id =? ";
+	       
+	       try {
+			con=Connectionutil.DBConnection();
+			statement = con.prepareStatement(showQuery);
+	        statement.setInt(1, id);
+	        
+		       resultset=statement.executeQuery();
+		       while(resultset.next()) {
+            mvtheatre=new  Theatreinformation(resultset.getString(1),resultset.getInt(2),resultset.getInt(3),resultset.getInt(4),resultset.getString(5),resultset.getInt(6),resultset.getInt(7),resultset.getTimestamp(8).toLocalDateTime(),resultset.getString(9));
+            movietheatre.add(mvtheatre);
+	  
+		        }
+		       
+		} catch (ClassNotFoundException e) {
+		
+			e.printStackTrace();
+		} catch (SQLException e) {
 
+			e.printStackTrace();
+		}
+	       finally {
+				if (statement != null) {
+					try {
+						statement.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				if (con != null) {
+					try {
+						con.close();
+					} catch (SQLException e) {
+
+						e.printStackTrace();
+					}
+				}
+					if (resultset != null) {
+						try {
+							resultset.close();
+						} catch (SQLException e) {
+							e.printStackTrace();
+						
+					}
+
+				}
+
+			}
+        
+	       return movietheatre;
+		
+}
+/*
+ * UpdateSeat	
+ */
 	public void update1(Theatreinformation theatres) {
 		
 		String query="update theatre set number_seats=? where movie_id=? ";
@@ -168,7 +237,11 @@ public class TheatreDaoImpl {
 			
 		}
 	}
-	public void seatupdate(int seat , int thid) {
+/*
+ * Seatupdate	
+ */
+	
+	public void seatupdate(int seat , int mvid) {
 		String query="update theatre set number_seats= number_seats+? where Theatre_id=? ";
 		 Connection con=null;
 		 PreparedStatement statement=null;
@@ -177,8 +250,9 @@ public class TheatreDaoImpl {
 			 statement = con.prepareStatement(query);
 		System.out.println("seatupdate");
 			 statement.setInt(1, seat);
-			 statement.setInt(2, thid);
+			 statement.setInt(2, mvid);
 			 int i = statement.executeUpdate();
+			System.out.println(mvid+"thid"+seat+"seattttt");
 			
 		     System.out.println(i+"rows update successfully");
 		} 
@@ -205,8 +279,11 @@ public class TheatreDaoImpl {
 		} 
 	}
 
+/*
+ * UpdateTheatre	
+ */
 
-	public void update(Theatreinformation theatre2 ) {
+	public void update(Theatreinformation theatre ) {
 		
 		      Connection con=null;
 		      PreparedStatement statement=null;
@@ -215,9 +292,9 @@ public class TheatreDaoImpl {
 		try {
 		        con = Connectionutil.DBConnection();
                 statement = con.prepareStatement(query);
-		        statement.setString(1,theatre2.getTheatrename());
-		        statement.setInt(2,theatre2.getPrice());
-	        	statement.setInt(3,theatre2.getTheatreid());
+		        statement.setString(1,theatre.getTheatrename());
+		        statement.setInt(2,theatre.getPrice());
+	        	statement.setInt(3,theatre.getTheatreid());
 	        	int i = statement.executeUpdate();
 		   System.out.println(i+"rows update successfully");
 		}catch (ClassNotFoundException e) {
@@ -247,7 +324,9 @@ public class TheatreDaoImpl {
 		}
 	}
       
-	
+/*
+ * DeleteTheatre	
+ */
     public void delete(Theatreinformation theatre3 )  {
     	         Connection	con=null; 
     	         PreparedStatement statement=null; 
@@ -289,10 +368,12 @@ public class TheatreDaoImpl {
 		}
 }
  
-  
+ /*
+  * Moviedetail 
+  */
 		    
 
-   public static ResultSet moviedetail() {
+      public static ResultSet moviedetail() {
 	            String query="select * from theatre";
 	            ResultSet resultset=null;
 	            Statement statement=null;
@@ -339,6 +420,10 @@ public class TheatreDaoImpl {
 			}
 			return resultset;
    }
+      
+  /*
+   * Theatreinformation    
+   */
 	public int fetch(Theatreinformation theatres1)  {
 	               
 		      Connection con=null;
@@ -394,7 +479,9 @@ public class TheatreDaoImpl {
       }
 
 
-
+/*
+ * Updateseat
+ */
 
     public void updateseat(int seat,int thid) {
 	
@@ -408,10 +495,12 @@ public class TheatreDaoImpl {
       try {
              con = Connectionutil.DBConnection();
              statement = con.prepareStatement(query);
+             System.out.println("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
              statement.setInt(1,seat);
              statement.setInt(2, thid);
+             System.out.println("jffgdgdgdgdkgdabcshhhhhhh");
 	        int i = statement.executeUpdate();
-            System.out.println(i+"rows update successfully");
+      System.out.println(i+"rows update successfully");
          }catch (ClassNotFoundException e) {
 
              e.printStackTrace();

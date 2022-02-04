@@ -7,12 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import com.MovieticketBookingModel.Movie;
+
 import com.Movieticketbooking.util.Connectionutil;
+import com.movieticketbookingmodel.Movie;
 
 public class MovieDaoImpl {
 	 private static final String Movie = null;
-
+/*
+ * Insert Movie
+ */
 	public void insert(Movie movie )  {
 	           String  query="insert into Movie(Movie_name,Movie_id,Movie_type,movie_ratings,movie_duration,director,music_director,hero_name,images,movielink) values (?,?,?,?,?,?,?,?,?,?)";
 			    Connection con=null;
@@ -60,7 +63,11 @@ public class MovieDaoImpl {
 			
 		}
 	}
-			
+	
+/*
+ * SearchMovie	
+ */
+	
 	public List<Movie> search( String moviename) 
 	{
 		        Connection con=null;
@@ -120,12 +127,10 @@ public class MovieDaoImpl {
 				return viewmoviess;        
 	}		
     
- 	
-
-
-			
-			
-		
+ /*
+ * Update Movie
+ */
+	
 	public  void update(Movie movie2 ) {
 			
 			    String query="update Movie set Movie_name=?,Movie_type=?,movie_duration=? where Movie_id=?";
@@ -168,10 +173,11 @@ public class MovieDaoImpl {
 		}
 		}
 	
-	
-	
-	
-	 public void delete(Movie movie3 )  {
+/*
+ * Delete Movie	
+ */
+		
+	 public void delete(Movie movie )  {
 			
 		        String query="delete from Movie where movie_id=? ";
 			    Connection con=null;
@@ -179,7 +185,7 @@ public class MovieDaoImpl {
 		try {
 				con = Connectionutil.DBConnection();
 				statement = con.prepareStatement(query);
-				statement.setInt(1,movie3.getMovieid());
+				statement.setInt(1,movie.getMovieid());
 				int i = statement.executeUpdate();
 		 		System.out.println(i+"rows deleted successfully");
 		 		
@@ -210,7 +216,9 @@ public class MovieDaoImpl {
 		}
 	 }
 	 
-	 
+/*
+ * ShowMovie	 
+ */
 	 
 		public List<Movie> showMovie() {
 			
@@ -266,7 +274,9 @@ public class MovieDaoImpl {
 			
 			 return movieList;		
 	 }
-
+/*
+ * Movie
+ */
           public ResultSet getmovie()  {
 			String query="Select movie_name,movie_id,movie_type,movie_ratings,movie_duration,director,music_director,hero_name  from Movie";
 			Connection con=null;
@@ -291,7 +301,7 @@ public class MovieDaoImpl {
 		}
 		
 		
-		public String movie(Movie movie5) {
+		public String movie(Movie movie) {
 			String query="Select Movie_name from Movie where Movie_id=? ";
 			Connection con=null;
 			PreparedStatement statement=null;
@@ -299,7 +309,7 @@ public class MovieDaoImpl {
 			try {
 				con = Connectionutil.DBConnection();
 				statement = con.prepareStatement(query);
-				statement.setInt(1, movie5.getMovieid());
+				statement.setInt(1, movie.getMovieid());
                 resultset = statement.executeQuery();
 				while(resultset.next()) {
 			    return resultset.getString(1);

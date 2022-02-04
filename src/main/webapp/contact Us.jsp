@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Contact Us</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -15,32 +15,25 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
-
-
-
-<style >
- body {
-  background-image: url('Contact Us.jpg');
-  background-repeat: no-repeat;
-  background-size:cover;
- 
+<style>
+body {
+	background-image: url('Contact Us.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-.movies{
-
-color:white;
-margin-top:100px;
-margin-left:500px;
-border:1px solid black;
-width:300px;
-padding:10px;
-}
-.class{
-margin-left:1200px;
-margin-top:10px;
-
+.movies {
+	color: white;
+	margin-top: 100px;
+	margin-left: 500px;
+	width: 300px;
+	padding: 10px;
 }
 
+.class {
+	margin-left: 1200px;
+	margin-top: 10px;
+}
 </style>
 </head>
 <body>                           

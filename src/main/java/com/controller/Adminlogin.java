@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.MovieticketBookingModel.Admin;
 import com.movieticketbookingdaoimpl.AdminDaoImpl;
+import com.movieticketbookingmodel.Admin;
 
 
 

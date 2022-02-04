@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.MovieticketBookingModel.Bookingdetail;
 import com.movieticketbookingdaoimpl.BookingDaoImpl;
+import com.movieticketbookingmodel.Bookingdetail;
 
 /**
  * Servlet implementation class MybookingServlet
@@ -32,9 +32,9 @@ public class MybookingServlet extends HttpServlet {
          HttpSession session = request.getSession(); 
          int userid=(int)session.getAttribute("userid");
          MyBooking=dao.MyBooking(userid);
-		request.setAttribute("BookingObj", MyBooking);
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("myBooking.jsp");
-		requestDispatcher.forward(request, response);
+		 request.setAttribute("BookingObj", MyBooking);
+		 RequestDispatcher requestDispatcher = request.getRequestDispatcher("myBooking.jsp");
+		 requestDispatcher.forward(request, response);
 	}
 
 }

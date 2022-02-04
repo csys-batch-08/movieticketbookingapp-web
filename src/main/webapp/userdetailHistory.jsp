@@ -2,13 +2,13 @@
     pageEncoding="ISO-8859-1"%>
     <%@ page import="com.movieticketbookingdaoimpl.*" %>
     <%@ page import="java.util.*" %>
-    <%@ page import="com.MovieticketBookingModel.User" %>
+    <%@ page import="com.movieticketbookingmodel.User" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>User History</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -19,51 +19,62 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <style>
-.one{
-
-  color:white;
-}
-h2
-{
- color:white;
-}
-
-
-.one6{
-  position:absolute;
-  top:20px;
-  left:1250px;
-  text-decoration:none;
-  color:white
-
-}
-
 body {
-  
-  background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('Rohini Sliver Screen.jpg');
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-attachment: fixed;
-  font-weight: bold;
+	background-image:url("images/Backimages.jpg");
+	background-repeat: no-repeat;
+	background-size: 1390px 700px;
+	background-attachment: fixed;
+	
+	color:white;
+}
+.one {
+	color: white;
 }
 
-table
-{
-   width:100%;
-   border:2px solid;
+h2 {
+	color: white;
+    text-align: center;
 }
+user{
+	color: white;
+}
+
+table{
+border-style: solid;
+border-color:silver;
+margin-left: 340px;
+padding:18px 18px;
+background-color: rgba(0,0,0, 0.4);
+}
+th{
+padding-right: 15px;
+padding-bottom: 15px;
+font-size: 17px;
+}
+td{
+padding-right: 15px;
+padding-bottom: 10px;
+}
+.color {
+	position: absolute;
+	top: 20px;
+	left: 1250px;
+	text-decoration: none;
+	color: white
+}
+
 
 </style>
-   
+
 
 
 
 </head>
 <body>
 
-                      <div class="one6">
+                      <div class="color">
 
-                      <button><a href="Addmovie.jsp"  class="btn btn-primary">Back</a></button>  
+                      <button><a href="adminHomepage.jsp"  class="btn btn-primary">Back</a></button>  
 
                       </div>
         
@@ -75,60 +86,47 @@ table
 	
 	
                                     <h2 class="Userdetail">User Details</h2>
-          
+                         <div class = "user">
+<table id="allusers">
+<caption></caption>
+<thead>
+<tr>
+<th id = "sno">S.no</th>
+<th id = "User Id">User Id</th>
+<th id = "User name ">User name </th>
+<th id = "Gender">Gender</th>
+<th id = "Email Id">Email Id</th>
+<th id = "Mobile Number">Mobile Number</th>
+</tr>
+</thead>
+<tbody>
+
+
+<c:set var="count" value="0"/>
+ <c:forEach items="${UserListObj}" var="userList">
+<c:set var="count" value="${count+1}"/>
+
+<tr>
+
+
+<td>${count}</td>
+
+<td>${userList.userid} </td>
+<td> ${userList.username}</td>
+<td> ${userList.gender}</td>
+<td> ${userList.emailid}</td>
+<td> ${userList.mobilenum} </td>
+
+
+</c:forEach>
+
+
+</tbody>
+          </table>
+
+
+</div><br><br>  
         
-                                    <div class="recentlyaddedlist">
-                                    <table border=1 >
-                                    <tbody>
-                                    <tr>
-        
-                                    <c:set var="count" value="1"/>
-                                         
-                                    <c:forEach items="${UserListObj}" var="userList">
-                                       
-              
-                                    <td>
-                                    <table id="user">
-                                    <tbody>
-                                    <tr>
-                                     
-                                    <td class="viewall">
-                                    
-                                    <div class="one">
-                                        <span>User Id : ${userList.userid} </span><br>
-                                        <span>User name : ${userList.username} </span><br>
-                                        <span>User name : ${userList.gender} </span><br>
-                                        <span>Email Id: ${userList.emailid} </span><br>
-                                        <span>Mobile Number : ${userList.mobilenum} </span><br>
-                                        <span>Password: ${userList.epassword}</span><br>
-                                        <span>Wallet : ${userList.wallet}</span><br>
-                                        </div>   
-                                       
-                                     </td>
-                                     </tr>
-                                     </tbody>
-                                     </table>  
-                            
-                                     </td>
-                                     <c:choose>
-                                    
-                                     <c:when test="${count==4}">
-                                     <c:set var="count" value="1"/>
-                                     
                                  
-                    	             </tr>
-                    	             <tr> 
-                    	             </c:when>
-                    	             <c:otherwise>
-                    	             <c:set var="count" value="${count+1}"/>
-                    	             </c:otherwise>             
-                                     </c:choose>
-                                     </c:forEach>
-                       
-                       
-                                     </tr>
-                                     </tbody>
-                                     </table>        
-                                     </div>
 </body>
 </html>

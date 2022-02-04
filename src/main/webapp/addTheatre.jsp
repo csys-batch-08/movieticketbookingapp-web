@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Theatres</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -16,102 +16,98 @@
 
 <style>
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
 }
 
 li {
-  float: left;
- 
+	float: left;
 }
 
 li:last-child {
-  border-right: none;
+	border-right: none;
 }
 
 li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size:18px; 
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 18px;
 }
 
 li a:hover:not(.active) {
-  background-color: #111;
+	background-color: #111;
 }
 
-
-.ones1{
-  position:absolute;
-  top:80px;
-  left:50px;
-  text-decoration:none;
-  color:Block;
-}
-.one{
-  position:absolute;
-  top:80px;
-  left:600px;
-  text-decoration:none;
-  color:Block;
-}
-.ones{
-  position:absolute;
-  top:80px;
-  left:1100px;
-  text-decoration:none;
-  color:Block;
+.ones1 {
+	position: absolute;
+	top: 80px;
+	left: 50px;
+	text-decoration: none;
+	color: Block;
 }
 
-.Log
-{
-  position:absolute;
-  top:1px;
-  left:1250px;
-  text-decoration:none;
-  color:white;
+.one {
+	position: absolute;
+	top: 80px;
+	left: 600px;
+	text-decoration: none;
+	color: Block;
 }
 
-
-Label{
-color:white;
-
-}
-h1{
-color:white;
-}
-
-h2{
-color:white;
+.ones {
+	position: absolute;
+	top: 80px;
+	left: 1100px;
+	text-decoration: none;
+	color: Block;
 }
 
-h3{
-color:white;
-}
-  body {
-  
-  background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('Rohini Sliver Screen.jpg');
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-attachment: fixed;
-  font-weight: bold;
+.Log {
+	position: absolute;
+	top: 1px;
+	left: 1250px;
+	text-decoration: none;
+	color: white;
 }
 
-.list{
-  position:absolute;
-  top:58px;
-  left:1250px;
-  text-decoration:none;
-  color:white
-
+Label {
+	color: white;
 }
 
+h1 {
+	color: white;
+}
 
+h2 {
+	color: white;
+}
+
+h3 {
+	color: white;
+}
+
+body {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+		url('Rohini Sliver Screen.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	font-weight: bold;
+}
+
+.list {
+	position: absolute;
+	top: 58px;
+	left: 1250px;
+	text-decoration: none;
+	color: white
+}
 </style>
 </head>
 
@@ -119,20 +115,18 @@ color:white;
 <body>
 <ul>
   <li><a class="active" href="home">Home</a></li>
-  <li><a href="News.jsp">News</a></li>
-  <li><a href="Show.jsp">ShowMovie</a>
+  <li><a href="addTheatre.jsp">AddTheatre</a></li>
+  <li><a href="showMovie.jsp">ShowMovie</a>
   <li><a href="UserdetailHistory.jsp">UserList</a>
-  <li><a href="BookingHistory.jsp">BookingList</a>
-  <li><a href="AddTheatre.jsp">AddTheatre</a></li>
+  <li><a href="bookingHistory.jsp">BookingList</a>
+
   
    <div class="Log">
   
-   <a href="Login1.jsp">Logout</a></li>
+   <a href="login.jsp">Logout</a></li>
   
   </div>  
   
-  
-   
 </ul>
 
  
@@ -142,7 +136,7 @@ color:white;
 
                       <div class="list">
 
-                      <button><a href="Addmovie.jsp"  class="btn btn-primary">Back</a></button>  
+                      <button><a href="adminHomepage.jsp"  class="btn btn-primary">Back</a></button>  
 
                       </div>
         
@@ -156,7 +150,7 @@ color:white;
     <label>Enter your Theatre Name:</label><br>
     <input type="text" name="theatrename"><br><br>
     <label>Enter your movie Id:</label> <br>
-     <input type="text" name="movieid"><br><br>
+    <input type="text" name="movieid"><br><br>
  
     <label>Enter your Number Seats:</label> <br>
     <input type="text" name="Numberseats"><br><br>

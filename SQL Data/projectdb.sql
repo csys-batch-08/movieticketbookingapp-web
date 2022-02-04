@@ -202,8 +202,18 @@ select * from booking_detail;
 select * from user_details;
 select * from Movie;
 select * from theatre;
+
 update theatre set Images='Rohini Sliver Screen.jpg' where Movie_id=12;
-update Movie set music_director='yuvansankar Raja' where movie_id=12;
+update Movie set director='VenkatPrabhu' where movie_id=12;
 commit;
 desc booking_detail;
+
+delete from theatre where THEATRE_ID IN(603,605);
 Select Wallet from user_details where user_id = 183;
+update theatre set images='PVR.jpg' where movie_id=12;
+update user_details set wallet=6000 where email_id='mani@gmail.com'; 
+update user_details set Gender='male' where email_id='sachinraj6878@gmail.com'; 
+
+create sequence Movie_theatre_id start WITH 600 increment by 1;
+create table Movie_theatre(Movie_theatre_id number Default Movie_theatre_id.nextval,
+Movie_id number,theatre_id number,

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.MovieticketBookingModel.User;
 import com.movieticketbookingdaoimpl.UserDaoImpl;
+import com.movieticketbookingmodel.User;
 
 /**
  * Servlet implementation class UserServlet
@@ -29,11 +29,11 @@ public class UserServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    System.out.println("hiaaaaaaaaa");
 		  HttpSession session = request.getSession();
-		   int userid=(int)session.getAttribute("userid");     
+		  int userid=(int)session.getAttribute("userid");     
 		   
-		   User san=new User(userid);
-		   UserDaoImpl dao= new UserDaoImpl();
-		   List<User> listproduct=dao.currentUser1(san);
+		User san=new User(userid);
+		UserDaoImpl dao= new UserDaoImpl();
+		List<User> listproduct=dao.currentUser1(san);
 		request.setAttribute("listproduct", listproduct);
 		System.out.println(listproduct);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("userProfile.jsp");

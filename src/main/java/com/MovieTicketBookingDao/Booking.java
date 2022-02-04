@@ -3,7 +3,7 @@ package com.MovieTicketBookingDao;
 import java.sql.ResultSet;
 import java.util.List;
 
-import com.MovieticketBookingModel.Bookingdetail;
+import com.movieticketbookingmodel.Bookingdetail;
 
 public interface Booking {
 

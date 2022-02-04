@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Movie Booking</title>
@@ -15,23 +15,23 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <style>
-
-html,body{
-     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://www.vetbossel.in/wp-content/uploads/2020/08/movie-ticketing-768x576.jpg);
-     background-repeat: no-repeat;
-     background-size: 100% 1000px;
-     position: absolute;  
-     width: 100%;
-     color:white;
+html, body {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(https://www.vetbossel.in/wp-content/uploads/2020/08/movie-ticketing-768x576.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 1000px;
+	position: absolute;
+	width: 100%;
+	color: white;
 }
-.one{
-margin-left:450px;
-margin-top:150px;
 
-
+.one {
+	margin-left: 450px;
+	margin-top: 150px;
 }
-a{
-margin-left:180px;
+
+a {
+	margin-left: 180px;
 }
 </style>
 

@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.MovieticketBookingModel.Movie;
 import com.movieticketbookingdaoimpl.MovieDaoImpl;
+import com.movieticketbookingmodel.Movie;
 
 /**
  * Servlet implementation class ShowServlet
@@ -26,7 +26,8 @@ public class ShowServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
+//		String userid=(String)(session.getAttribute("userid").toString()));
+
 	 MovieDaoImpl movieDaoImpl = new MovieDaoImpl();
         List<Movie> showmovie;
         showmovie = movieDaoImpl.showMovie();

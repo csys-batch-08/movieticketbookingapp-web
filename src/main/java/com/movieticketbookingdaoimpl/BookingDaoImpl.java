@@ -10,16 +10,18 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.MovieTicketBookingMessage.Mailer;
-import com.MovieticketBookingModel.Bookingdetail;
-import com.MovieticketBookingModel.Movie;
-import com.MovieticketBookingModel.Theatreinformation;
-import com.MovieticketBookingModel.User;
 import com.Movieticketbooking.util.Connectionutil;
+import com.movieticketbookingmessage.Mailer;
+import com.movieticketbookingmodel.Bookingdetail;
+import com.movieticketbookingmodel.Movie;
+import com.movieticketbookingmodel.Theatreinformation;
+import com.movieticketbookingmodel.User;
 
 public class BookingDaoImpl {
 	
-	
+/*
+ * Insert Bookingdetail	
+ */
 	public void insert(Bookingdetail booking) {
 		Connection con=null;
 		PreparedStatement statement=null;
@@ -36,7 +38,7 @@ public class BookingDaoImpl {
 				
 				boolean flag = statement.executeUpdate()>0;
 				if(flag) {
-				Mailer.send("sachinraj6878@gmail.com", "Sachinraj@089", "sachin64979@gmail.com", "Movie Booking", "Your Ticket Booking Confirmed");
+				Mailer.send("sachinraj6878@gmail.com", "sachinraj@089", "sachinraj64979@gmail.com", "Movie Booking", "Your Ticket Booking Confirmed");
 		    }
 				
 			} catch (ClassNotFoundException e) {
@@ -65,8 +67,13 @@ public class BookingDaoImpl {
 			
 		}
 	}
-	
+
+/*
+ * Booking Cancel	
+ */
 	public void update(Bookingdetail booking)  {
+		
+
 		    Connection con=null;
 		    PreparedStatement statement=null;
 		    String query="update booking_detail set booking_status=? where booking_id=? ";
@@ -78,10 +85,9 @@ public class BookingDaoImpl {
 			statement.setInt(2, booking.getBookingid());
 			boolean flag  = statement.executeUpdate()>0;
 			if(flag) {
-				Mailer.send("sachinraj6878@gmail.com", "Sachinraj@089", "sachin64979@gmail.com", "Movie Booking", "Your Ticket Booking Cancelled");
+				Mailer.send("sachinraj6878@gmail.com", "sachinraj@089", "sachin64979@gmail.com", "Movie Booking", "Your Ticket Booking Cancelled");
 		}
-			
-	
+
 		} catch (ClassNotFoundException e) {
 			
 			e.printStackTrace();
@@ -108,7 +114,9 @@ public class BookingDaoImpl {
 				
 			}
 	}
-	
+/*
+ * BookingDelete	
+ */
       public int delete(Bookingdetail booking )  {
     	    Connection con=null;
 		    PreparedStatement statement=null;
@@ -153,7 +161,9 @@ public class BookingDaoImpl {
 		
 		  
 		  
-//BookingHistory Admin	
+/*
+ * BookingHistory Admin	
+ */
 		  
 	 public List<Bookingdetail> showBooking()  {
 	       	 Connection con=null;
@@ -209,19 +219,24 @@ public class BookingDaoImpl {
 			
 		  }
 		  
-		  
-	   public void book(int booking,String status) {
-				String query="Update booking_detail set booking_status=? where booking_id=? ";
+/*
+ * BookingStatus		  
+ */
+	   public void book(int booking) {
+		   
+		 
+		   
+				String query="Update booking_detail set booking_status='Cancel' where booking_id=? ";
 				Connection con=null;
 				PreparedStatement statement =null;
 				
 		try {
 			    con = Connectionutil.DBConnection();
 			    statement = con.prepareStatement(query);
-			    statement.setString(1,status );
-				statement.setInt(2,booking);
+			    
+				statement.setInt(1,booking);
 				int i = statement.executeUpdate();
-								
+									
 		    } catch (ClassNotFoundException e) {
 				
 				e.printStackTrace();
@@ -311,7 +326,9 @@ public class BookingDaoImpl {
 
 		  
 		  
-//mybooking	
+/*
+ * Mybooking	
+ */
 		  
 		  public List<Bookingdetail> MyBooking(int userId)  {
 			   List<Bookingdetail> bookinglist=new ArrayList<Bookingdetail>();

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.MovieticketBookingModel.Theatreinformation;
 import com.movieticketbookingdaoimpl.TheatreDaoImpl;
+import com.movieticketbookingmodel.Theatreinformation;
 
 /**
  * Servlet implementation class TheatreServlet
