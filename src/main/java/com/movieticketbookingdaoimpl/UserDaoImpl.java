@@ -41,6 +41,7 @@ public class UserDaoImpl {
 			if (statement != null) {
 				try {
 					statement.close();
+					
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -391,8 +392,7 @@ public class UserDaoImpl {
 			statement.setInt(2, userid);
 			int i = statement.executeUpdate();
 
-			System.out.println("Row Up[dated" + i);
-			System.out.println("wallet reduce");
+		
 
 		} catch (ClassNotFoundException e) {
 

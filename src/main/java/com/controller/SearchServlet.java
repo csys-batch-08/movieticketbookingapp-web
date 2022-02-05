@@ -24,45 +24,24 @@ public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
-			
-			 MovieDaoImpl search = new MovieDaoImpl();
-			 String moviename = request.getParameter("moviename");
-	       
 
-			  List<Movie> searchlist = search.search(moviename);
-			      
-			           
-			   HttpSession session = request.getSession();
-			   session.setAttribute("moviename",searchlist );
-			         
-			   session.setAttribute("bookedmovie", moviename);
-			   
-			//   request.setAttribute("searchlist", searchlist);
-				RequestDispatcher requestDispatcher=request.getRequestDispatcher("searchMovies.jsp");
-				requestDispatcher.forward(request, response);      
-			           
-			           
-	
+			MovieDaoImpl search = new MovieDaoImpl();
+			String moviename = request.getParameter("moviename");    
+			List<Movie> searchlist = search.search(moviename);
+            HttpSession session = request.getSession();
+			session.setAttribute("moviename", searchlist);
+			session.setAttribute("bookedmovie", moviename);		
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("searchMovies.jsp");
+			requestDispatcher.forward(request, response);
+			response.getWriter().print("Search Suceessfully");
 
-              		       
-			  response.getWriter().print("Search Suceessfully");
+		} catch (Exception e) {
 
+		}
 
-			} catch (Exception e) {
-		
+	    }
 
-			}
-
-		
-
-			}
-			
-
-
-
-	}
-
-
+}

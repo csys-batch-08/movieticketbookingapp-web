@@ -13,9 +13,11 @@ import com.movieticketbookingmodel.Theatreinformation;
 @WebServlet("/Deletetheatre4")
 public class DeleteTheatreServlet extends HttpServlet {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private static final long serialVersionUID = 1L;
 
-		
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
 		int theatreid=Integer.parseInt(request.getParameter("theatre Id"));
 		Theatreinformation dao=new Theatreinformation(theatreid);
 		TheatreDaoImpl theatre1=new TheatreDaoImpl();

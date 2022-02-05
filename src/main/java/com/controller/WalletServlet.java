@@ -1,7 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,14 +16,13 @@ public class WalletServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	protected void dopost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void dopost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 
 		HttpSession session = request.getSession();
 		int userid=(int)session.getAttribute("userid");
 		int wallet=Integer.parseInt(request.getParameter("amount"));
-	
-		User use=new User(userid,wallet);
+	    User use=new User(userid,wallet);
 		UserDaoImpl dao=new UserDaoImpl();
 		dao.updatewallet(use);
 		response.sendRedirect("showMovie.jsp");

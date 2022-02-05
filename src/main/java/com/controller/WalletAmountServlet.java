@@ -17,33 +17,13 @@ import com.movieticketbookingmodel.User;
 @WebServlet("/WalletAmountServlet")
 public class WalletAmountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public WalletAmountServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+       @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
 		int userid=(int)session.getAttribute("userid");
 		int wallet=Integer.parseInt(request.getParameter("amount"));
-	
-		User use=new User(userid,wallet);
+	    User use=new User(userid,wallet);
 		UserDaoImpl dao=new UserDaoImpl();
 		dao.updatewallet(use);
 		response.sendRedirect("showMovie.jsp");

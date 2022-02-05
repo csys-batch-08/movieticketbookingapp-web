@@ -1,7 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -20,12 +20,9 @@ import com.movieticketbookingmodel.Bookingdetail;
 @WebServlet("/BookingHistoryServlet")
 public class BookingHistoryServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-
-	@Override
+@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		

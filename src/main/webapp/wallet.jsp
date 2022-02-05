@@ -33,7 +33,9 @@
 	text-decoration: none;
 	color: white
 }
-
+.log{
+padding-left:820px; 
+}
 a {
 	color: white;
 }
@@ -50,9 +52,7 @@ label {
 	color: white;
 	font-size: 20px;
 }
-.log{
-margin-left:1200px;
-}
+
 body {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
 		url('Rohini Sliver Screen.jpg');
@@ -74,30 +74,18 @@ li {
 	padding-top: 5px;
 }
 
-li:last-child {
-	border-right: none;
-}
+
 
 li a {
 	display: block;
 	color: white;
 	text-align: center;
-	padding: 14px 16px;
+	padding: 16px 16px;
 	text-decoration: none;
 	font-size: 18px;
 }
 
 
-
-.active {
-	font-size: x-large;
-}
-
-.border {
-	border: 1px solid black;
-	position: relative;
-	top: 200px;
-}
 
 .border {
 	border: 1px solid black;
@@ -111,29 +99,15 @@ input[type :number] {
 </style>
 </head>
 <body> 
-
-          <ul>
-
-          <div class="top">
+<ul>
      
                <li><a class="active" href="ShowServlet">Home</a></li>
                <li><a href="UserServlet">Profile</a></li>
                <li><a href="ShowServlet">Movie List</a></li>
                <li><a href="MybookingServlet">My Bookings</a></li>
-             
-         </div>
-   
-         <div class="log">
-   
-               <li><a href="login.jsp">Logout</a></li>
-               
-       
-      </div>
-    
+               <li><a href="login.jsp" class="log">Logout</a></li>
+        
      </ul>
-
-
-
 
 <%
 if(session.getAttribute("lowbal") != null){%>
@@ -145,7 +119,7 @@ session.removeAttribute("lowbal");
      <div class="one">
      <h1>Wallet Update</h1>
      
- <form action="WalletAmountServlet" method="post">
+     <form action="WalletAmountServlet" method="post">
      
     <label> Enter your Amount:</label><br>
      <input type="number" name="amount" id="number" min = "1" pattern="[1-9]+"
@@ -154,18 +128,9 @@ session.removeAttribute("lowbal");
      
       <button type="submit"  class="btn btn-primary">Wallet Recharge</button><br><br>
      <p> Note:Wallet Amount Check Your Profile</p>
-        
-      </div>
-        
-   
-        
-        
+             
      </form>
-           
-      <div class="ones">
-
-       <button><a href="ShowServlet"  class="btn btn-primary">Back</a></button>  
-
-       </div>
+       </div>      
+     
 </body>
 </html>

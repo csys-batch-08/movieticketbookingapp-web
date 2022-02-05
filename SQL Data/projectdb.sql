@@ -208,9 +208,9 @@ update Movie set director='VenkatPrabhu' where movie_id=12;
 commit;
 desc booking_detail;
 
-delete from theatre where THEATRE_ID IN(603,605);
+delete from theatre where THEATRE_ID IN(625);
 Select Wallet from user_details where user_id = 183;
-update theatre set images='PVR.jpg' where movie_id=12;
+update theatre set theatre_name='PVR Cinemas' where theatre_id=606;
 update user_details set wallet=6000 where email_id='mani@gmail.com'; 
 update user_details set Gender='male' where email_id='sachinraj6878@gmail.com'; 
 

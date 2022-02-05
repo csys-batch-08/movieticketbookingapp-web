@@ -27,11 +27,13 @@ public class MybookingServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		 String error=request.getParameter("errorMessage");
+		 request.setAttribute("errorMessage", error);
 		 BookingDaoImpl dao= new BookingDaoImpl();
          List<Bookingdetail> MyBooking;
          HttpSession session = request.getSession(); 
          int userid=(int)session.getAttribute("userid");
-         MyBooking=dao.MyBooking(userid);
+         MyBooking=dao.myBooking(userid);
 		 request.setAttribute("BookingObj", MyBooking);
 		 RequestDispatcher requestDispatcher = request.getRequestDispatcher("myBooking.jsp");
 		 requestDispatcher.forward(request, response);

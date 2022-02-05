@@ -20,59 +20,29 @@ import com.movieticketbookingdaoimpl.UserDaoImpl;
 @WebServlet("/CancelMovieServlet")
 public class CancelMovieServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CancelMovieServlet() {
-        super();
-        
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int booking = Integer.parseInt(request.getParameter("cancel"));
+		String ticket = request.getParameter("status");
+		HttpSession session = request.getSession();
+		int total = (int) session.getAttribute("totalprice");
+		int userid = (int) session.getAttribute("userid");
+		int seatno = (int) session.getAttribute("Seats");
+		int theatreid = (int) session.getAttribute("theaterid");
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int booking=Integer.parseInt(request.getParameter("cancel"));
-        String ticket=request.getParameter("status");
-        HttpSession session = request.getSession();
-        
-        
-	   int total = (int)  session.getAttribute("totalprice");
-	   System.out.println("totalpriociasdhbcjbc:"+total);
-	   int userid=(int)session.getAttribute("userid");
-	   int seatno = (int)session.getAttribute("Seats");
-	   System.out.println("setatdtdt"+seatno);
-	   int theatreid = (int)session.getAttribute("theaterid");
-
-	
-	
-		   
 //refund amount     
-	     UserDaoImpl obj = new UserDaoImpl();
-	     TheatreDaoImpl book = new TheatreDaoImpl();
-	     BookingDaoImpl book1=new BookingDaoImpl();
-	     
-//book1.book(booking,ticket);
-	    
-	    obj.refundwallet(userid,total );
-	    book.seatupdate(seatno,theatreid);
-	    System.out.println("hspppppppppppppppppppppppppppp");
-	 
-	     
+		UserDaoImpl obj = new UserDaoImpl();
+		TheatreDaoImpl book = new TheatreDaoImpl();
+		BookingDaoImpl book1 = new BookingDaoImpl();
 
-	    
-	    PrintWriter out  =  response.getWriter();
-	    
-	     response.sendRedirect("showMovie.jsp"); 
+//refund
+
+		obj.refundwallet(userid, total);
+		book.seatupdate(seatno, theatreid);
+		PrintWriter out = response.getWriter();
+        response.sendRedirect("showMovie.jsp");
 	}
 
 }

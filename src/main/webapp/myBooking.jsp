@@ -93,7 +93,13 @@ padding-bottom: 10px;
 </thead>
 <tbody>
 
-
+    <%String errorMessage = (String)request.getAttribute("errorMessage");
+         if(errorMessage !=null)
+         {%>
+<center><font color="red" style="font:bold; size:20"><%=errorMessage%></font></center>
+<%}%>
+     
+    
 <c:set var="count" value="0"/>
 <c:forEach items="${BookingObj}" var="BookingList">
 <c:set var="count" value="${count+1}"/>
@@ -106,7 +112,7 @@ padding-bottom: 10px;
 <td>${BookingList.bookingid}</td>
 <td>${BookingList.userid }</td>
 <td> ${BookingList.noseat }</td>
-<td>  ${BookingList.totalamount }</td>
+<td> ${BookingList.totalamount }</td>
 <td>${BookingList.bookingstatus }</td>
  <td>${BookingList.getMoviename() }</td>
 <td><fmt:parseDate value="${BookingList.bookingdate}" pattern="yyyy-MM-dd" var="bookingdate" type="date" />
@@ -115,7 +121,10 @@ padding-bottom: 10px;
 <fmt:formatDate pattern="dd-MM-yyyy HH:mm" value="${moviedatetime}"/></td>
 
 <td><a href="bookcancel?bookingid=${BookingList.bookingid}"><button type="submit">Cancel</button></a></td>                                 
-
+    <c:set var="price" value="${BookingList.totalamount}" scope="session" /> 
+	 <c:set var="seat" value="${BookingList.noseat}" scope="session" /> 	
+	 <c:set var="Theatreidd" value="${BookingList.theatreid}" scope="session" /> 
+       			 
 </c:forEach>
 
 

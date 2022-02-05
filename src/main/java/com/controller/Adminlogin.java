@@ -18,13 +18,10 @@ public class Adminlogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
 	 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doGet(request, response);
-		
 		String email=request.getParameter("Email");
 		String password=request.getParameter("Pass");
-		
 		Admin adlog=new Admin(email,password);
 		AdminDaoImpl log=new AdminDaoImpl();
 		

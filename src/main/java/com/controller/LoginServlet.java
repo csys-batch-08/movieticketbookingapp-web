@@ -30,7 +30,6 @@ public class LoginServlet extends HttpServlet {
 		String email=request.getParameter("Email");
 		String password=request.getParameter("Pass");
 		User use=new User(email, password);
-		
 		UserDaoImpl userDaoImpl = new UserDaoImpl();
 		User user = new User(email,null);
 		int uid = userDaoImpl.user(user);
@@ -43,22 +42,21 @@ public class LoginServlet extends HttpServlet {
         	
 		      response.sendRedirect("adminHomepage.jsp");
 				
-			}else if(userrole.equals("user"))
+		 }else if(userrole.equals("user"))
 				
-			{	
+		{	
 			 response.sendRedirect("ShowServlet");
 			
-			}
+		}
 	     
-	else 
+	    else 
 		
-		{
-			try
-			{
+		     {
+			  try
+			 {
 			   throw new InvalidUserException();	
-			} catch (InvalidUserException e) {
-
-				out.println("<script type=\"text/javascript\">");
+			 } catch (InvalidUserException e) {
+                out.println("<script type=\"text/javascript\">");
 				out.println("alert('Invalid  password');");
 				out.println("location='login.jsp';");
 				out.println("</script>");

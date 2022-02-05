@@ -54,13 +54,8 @@ span {
 	color: Block;
 	text-decoration: none;
 }
-
-.log {
-	position: absolute;
-	top: 1px;
-	left: 1250px;
-	text-decoration: none;
-	color: white;
+.log{
+padding-left:500px; 
 }
 
 button {
@@ -155,63 +150,63 @@ body {
 table td {
 	padding-bottom: 120px;
 }
+h1{
+color: white;
+}
 </style>
-
 </head>
-</body>
-
 <body>
-	<ul>
-		<div class="top">
 
+                 <form action="SearchServlet" method="post">
+	<ul>
+	
+          
 			<li><a class="active" href="Show.jsp">Home</a></li>
 			<li><a href="UserServlet">Profile</a></li>
 			<li><a href="wallet.jsp">Recharge Wallet</a></li>
 			<li><a href="MybookingServlet">My Bookings</a></li>
+			
+			
+					
+					
+					
 
-		</div>
+						<li><input type="text" name="moviename" id="moviename" required> <input
+							type="submit" class="btn btn-primary" value="Search" required></li>
+			
+				
+		
+			
+	        <li><a href="about Us.jsp" class="log">About Us</a></li>
 
-		<div class="log">
+		
+
+	
+
+			<li><a href="contact Us.jsp">Contact Us</a></li>
+	
+
+		
 
 			<li><a href="login.jsp">Logout</a></li>
 
-		</div>
-
-
-		<div class="contact">
-
-			<li><a href="about Us.jsp">About Us</a></li>
-
-		</div>
-
-		<div class="contacts">
-
-			<li><a href="contact Us.jsp">Contact Us</a></li>
-
-		</div>
-
 	</ul>
-
-
+		</form>
+            	<h1>Movie List</h1>
 	<table>
+	<caption></caption>
 		<tbody>
+			
+			<tr >
+
+
+
+			
+
+				
 			<tr>
-
-
-
-				<div class="searchbtn">
-
-					<form action="SearchServlet" method="post">
-					
-					
-
-						<input type="text" name="moviename" id="moviename" required> <input
-							type="submit" class="btn btn-primary" value="Search" required>
-				</div>
-				</form>
-			<tr>
-				<p>Movie List
-				<p>
+			
+				
 					<c:set var="count" value="1" />
 
 					<c:forEach items="${Movielist}" var="MovieList">
@@ -238,16 +233,16 @@ table td {
 												Name:${MovieList.getHeroname() }</span><br> <input type="text"
 											value=${MovieList.getMovielink() } name="movlink"
 											class="movieid">
-											<button>
-												<a
-                                                    href="Moviedetails?mvname=${MovieList.getMoviename()}&movlink=${MovieList.getMovielink()}"
-													class="btn btn-primary">Theatre</a>
-											</button> </span>
-										</div>
+										
+												
+                                <a  href="Moviedetails?mvname=${MovieList.getMoviename()}&movlink=${MovieList.getMovielink()}"
+													class="btn btn-primary"><button>Theatre</button></a>                 
+										
+									
 
 											
 											
-											</div></td>
+										</td>
 									</tr>
 								</tbody>
 							</table>

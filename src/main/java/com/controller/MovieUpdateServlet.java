@@ -13,18 +13,16 @@ import com.movieticketbookingmodel.Movie;
 @WebServlet("/updateMovie")
 public class MovieUpdateServlet extends HttpServlet {
 
-	 
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		
 		String moviename=request.getParameter("movie name");
 		String movietype=request.getParameter("Move type");
         int movieduration=Integer.parseInt(request.getParameter("Move duration"));
 		int movieid=Integer.parseInt(request.getParameter("Move id"));
-
-		
-		
-		Movie add1=new Movie(moviename,movietype,movieduration, movieid);
+     	Movie add1=new Movie(moviename,movietype,movieduration, movieid);
 		MovieDaoImpl addmovie1=new MovieDaoImpl();
 		addmovie1.update(add1);
 		response.sendRedirect("addMovie.jsp");

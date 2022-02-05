@@ -20,13 +20,11 @@ import com.movieticketbookingmodel.User;
 @WebServlet("/AdminServlet")
 public class AdminProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  
+ @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		HttpSession session = request.getSession();
 		int userid=(int)session.getAttribute("userid");     
-		   
 		User san=new User(userid);
 		UserDaoImpl dao= new UserDaoImpl();
 		List<User> listproduct=dao.currentUser1(san);

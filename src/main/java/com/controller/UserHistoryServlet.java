@@ -1,7 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -15,12 +14,15 @@ import javax.servlet.http.HttpSession;
 import com.movieticketbookingdaoimpl.UserDaoImpl;
 import com.movieticketbookingmodel.User;
 
-/**
- * Servlet implementation class UserHistoryServlet
- */
 @WebServlet("/UserHistoryServlet")
 public class UserHistoryServlet extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	    HttpSession session = request.getSession();

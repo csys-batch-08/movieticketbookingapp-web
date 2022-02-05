@@ -14,28 +14,20 @@ import javax.servlet.http.HttpServletResponse;
 import com.movieticketbookingdaoimpl.MovieDaoImpl;
 import com.movieticketbookingmodel.Movie;
 
-/**
- * Servlet implementation class ShowServlet
- */
 @WebServlet("/ShowServlet")
 public class ShowServlet extends HttpServlet {
-
-	
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-//		String userid=(String)(session.getAttribute("userid").toString()));
-
-	 MovieDaoImpl movieDaoImpl = new MovieDaoImpl();
-        List<Movie> showmovie;
-        showmovie = movieDaoImpl.showMovie();
+		MovieDaoImpl movieDaoImpl = new MovieDaoImpl();
+		List<Movie> showmovie;
+		showmovie = movieDaoImpl.showMovie();
 		request.setAttribute("Movielist", showmovie);
-		RequestDispatcher requestDispatcher=request.getRequestDispatcher("showMovie.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("showMovie.jsp");
 		requestDispatcher.forward(request, response);
 	}
 
-	
-	
 }

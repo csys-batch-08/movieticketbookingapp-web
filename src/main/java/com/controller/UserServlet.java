@@ -21,25 +21,21 @@ import com.movieticketbookingmodel.User;
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
 
-	 
-	
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    System.out.println("hiaaaaaaaaa");
-		  HttpSession session = request.getSession();
-		  int userid=(int)session.getAttribute("userid");     
-		   
-		User san=new User(userid);
-		UserDaoImpl dao= new UserDaoImpl();
-		List<User> listproduct=dao.currentUser1(san);
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		int userid = (int) session.getAttribute("userid");
+        User san = new User(userid);
+		UserDaoImpl dao = new UserDaoImpl();
+		List<User> listproduct = dao.currentUser1(san);
 		request.setAttribute("listproduct", listproduct);
-		System.out.println(listproduct);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("userProfile.jsp");
 		requestDispatcher.forward(request, response);
-		   
+
 	}
 
-	
 }
