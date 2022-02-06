@@ -66,21 +66,12 @@ padding-bottom: 10px;
 
 <body>
 
-
-
                     <div class="color">
-
-                      <button><a href="adminHomepage.jsp"  class="btn btn-primary">Back</a></button>  
-
-                      </div>
-        
-
-  
-	
-	
-                         <h2 class="Bookingdetail">Booking Details</h2>
-          
-     <div class = "user">
+                    <a href="adminHomepage.jsp"  class="btn btn-primary"> <button>Back</a></button>  
+                    </div>
+        	
+                    <h2 class="Bookingdetail">Booking Details</h2>          
+<div class = "user">
 <table id="allusers">
 <caption></caption>
 <thead>
@@ -92,19 +83,17 @@ padding-bottom: 10px;
 <th id = "TotalAmount">Total Amount</th>
 <th id = "status">Status</th>
 <th id = "cancel">Movie name</th>
-<th id = "cancel">moviedatetime</th>
+<th id = "cancel">MovieDatetime</th>
 
 </tr>
 </thead>
 <tbody>
-
 
 <c:set var="count" value="0"/>
  <c:forEach items="${Bookslist}" var="List">
 <c:set var="count" value="${count+1}"/>
 
 <tr>
-
 
 <td>${count}</td>
 
@@ -117,13 +106,9 @@ padding-bottom: 10px;
 <td><fmt:parseDate value="${movietime}" pattern="yyyy-MM-dd'T'HH:mm" var="moviedatetime" type="date" />
 <fmt:formatDate pattern="dd-MM-yyyy HH:mm" value="${moviedatetime}"/></td>
                      
-
 </c:forEach>
-
-
 </tbody>
-          </table>
-
+</table>
 
 </div><br><br>
         

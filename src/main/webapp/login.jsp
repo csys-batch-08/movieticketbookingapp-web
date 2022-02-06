@@ -80,36 +80,27 @@ p a{
 	padding-left: 15px;
 	font-weight: bold;
 }
+
 </style>
 </head>
 <body>
     
-   <h1>WelCome To LikeMyShow</h1>
-     
-      
-    <form action="login" method="get">
- 
-    <div class="login"> 
-       <h2>Login Page</h2>
-          <label for ="Email">Email ID</label><br>    
-          <input type="email" name="Email" id="Email" placeholder="Email-Id" required><br><br>  
-
-          <label for="Password">Password</label><br>    
-          <input type="password" name="Pass" id="Pass" placeholder="Password" required><br><br> 
-
-          <button type="submit" class="button1">Submit</button>
-       
-          <a href= "forgetPassword.jsp">Forgot password</a><br>
+         <h1>WelCome To LikeMyShow</h1>
+    
+         <form action="login" method="get">
+         <div class="login"> 
+         <h2>Login Page</h2>
+         <label for ="Email">Email ID</label><br>    
+         <input type="email" name="Email" id="Email" placeholder="Email-Id" required><br><br>  
+         <label for="Password">Password</label><br>    
+         <input type="password" name="Pass" id="Pass" placeholder="Password" required><br><br> 
+         <button type="submit" class="button1">Submit</button>
+         <a href= "forgetPassword.jsp">Forgot password</a><br>
+         <p>Create new account<a href="Register.jsp">Sign up?</a></p>
           
           
-     <p>Create new account<a href="Register.jsp">Sign up?</a></p>
+</div>
           
-          
-      </div>
-          
-          
-     
-          
-       </form> 
+</form> 
 </body>
 </html>

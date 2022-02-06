@@ -58,31 +58,20 @@ p {
 </head>
 <body>
 
-     <marquee class="mar">Please Enter the Valid Booking ID</marquee>
-     
-     <div class="ones"><button><a href="ShowServlet"  class="btn btn-primary">Back</a></button></div>
-     
-     <div class="one">
-    <form action="CancelMovieServlet" method="post">
-
- 
-      <h1>Cancel Ticket</h1>
+    
+         <div class="ones"><a href="ShowServlet"  class="btn btn-primary"><button>Back</button></a></div>
+         <div class="one">
+         <form action="CancelMovieServlet" method="post">
+         <h1>Cancel Ticket</h1>
   
-    <label> Enter Booking ID:</label><br><br>
-    <input type="text" name="cancel" id="cancel" required><br><br>
-    <label> Enter Booking Status:</label><br><br>
-    <input type="text" name="status" id="status" required><br><br>
-    
-    <button type="submit"  class="btn btn-primary">Cancel Ticket</a></button><br><br>
-    
-    <p>Note:Booking Status Will Be <br> Enter Cancelled.</p>
-    
-    </div>
-    
-    
-                     
-                                           
-    </form>
-    
+         <label> Enter Booking ID:</label><br><br>
+         <input type="text" name="cancel" id="cancel" required><br><br>
+         <label> Enter Booking Status:</label><br><br>
+         <input type="text" name="status" id="status" required><br><br>    
+         <button type="submit"  class="btn btn-primary">Cancel Ticket</a></button><br><br>  
+         <p>Note:Booking Status Will Be <br> Enter Cancelled.</p>
+                                              
+ </form>
+ </div>   
 </body>
 </html>

@@ -75,9 +75,9 @@ p a{
 
         <label for="Gender">Gender</label><br>
         <input type="radio" name="gender" value="male"><label for="" class="radio">Male</label><br>
-       <input type="radio" id="fe" name="gender" class="radio" value="female">  <label class="radio">Female</label><br>
-       <input type="radio" id="ot" class="radio" name="gender" value="other">   <label class="radio" for="">Others</label> 
-       <br>     
+        <input type="radio" id="fe" name="gender" class="radio" value="female">  <label class="radio">Female</label><br>
+        <input type="radio" id="ot" class="radio" name="gender" value="other">   <label class="radio" for="">Others</label> 
+        <br>     
     
            
         <label for ="Email">Email Id</label><br>    
@@ -88,10 +88,10 @@ p a{
 
         <label for="Password">Password</label><br>  
         <input type="password" class="text" name="Pass" id="Pass" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&?/*$^]).{8,16}$"
-            title="Minimum 8 characters should be there.There should be atleast one numeric,special character,capital letter and small letter." placeholder="Enter your password" minlength="8" maxlength="16" required><br><br> 
+         title="Minimum 8 characters should be there.There should be atleast one numeric,special character,capital letter and small letter." placeholder="Enter your password" minlength="8" maxlength="16" required><br><br> 
 
          
-        <button class="button1">Register</button>      
+         <button class="button1">Register</button>      
          <button class="button1">Reset</button>
          <p>Already have a account? <a href="login.jsp">Login page</button></a></p>
     </form> 

@@ -96,87 +96,52 @@ input[type :number] {
 </head>
 <body>
 
-	<ul>
-
-
-		<div class="top">
+<ul>
+               
 			<li><a class="active" href="Show.jsp">Home</a></li>
 			<li><a href="News.jsp">News</a></li>
 			<li><a href="UserProfile.jsp">Profile</a></li>
-			<li><a href="Wallet.jsp">Recharge Wallet</a></li>
+			<li><a href="Wallet.jsp">ReCharge Wallet</a></li>
 			<li><a href="MyBooking.jsp">MyBooking</a></li>
 			<li><a href="CancelBooking.jsp">Cancel Booking</a></li>
-		</div>
-
-		<div class="log">
-
-			<li><a href="login.jsp">Logout</a></li>
-		</div>
-
-
+	       <li><a href="login.jsp" class="log">Logout</a></li>
+	       
 </ul>
-</style>
+
 </head>
 <body>
 
-           <%String errorMessage = (String)request.getAttribute("errorMessage");
+         <%String errorMessage = (String)request.getAttribute("errorMessage");
          if(errorMessage !=null)
          {%>
-<center><font color="green" style="font:bold; size:30"><%=errorMessage%></font></center>
-<%}%>
+         <center><font color="green" style="font:bold; size:30"><%=errorMessage%></font></center>
+         <%}%>
 
-  <div class="one">
-       <c:set var="count" value="1"/>
-                                         
-       <c:forEach items="${bookinglist}" var="usersList">
-     
-      <table>
-          <h1>Booking Details</h1>
-   
-      <tr>
-      <td>
+        
+         <c:set var="count" value="1"/>
+         <c:forEach items="${bookinglist}" var="usersList">
+          <div class="one">
+         <h1>Booking Details</h1>
+         <table>
+       
+ <tr>
+ <td>
 	
-      
-  
+         Booking ID: ${usersList.bookingid }<br> 
+         User Id: ${usersList.userid }<br>  
+         Movie name:${usersList.moviename }<br> 
+         Number of Seats: ${Seats}<br>
+         <fmt:parseDate value="${movietime}" pattern="yyyy-MM-dd'T'HH:mm" var="moviedatetime" type="date" />
+         MovieDateandtime:<fmt:formatDate pattern="dd-MM-yyyy HH:mm" value="${moviedatetime}"/><br>     
+         Total Price : ${totalprice } rs<br>  
 
-       Booking ID: ${usersList.bookingid }<br> 
-       User Id: ${usersList.userid }<br>  
-       Movie name:${usersList.moviename }<br> 
-       Number of Seats: ${Seats}<br>
-       <fmt:parseDate value="${movietime}" pattern="yyyy-MM-dd'T'HH:mm" var="moviedatetime" type="date" />
-       <span> MovieDateandtime:<fmt:formatDate pattern="dd-MM-yyyy HH:mm" value="${moviedatetime}"/><br>
-     
-       Total Price : ${totalprice } rupees<br>
-     
-       
-       
-    
-      
-       
-     
-       
-      
-     
-      
-      
-      
-      
-       
-       
-       
-    
-   
-      
-      </div>
-
-       </c:forEach>
-
-      </td>
+</div>
+</c:forEach>
+</td>
 </tr>
 
-      </table>
-      
-      </div>
+</table>
+</div>
       
 </body>
 </html>

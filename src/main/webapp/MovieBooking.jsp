@@ -35,18 +35,16 @@ a {
 }
 </style>
 
-
-
 </head>
 <body>
-<% %>
+
        <div class="one">
-	<%String message=request.getParameter("message");
+	   ${ String message=request.getParameter("message");
        String url=request.getParameter("url");
-       %>
-       <h1 class="finish"><%=message %></h1>
-    <a href="<%=url%>"><button class="btn btn-dark">Retry</button></a>
+       }
+       <h1 class="finish"> "${ message }"</h1>
+       <a href="${url}"><button class="btn btn-dark">Retry</button></a>
     
-    </div>
+</div>
 </body>
 </html>

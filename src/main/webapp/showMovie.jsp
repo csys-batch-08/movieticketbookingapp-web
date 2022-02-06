@@ -4,8 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
+	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,8 +54,13 @@ span {
 	color: Block;
 	text-decoration: none;
 }
-.log{
-padding-left:500px; 
+.bt{
+left:300px;
+top:20px;
+}
+.log {
+
+	padding-left: 500px;
 }
 
 button {
@@ -118,7 +123,7 @@ li a {
 	display: block;
 	color: white;
 	text-align: center;
-	padding: 14px 16px;
+	padding: 14px 14px;
 	text-decoration: none;
 	font-size: 18px;
 }
@@ -150,122 +155,76 @@ body {
 table td {
 	padding-bottom: 120px;
 }
-h1{
-color: white;
+
+h1 {
+	color: white;
 }
+
 </style>
 </head>
 <body>
 
-                 <form action="SearchServlet" method="post">
-	<ul>
-	
-          
+	        <form action="SearchServlet" method="post">
+<ul>
 			<li><a class="active" href="Show.jsp">Home</a></li>
 			<li><a href="UserServlet">Profile</a></li>
-			<li><a href="wallet.jsp">Recharge Wallet</a></li>
+			<li><a href="wallet.jsp">ReCharge Wallet</a></li>
 			<li><a href="MybookingServlet">My Bookings</a></li>
-			
-			
-					
-					
-					
-
-						<li><input type="text" name="moviename" id="moviename" required> <input
-							type="submit" class="btn btn-primary" value="Search" required></li>
-			
-				
-		
-			
-	        <li><a href="about Us.jsp" class="log">About Us</a></li>
-
-		
-
-	
-
+			<li><input type="text" name="moviename" id="moviename" required>
+		    <input type="submit" class="btn btn-primary" value="Search" class="bt"required></li>
+			<li><a href="about Us.jsp" class="log">About Us</a></li>
 			<li><a href="contact Us.jsp">Contact Us</a></li>
-	
-
-		
-
 			<li><a href="login.jsp">Logout</a></li>
-
-	</ul>
-		</form>
-            	<h1>Movie List</h1>
-	<table>
-	<caption></caption>
-		<tbody>
-			
-			<tr >
-
-
-
+</ul>
+</form>
+	        <h1>Movie List</h1>
+	        <table>
+		    <caption></caption>
+		    <tbody>
+            <tr>
 			
 
-				
+            <c:set var="count" value="1" />
+            <c:forEach items="${Movielist}" var="MovieList">
+<td>
+			<table id="movietable">
+			<tbody>
 			<tr>
-			
-				
-					<c:set var="count" value="1" />
 
-					<c:forEach items="${Movielist}" var="MovieList">
+			<td><img src="images/${MovieList.getImages()}" width=250px height=250px alt="img"></td>
+			<td class="movie"><span id="movie name">Movie Name:	${MovieList.getMoviename() }
+			</span><br> <span>Movie Type: ${MovieList.getMovietype() } </span><br> 
+			<span>Movie Ratings:${MovieList.getMovieratings() } </span><br>
+			<span>Movie Duration:${MovieList.getMovieduration()}Hours</span><br>
+		    <span>Director:${MovieList.getDirector() }</span><br>
+		    <span>Music Director:${MovieList.getMusicdirector() }</span><br> 
+			<span>Hero Name:${MovieList.getHeroname() }</span><br> 
+			<input type="text"value=${MovieList.getMovielink() } name="movlink"class="movieid">
+			 <a
+			href="Moviedetails?mvname=${MovieList.getMoviename()}&movlink=${MovieList.getMovielink()}"><button>Theater</button></a>
 
-						<td>
-							<table id="movietable">
-								<tbody>
-
-									<tr>
-
-										<td><img src="images/${MovieList.getImages()}"
-											width=250px height=250px alt="img"></td>
-
-                                             
-                                          
-                                           
-										<td class="movie"><span id="movie name">Movie
-												Name: ${MovieList.getMoviename() } </span><br> <span>Movie
-												type: ${MovieList.getMovietype() } </span><br> <span>Movie
-												Ratings:${MovieList.getMovieratings() } </span><br> <span>Movie
-												Duration:${MovieList.getMovieduration()}Hours</span><br> <span>
-												Director:${MovieList.getDirector() }</span><br> <span>Music
-												Director:${MovieList.getMusicdirector() }</span><br> <span>Hero
-												Name:${MovieList.getHeroname() }</span><br> <input type="text"
-											value=${MovieList.getMovielink() } name="movlink"
-											class="movieid">
-										
-												
-                                <a  href="Moviedetails?mvname=${MovieList.getMoviename()}&movlink=${MovieList.getMovielink()}"
-													class="btn btn-primary"><button>Theatre</button></a>                 
-										
-									
-
-											
-											
-										</td>
-									</tr>
-								</tbody>
-							</table>
-
-						</td>
-						<c:choose>
-
-							<c:when test="${count==3}">
-								<c:set var="count" value="1" />
+			</td>
+			</tr>
+			</tbody>
+			</table>
+            </td>
+			<c:choose>
+            <c:when test="${count==3}">
+			<c:set var="count" value="1" />
 			</tr>
 			<tr>
-				</c:when>
-				<c:otherwise>
-					<c:set var="count" value="${count+1}" />
-				</c:otherwise>
-				</c:choose>
-				</c:forEach>
+			</c:when>
+			<c:otherwise>
+			<c:set var="count" value="${count+1}" />
+			</c:otherwise>
+			</c:choose>
+			</c:forEach>
 
 			</tr>
-		</tbody>
-	</table>
+		    </tbody>
+	        </table>
 
-	<link rel="stylesheet"
+	   <link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 

@@ -47,7 +47,7 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -93,7 +93,7 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -133,7 +133,7 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -185,7 +185,7 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -236,7 +236,7 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -282,7 +282,7 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -331,7 +331,7 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -391,7 +391,7 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {

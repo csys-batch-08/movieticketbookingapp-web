@@ -41,7 +41,7 @@ h2 {
 table{
 border-style: solid;
 border-color:silver;
-margin-left: 270px;
+margin-left: 220px;
 padding:18px 18px;
 background-color: rgba(0,0,0, 0.7);
 }
@@ -106,7 +106,6 @@ padding-bottom: 10px;
 
 <tr>
 
-
 <td>${count}</td>
 
 <td>${BookingList.bookingid}</td>
@@ -114,25 +113,21 @@ padding-bottom: 10px;
 <td> ${BookingList.noseat }</td>
 <td> ${BookingList.totalamount }</td>
 <td>${BookingList.bookingstatus }</td>
- <td>${BookingList.getMoviename() }</td>
+<td>${BookingList.getMoviename() }</td>
 <td><fmt:parseDate value="${BookingList.bookingdate}" pattern="yyyy-MM-dd" var="bookingdate" type="date" />
 <fmt:formatDate pattern="dd-MM-yyyy" value="${bookingdate}"/></td>
 <td><fmt:parseDate value="${movietime}" pattern="yyyy-MM-dd'T'HH:mm" var="moviedatetime" type="date" />
 <fmt:formatDate pattern="dd-MM-yyyy HH:mm" value="${moviedatetime}"/></td>
-
-<td><a href="bookcancel?bookingid=${BookingList.bookingid}"><button type="submit">Cancel</button></a></td>                                 
-    <c:set var="price" value="${BookingList.totalamount}" scope="session" /> 
-	 <c:set var="seat" value="${BookingList.noseat}" scope="session" /> 	
-	 <c:set var="Theatreidd" value="${BookingList.theatreid}" scope="session" /> 
+<td><a href="bookcancel?bookingid=${BookingList.bookingid}"><button type="submit">Cancel Ticket</button></a></td>                                 
+<c:set var="price" value="${BookingList.totalamount}" scope="session" /> 
+<c:set var="seat" value="${BookingList.noseat}" scope="session" /> 	
+<c:set var="Theatreidd" value="${BookingList.theatreid}" scope="session" /> 
        			 
 </c:forEach>
-
-
 </tbody>
-          </table>
-
-
+</table>
 </div><br><br>
         
- </body>                               
+
+</body>                               
 </html>

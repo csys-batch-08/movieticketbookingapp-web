@@ -16,8 +16,6 @@ import com.movieticketbookingmodel.Theatreinformation;
 
 public class TheatreDaoImpl {
 	private static final PreparedStatement Pstmt = null;
-	private static final Logger logger = LoggerFactory.getLogger(TheatreDaoImpl.class);
-
 	/*
 	 * Insert Theater
 	 */
@@ -40,14 +38,14 @@ public class TheatreDaoImpl {
 
 			int i = statement.executeUpdate();
 
-		//	logger.info(i + "rows inserted successfully");
+		
 
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
 		} catch (SQLException e) {
+			  e.getMessage();
 
-			e.printStackTrace();
 		} finally {
 			if (statement != null) {
 				try {
@@ -100,7 +98,7 @@ public class TheatreDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -165,7 +163,7 @@ public class TheatreDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -219,7 +217,7 @@ public class TheatreDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -255,7 +253,7 @@ public class TheatreDaoImpl {
 			int i = statement.executeUpdate();
 			
 		} catch (Exception e) {
-			
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -299,7 +297,7 @@ public class TheatreDaoImpl {
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -339,7 +337,7 @@ public class TheatreDaoImpl {
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -380,7 +378,7 @@ public class TheatreDaoImpl {
 
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -433,7 +431,7 @@ public class TheatreDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -489,7 +487,7 @@ public class TheatreDaoImpl {
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {

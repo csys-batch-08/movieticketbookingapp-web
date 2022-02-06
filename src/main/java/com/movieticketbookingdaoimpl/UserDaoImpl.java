@@ -35,8 +35,8 @@ public class UserDaoImpl {
 
 			e.printStackTrace();
 		} catch (SQLException e) {
-
-			e.printStackTrace();
+           e.getMessage();
+           
 		} finally {
 			if (statement != null) {
 				try {
@@ -83,7 +83,7 @@ public class UserDaoImpl {
 
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -219,7 +219,7 @@ public class UserDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 
 		finally {
@@ -255,8 +255,7 @@ public class UserDaoImpl {
 			resultset = statement.executeQuery();
 			while (resultset.next()) {
 
-				System.out.println("Updated");
-				User user = new User(resultset.getString(3), resultset.getString(5));
+	        User user = new User(resultset.getString(3), resultset.getString(5));
 				return user;
 
 			}
@@ -265,7 +264,7 @@ public class UserDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -293,45 +292,7 @@ public class UserDaoImpl {
 		}
 		return null;
 	}
-/*
- Delete User
- */
-	public void deleteUser2(User user3) {
-		
-		Connection con = null;
-		PreparedStatement statement = null;
-		try {
-			con = Connectionutil.DBConnection();
-			String deleteQuery = "delete from user_details where user_name=?";
-			statement = con.prepareStatement(deleteQuery);
-			statement.setString(1, user3.getUsername());
-			int rs = statement.executeUpdate();
 
-		} catch (ClassNotFoundException e) {
-
-			e.printStackTrace();
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-
-					e.printStackTrace();
-				}
-			}
-
-		}
-	}
 
 /*
   get wallet:
@@ -340,21 +301,21 @@ public class UserDaoImpl {
 		String query = "update user_details set wallet=wallet - ? where user_id = ?";
 		Connection con = null;
 		PreparedStatement statement = null;
-
+        int i=0;
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
 			statement.setInt(1, user.getwallet());
 			statement.setInt(2, user.getUserid());
-			int i = statement.executeUpdate();
-			System.out.println("wallet reduce");
+			 i = statement.executeUpdate();
+			
 
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -387,7 +348,6 @@ public class UserDaoImpl {
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
-			System.out.println("vdnkvgvdhjvdgfdgsjvcdsghdcv come insideee");
 			statement.setInt(1, totalprice);
 			statement.setInt(2, userid);
 			int i = statement.executeUpdate();
@@ -399,9 +359,27 @@ public class UserDaoImpl {
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} 
+	   finally {
+		if (statement != null) {
+			try {
+				statement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if (con != null) {
+			try {
+				con.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+		}}
+
 	}
+
 	
 /*
  * update wallet:
@@ -428,8 +406,27 @@ public class UserDaoImpl {
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} 
+		 finally {
+				if (statement != null) {
+					try {
+						statement.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				if (con != null) {
+					try {
+						con.close();
+					} catch (SQLException e) {
+
+						e.printStackTrace();
+					}
+				}
+
+		 }
+
 		return -1;
 	}
 
@@ -455,7 +452,7 @@ public class UserDaoImpl {
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -489,7 +486,7 @@ public class UserDaoImpl {
  */
 	public List<User> showUser()  {
 
-		List<User> userList = new ArrayList<User>();
+		List<User> userList = new ArrayList<>();
 		User userproducts = null;
 		Connection con = null;
 		Statement statement = null;
@@ -513,7 +510,7 @@ public class UserDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		}
 		finally {
 			if (statement != null) {
@@ -565,7 +562,7 @@ public class UserDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -625,7 +622,7 @@ public class UserDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {

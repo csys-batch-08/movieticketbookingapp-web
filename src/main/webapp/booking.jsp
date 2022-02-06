@@ -41,8 +41,8 @@ html, body {
 	color: white;
 }
 .cancel{
-margin-top:-10px;
-margin-right:20px;
+    margin-top:-10px;
+    margin-right:20px;
 
 }
 
@@ -53,9 +53,9 @@ margin-right:20px;
 	top: -50px;
 }
 .balance{
-margin-left:-230px; 
-margin-top:10px;
-color:blue;
+   margin-left:-230px; 
+   margin-top:10px;
+   color:blue;
 }
 .five {
 	position: relative;
@@ -123,53 +123,40 @@ input[type :number] {
 </head>
 <body> 
 
-          <ul>
-
-          <div class="top">
-     
+<ul>    
                <li><a class="active" href="ShowServlet">Home</a></li>
                <li><a href="UserServlet">Profile</a></li>
-               <li><a href="wallet.jsp">Recharge Wallet</a></li>
+               <li><a href="wallet.jsp">ReCharge Wallet</a></li>
                <li><a href="ShowServlet">Movie List</a></li>
-               <li><a href="cancelBooking.jsp">Cancel Booking</a></li>
-         </div>
-   
-         <div class="log">
-   
-               <li><a href="login.jsp">Logout</a></li>
-               
-       
-      </div>
-    
-     </ul>
-<%String errorMessage = (String)request.getAttribute("errorMessage");
-         if(errorMessage !=null)
-         {%>
-<center><font color="red" style="font:bold; size:20"><%=errorMessage%></font></center>
-<%}%>
+               <li><a href="MybookingServlet">My Booking</a></li>  
+               <li><a href="login.jsp" class="log">Logout</a></li>    
+</ul>
+              <%String errorMessage = (String)request.getAttribute("errorMessage");
+              if(errorMessage !=null)
+              {%>
+              <center><font color="red" style="font:bold; size:20"><%=errorMessage%></font></center>
+              <%}%>
      
-
-
-                                  <div class="five">
-                                  <c:set var="count" value="1"/>
-                                  <c:forEach items="${BookListObj}" var="BookList">   
+             <div class="five">
+             <c:set var="count" value="1"/>
+             <c:forEach items="${BookListObj}" var="BookList">   
            
-        <div class="balance">
-        <h1>Wallet Balance:${WalletAmount} Rs</h1>  
-         </div>                   
-           <marquee>Book Your Ticket Like Myshow</marquee>
+             <div class="balance">
+             <h1>Wallet Balance:${WalletAmount} Rs</h1>  
+             </div>                   
+            
           
               <div class="one">
               
-               <span style="visibility:hidden "> Movie id :<input type="text" name="theatre" value=" ${BookList.movieid }"><br><br></span>
-               <span style="visibility:hidden ">  Theatre id:<input type="text" name="movie" value="${BookList.theatreid } "><br></span>
-               <span style="visibility:hidden "> Movie date:<input type="text" name="theatre" value=" ${BookList.moviedatetime }"><br></span>
+              <span style="visibility:hidden "> Movie id :<input type="text" name="theatre" value=" ${BookList.movieid }"><br><br></span>
+              <span style="visibility:hidden ">  Theater id:<input type="text" name="movie" value="${BookList.theatreid } "><br></span>
+              <span style="visibility:hidden "> Movie date:<input type="text" name="theatre" value=" ${BookList.moviedatetime }"><br></span>
                  
-             <p> Theatre Details</p><br>
+              <p> Theater Details</p><br>
             
-              <label> Theatre name:</label><br>
+              <label> Theater name:</label><br>
               <input type="text" name="movie" value="${BookList.theatrename }" readonly="readonly"><br><br>
-              <label for ="Movie Id">Total Seat In Theatre:</label><br>
+              <label for ="Movie Id">Total Seat In Theater:</label><br>
               <input type="text" name="Movie" id="Movie" value=100 readonly="readonly" ><br><br>
               <label> Available Seats :</label><br>
               <input type="text" name="seat" value="${BookList.numberseats }" readonly="readonly"><br><br>
@@ -177,17 +164,14 @@ input[type :number] {
               <c:set var="movie" scope="session" value="${BookList.getMovieid() }" />
             
             
-        </c:forEach>
-       
-       
-        <form action="bookmov" method="post" >
-   
+         </c:forEach> 
+             
+        <form action="bookmov" method="post" >  
         <p>BooKing your Ticket<p>
      
-
         <label for ="Movie Id"> Movie Id:</label><br>
         <input type="number" name="Movie" id="Movie" value = "${movie}" readonly="readonly" ><br><br>
-        <label for ="Movie Theatre Id"> Theatre Id</label><br>
+        <label for ="Movie Theatre Id"> Theater Id</label><br>
         <input type="number" name="theatre" id="theatre" value= "${ theatres}" readonly="readonly"><br><br>
         <label for ="Number of seats">Choose number of seats</label><br>    
         <input type="Number" name="Seats" id="Seats" min="1"pattern="[1-150]+" required><br><br>
@@ -195,15 +179,9 @@ input[type :number] {
          
 </form>
            <div class="cancel">
-          <a href="ShowServlet"><button type="submit" class="btn btn-danger">Cancel</button></a>
-         
-          </div>
+           <a href="ShowServlet"><button type="submit" class="btn btn-danger">Cancel</button></a>       
+           </div>
         
-  
-  
-  
-  
-</div>
 </div>
 </body>
 </html>

@@ -41,15 +41,8 @@ body {
 </head>
 <body>
 
-                     <div class="one">
-     
-      
-  
-                     <h1><b> Movie</b></h1>
-
-                      
-                         
-                                         
+                     <div class="one">      
+                     <h1><b> Movie</b></h1>                                        
                     <c:forEach items="${moviename}" var="SearchList">
                                        
                     <tr>
@@ -61,11 +54,7 @@ body {
                     <td>Director:${SearchList.getDirector()}</td><br><br>
                     <td>Music Director:${SearchList.getMusicdirector() }</td><br><br>
                     <td>Hero Name:${SearchList.getHeroname() }</td><br><br>
-
-
-                    <td><button type = "submit"  value="theatre"> <a href="TheatreServlet">Theatre</button></a></td>
-   
-      
+                    <td><button type = "submit"  value="theatre"> <a href="TheatreServlet">Theatre</button></a></td>      
                     </tr>
 
                     </c:forEach>             

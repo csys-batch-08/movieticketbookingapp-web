@@ -65,28 +65,15 @@ padding-bottom: 10px;
 
 
 </style>
-
-
-
-
 </head>
 <body>
 
-                      <div class="color">
-
-                      <button><a href="adminHomepage.jsp"  class="btn btn-primary">Back</a></button>  
-
-                      </div>
-        
-
-
- 
-
-	
-	
-	
-                                    <h2 class="Userdetail">User Details</h2>
-                         <div class = "user">
+                     <div class="color">
+                     <a href="adminHomepage.jsp"  class="btn btn-primary"> <button>Back</button></a>  
+                     </div>	
+                     <h2 class="Userdetail">User Details</h2>
+                     <div class = "user">
+                     
 <table id="allusers">
 <caption></caption>
 <thead>
@@ -107,8 +94,6 @@ padding-bottom: 10px;
 <c:set var="count" value="${count+1}"/>
 
 <tr>
-
-
 <td>${count}</td>
 
 <td>${userList.userid} </td>
@@ -119,12 +104,8 @@ padding-bottom: 10px;
 
 
 </c:forEach>
-
-
 </tbody>
-          </table>
-
-
+</table>
 </div><br><br>  
         
                                  

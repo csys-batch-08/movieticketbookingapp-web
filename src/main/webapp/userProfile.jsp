@@ -8,6 +8,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
+
 <title>User Profile</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -59,12 +60,9 @@ h2 {
 
 
         
-          
-        
-      
-                                       <table border=0 >
+                                    <table border=0 >
                                        <tbody>
-                                       <tr>
+                                 
                                        <c:set var="count" value="1"/>
                                        <c:forEach items="${listproduct}" var="Bookinglist">
                
@@ -100,7 +98,7 @@ h2 {
                                            
                                          <div class="ones">
 
-                                         <button><a href="ShowServlet"  class="btn btn-primary">Back</a></button>  
+                                        <a href="ShowServlet"  class="btn btn-primary"><button>Back</button></a>  
 
                                          </div>
                                            
@@ -119,7 +117,7 @@ h2 {
                                      <c:set var="count" value="1"/>
                                      
                                  
-                    	             </tr>
+                    	           
                     	             <tr> 
                     	             </c:when>
                     	             <c:otherwise>

@@ -43,7 +43,8 @@ public class MovieDaoImpl {
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			  e.getMessage();
+
 		} finally {
 			if (statement != null) {
 				try {
@@ -94,7 +95,8 @@ public class MovieDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
+
 		} finally {
 			if (statement != null) {
 				try {
@@ -143,13 +145,14 @@ public class MovieDaoImpl {
 			statement.setInt(4, movie2.getMovieid());
 
 			int i = statement.executeUpdate();
-			System.out.println(i + "rows update successfully");
+			
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			  e.getMessage();
+
 		} finally {
 			if (statement != null) {
 				try {
@@ -191,7 +194,8 @@ public class MovieDaoImpl {
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			  e.getMessage();
+
 		} finally {
 			if (statement != null) {
 				try {
@@ -241,7 +245,8 @@ public class MovieDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
+
 		} finally {
 			if (statement != null) {
 				try {
@@ -290,7 +295,8 @@ public class MovieDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
+
 		}
 
 		return resultSet;
@@ -314,7 +320,8 @@ public class MovieDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			  e.getMessage();
+
 		} finally {
 			if (statement != null) {
 				try {

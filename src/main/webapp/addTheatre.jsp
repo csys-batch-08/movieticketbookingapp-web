@@ -115,28 +115,19 @@ body {
 <body>
 <ul>
   <li><a class="active" href="home">Home</a></li>
-  <li><a href="addTheatre.jsp">AddTheatre</a></li>
+  <li><a href="addTheatre.jsp">AddTheater</a></li>
   <li><a href="showMovie.jsp">ShowMovie</a>
   <li><a href="UserdetailHistory.jsp">UserList</a>
-  <li><a href="bookingHistory.jsp">BookingList</a>
-
-  
-   <div class="Log">
-  
-   <a href="login.jsp">Logout</a></li>
-  
-  </div>  
-  
+  <li><a href="bookingHistory.jsp">BookingList</a> 
+  <li><a href="login.jsp" class="log">Logout</a></li>
+    
 </ul>
-
- 
 </head>
-
 <body>
 
                       <div class="list">
 
-                      <button><a href="adminHomepage.jsp"  class="btn btn-primary">Back</a></button>  
+                     <a href="adminHomepage.jsp"  class="btn btn-primary"> <button>Back</button></a>  
 
                       </div>
         
@@ -144,19 +135,19 @@ body {
  
             
      <div class="ones1">
-    <h1>Add Theatre</h1>
+    <h1>Add Theater</h1>
     
     <form action="Addtheatre" method="post">
-    <label>Enter your Theatre Name:</label><br>
+    <label>Enter your Theater Name:</label><br>
     <input type="text" name="theatrename"><br><br>
     <label>Enter your movie Id:</label> <br>
     <input type="text" name="movieid"><br><br>
  
     <label>Enter your Number Seats:</label> <br>
     <input type="text" name="Numberseats"><br><br>
-    <label>Enter your Theatre Address:</label> <br>
+    <label>Enter your Theater Address:</label> <br>
     <input type="text" name="theatre Address"><br><br>
-    <label>Enter your Theatre Ratings:</label> <br>
+    <label>Enter your Theater Ratings:</label> <br>
     <input type="text" name="theatre Ratings"><br><br>
     <label>Enter your Movie date and time:</label> <br>
     <input type="datetime-local" name=" Movie date and time" id="datefield"><br><br>
@@ -164,7 +155,7 @@ body {
     <input type="Number" name="Price"><br><br>
     <label>Enter your Image:</label><br>
     <input type="file" name="images"><br><br>
-     <button type="submit">Add Theatre</button><br>
+     <button type="submit">Add Theater</button><br>
      
      
    </form>
@@ -173,26 +164,26 @@ body {
    
    <div class="one">
    
-    <h2>Update Theatre</h2>
+    <h2>Update Theater</h2>
 
      <form action="Updatetheatre1" method="post">
-    <label>Enter your Theatre Name:</label><br>
+    <label>Enter your Theater Name:</label><br>
     <input type="text" name="theatrename"><br><br>
     <label>Enter your Price:</label> <br>
     <input type="Number" name="Price"><br><br>
-     <label>Enter your Theatre Id:</label> <br>
+     <label>Enter your Theater Id:</label> <br>
     <input type="text" name="theatre Id"><br><br>
-     <button type="submit">Update Theatre</button><br>
+     <button type="submit">Update Theater</button><br>
     
     </form>
     </div>
     
     
     <div class="ones">
-    <h3>Delete Theatre</h3>
+    <h3>Delete Theater</h3>
     
     <form action="Deletetheatre4" method="post">
-    <label>Enter your Theatre Id:</label> <br>
+    <label>Enter your Theater Id:</label> <br>
     <input type="text" name="theatre Id"><br><br>
     <button type="submit">DeleteTheatre</button>
     </form>

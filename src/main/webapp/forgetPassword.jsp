@@ -57,36 +57,28 @@ body {
 </head>
 <body>
 
-	<marquee class="mar">
-		<p>Update Your Pssword</p>
-	</marquee>
+	             <marquee class="mar">
+		         <p>Update Your Password</p>
+	             </marquee>
+                 <div class="ones">
+                 <a href="login.jsp" class="btn btn-primary"><button>Back</button></a>
+		         </div>
+
+	             <div class="one">
+                 <p>
+			      Change your Password
+		         </p>
+		         <form action="Forget" method="post">
+			     <label>Enter your Email:</label><br> <input type="text"
+				 name="forget" id="forget"><br>
+			     <br> <label>Enter your new password:</label><br> <input
+				 type="text" name="password" id="password"><br>
+			     <br>
+			     <button type="submit" class="btn btn-primary">Submit</button>
+	
 
 
-
-	<div class="ones">
-
-		<button>
-			<a href="login.jsp" class="btn btn-primary">Back</a>
-		</button>
-
-	</div>
-
-	<div class="one">
-
-
-		<p>
-			<b>Change your Password</b>
-		</p>
-		<form action="Forget" method="post">
-			<label>Enter your Email:</label><br> <input type="text"
-				name="forget" id="forget"><br>
-			<br> <label>Enter your new password:</label><br> <input
-				type="text" name="password" id="password"><br>
-			<br>
-			<button type="submit" class="btn btn-primary">Submit</button>
-	</div>
-
-
-	</form>
+</form>
+</div>
 </body>
 </html>

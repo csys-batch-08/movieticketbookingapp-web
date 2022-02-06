@@ -107,34 +107,23 @@ body {
 }
 </style>
 </head>
-
 </body>
-
-
 <body>
 <ul>
+
   <li><a class="active" href="#home">Home</a></li>
   <li><a href="adminProfile.jsp">Profile</a></li>
   <li><a href="addTheatre.jsp">AddTheatre</a></li>
-   <li><a href="ShowServlet">ShowMovie</a>
+  <li><a href="ShowServlet">ShowMovie</a>
   <li><a href="UserHistoryServlet">UserList</a>
   <li><a href="BookingHistoryServlet">BookingList</a>
-       
-  <div class="Logs">
-  
-   <a href="login.jsp">Logout</a></li>
-  
-  </div>  
-  
- 
+  <li><a href="login.jsp" class="Logs">Logout</a></li>
+
 </ul>
-</style>
 </head>
 <body>
+<br>
 
-    
-
-    <br>
     <div class ="ones1">
     <h1>Add New Movies</h1>
     <form action="Addmovie" method="post">
@@ -142,9 +131,9 @@ body {
     <input type="text" name="movie name"><br><br>
     <label>Enter your movie id:</label><br>
     <input type="text" name="Move id"><br><br>
-     <label>Enter your movie type:</label><br>
+    <label>Enter your movie type:</label><br>
     <input type="text" name="Move type"><br><br>
-     <label>Enter your movie ratings:</label><br>
+    <label>Enter your movie ratings:</label><br>
     <input type="text" name="Move ratings"><br><br>
     <label>Enter your movie duration:</label><br>
     <input type="text" name="Move duration"><br><br>
@@ -179,9 +168,9 @@ body {
    
     
     <button type="submit" class="btn btn-primary">Update movie</button>
-      </div>
+     
     </form>
-  
+     </div>
     <div class="ones">
     <h3>Delete Movies</h3>
     
@@ -189,8 +178,8 @@ body {
     <label>Enter your movie id:</label><br>
     <input type="text" name="Move id"><br><br>
     <button type="submit" class="btn btn-primary">Delete movie</button>
-    </div>
-    </form>
-    
+  
+</form>
+</div>   
 </body>
 </html>

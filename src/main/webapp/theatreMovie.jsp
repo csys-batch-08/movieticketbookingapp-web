@@ -31,7 +31,7 @@ body {
 
 }
 .log{
-margin-left:1200px;
+margin-left:430px;
 }
 .contact {
 	position: absolute;
@@ -87,95 +87,56 @@ li a:hover:not(.active) {
 </head>
 </body>
 
+<ul>
 
-<body>
-	<ul>
-
-		<div class="top">
 			<li><a class="active" href="ShowServlet">Home</a></li>
 			<li><a href="UserServlet">Profile</a></li>
-			<li><a href="wallet.jsp">Recharge Wallet</a></li>
+			<li><a href="wallet.jsp">ReCharge Wallet</a></li>
 			<li><a href="ShowServlet">Movie List</a></li>
 			<li><a href="MybookingServlet">My Bookings</a></li>
-			
-
-			<div class="log">
-
-		<li><a href="login.jsp">Logout</a></li>
-
-			</div>
-			
-			<div class="contact">
-
-			<li><a href="about Us.jsp">About Us</a></li>
-
-		</div>
-
-		<div class="contacts">
-
+		    <li><a href="about Us.jsp">About Us</a></li>
 			<li><a href="contact Us.jsp">Contact Us</a></li>
-
-		</div>
-			
-	</ul>
-	</style>
-
+			<li><a href="login.jsp" class="log">Logout</a></li>			
+</ul>
+	
 </body>
 <body>
-
-
-
 <table>
 <tbody>
-                                 <tr>
-                                 <c:set var="count" value="1"/>
-                                 <c:forEach  items="${theatreListObj }" var="theatrelist">
-                               
-                                 <td>
-                                 <table id="theatretable">
-                                 <tbody>
-                                 <tr>
-                                   
-                                   
-                              
-                                     
-                             
-                                      
-                                         
-                                     <td class="movie">
-                                     			<div class="col">
-                                     
-                           <div class="card" style="width: 18rem;"> 
-                           
-                           <img src="images/${theatrelist.images }" 
-						      class="card-img-top" alt="..."><br>
-                            <p class="card-text">
-                              <span class="btn btn-success btn-sm">Theatre name: ${theatrelist.theatrename }</span></p>
+                 <tr>
+                 <c:set var="count" value="1"/>
+                 <c:forEach  items="${theatreListObj }" var="theatrelist">
+                 <td>
+                 <table id="theatretable">
+                 <tbody>
+                 <tr>
+                                       
+                 <td class="movie">
+                 <div class="col">
+                 <div class="card" style="width: 18rem;"> 
+                 <img src="images/${theatrelist.images }" class="card-img-top" alt="..."><br> 
+                 <p class="card-text">
+                 
+                              <span class="btn btn-success btn-sm">Theater name: ${theatrelist.theatrename }</span></p>
                               <%-- <span style="visibility:hidden"> Movie id: ${theatrelist.movieid }  </span>
-                              <span style="visibility:hidden"> Theatre id: ${theatrelist.theatreid }</button> </span>
+                              <span style="visibility:hidden"> Theater id: ${theatrelist.theatreid }</button> </span>
                                --%><span><button type="button" class="btn btn-light" name="Seats" >Available Number seats: ${theatrelist.numberseats } </button></span></p>
-                              <span><button type="button" class="btn btn-light">Theatre Address: ${theatrelist.theatreaddress }</button></span></p>
-                              <span><button type="button" class="btn btn-light">Theatre Ratings: ${theatrelist.theatrerating }</button></span></p>
+                              <span><button type="button" class="btn btn-light">Theater Address: ${theatrelist.theatreaddress }</button></span></p>
+                              <span><button type="button" class="btn btn-light">Theater Ratings: ${theatrelist.theatrerating }</button></span></p>
                               <span><button type="button" class="btn btn-light">price: ${theatrelist.price }</button></span>
                               <fmt:parseDate value="${theatrelist.moviedatetime}" pattern="yyyy-MM-dd'T'HH:mm" var="moviedatetime" type="date"/></p>
-                              <span><button type="button" class="btn btn-light">  Moviedatetime :<fmt:formatDate pattern="dd-MM-yyyy HH:mm" value="${moviedatetime}"/></button></span></p>
-
-   
+                              <span><button type="button" class="btn btn-light">  MovieDatetime :<fmt:formatDate pattern="dd-MM-yyyy HH:mm" value="${moviedatetime}"/></button></span></p>   
 </select>
 
-                                                 
-                            
-                            
-                            
-                            
+                                            
                              <c:set var="movietime"
 											value="${theatrelist.moviedatetime}" scope="session" /> 
 											<span><a href="BookingServlet?theatreid=${theatrelist.theatreid}" >
  						        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-                               <button type="button" class="btn btn-danger">Book Ticket</button>
-                                        
-                                  </div>  
-                                  </div> 
+                               <button type="button" class="btn btn-danger">Book Ticket</button></a></span>
+                                      
+                                </div>  
+                                </div> 
                                 </td>
                                 </tr>
                                 </tbody>
@@ -183,11 +144,9 @@ li a:hover:not(.active) {
                             
                                 </td>
                                 <c:choose>
-                                    
                                 <c:when test="${count==3}">
                                 <c:set var="count" value="1"/>
-                                     
-                                 
+                                   
                     	         </tr>
                     	         <tr> 
                     	         </c:when>
@@ -195,7 +154,7 @@ li a:hover:not(.active) {
                     	         <c:set var="count" value="${count+1}"/>
                     	         </c:otherwise>             
                                  </c:choose>
-                                 </c:forEach>                 
+                                 </c:forEach>               
                                    
                                 
                                   </tr> 
