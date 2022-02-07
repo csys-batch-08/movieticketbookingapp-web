@@ -127,26 +127,26 @@ body {
     <div class ="ones1">
     <h1>Add New Movies</h1>
     <form action="Addmovie" method="post">
-    <label>Enter your movie name:</label><br>
-    <input type="text" name="movie name"><br><br>
-    <label>Enter your movie id:</label><br>
-    <input type="text" name="Move id"><br><br>
-    <label>Enter your movie type:</label><br>
-    <input type="text" name="Move type"><br><br>
-    <label>Enter your movie ratings:</label><br>
-    <input type="text" name="Move ratings"><br><br>
-    <label>Enter your movie duration:</label><br>
-    <input type="text" name="Move duration"><br><br>
-    <label>Enter your Director:</label><br>
-    <input type="text" name="Director"><br><br>
-    <label>Enter your music director:</label><br>
-    <input type="text" name="Music director"><br><br>
-    <label>Enter your Hero name:</label><br>
-    <input type="text" name="Hero name"><br><br>
-    <label>Enter your Image:</label><br>
-    <input type="file" name="images"><br><br>
-     <label>Enter your Number:</label><br>
-    <input type="text" name="number"><br><br>
+    <label for="movie name">Enter your movie name:</label><br>
+    <input type="text" name="movie name" id="movie name"><br><br>
+    <label for="Move id">Enter your movie id:</label><br>
+    <input type="text" name="Move id" id="Move id"><br><br>
+    <label for="Move type">Enter your movie type:</label><br>
+    <input type="text" name="Move type" id="Move type"><br><br>
+    <label for="Move ratings">Enter your movie ratings:</label><br>
+    <input type="text" name="Move ratings" id="Move ratings"><br><br>
+    <label for="Move duration">Enter your movie duration:</label><br>
+    <input type="text" name="Move duration" id="Move duration"><br><br>
+    <label for="Director">Enter your Director:</label><br>
+    <input type="text" name="Director" id="Director"><br><br>
+    <label for="Music director">Enter your music director:</label><br>
+    <input type="text" name="Music director" id="Music director"><br><br>
+    <label for="Hero name">Enter your Hero name:</label><br>
+    <input type="text" name="Hero name" id="Hero name"><br><br>
+    <label- for="images">Enter your Image:</label><br>
+    <input type="file" name="images" id="images"><br><br>
+     <label for="number">Enter your Number:</label><br>
+    <input type="text" name="number" id="number"><br><br>
     
     <button type="submit" class="btn btn-primary" >Add movie</button>
     
@@ -157,14 +157,14 @@ body {
    <h2>Update Movies</h2>
    
     <form action="updateMovie" method="post">
-    <label>Enter your movie name:</label><br>
-    <input type="text" name="movie name"><br><br>
-     <label>Enter your movie type:</label><br>
-    <input type="text" name="Move type"><br><br>
-    <label>Enter your movie duration:</label><br>
-     <input type="text" name="Move duration"><br><br>
-    <label>Enter your movie id:</label><br>
-    <input type="text" name="Move id"><br><br>
+    <label for="movie name">Enter your movie name:</label><br>
+    <input type="text" name="movie name" id="movie name"><br><br>
+     <label for="Move type">Enter your movie type:</label><br>
+    <input type="text" name="Move type" id="Move type"><br><br>
+    <label for="Move duration">Enter your movie duration:</label><br>
+     <input type="text" name="Move duration" id="Move duration"><br><br>
+    <label for="Move id">Enter your movie id:</label><br>
+    <input type="text" name="Move id" id="Move id"><br><br>
    
     
     <button type="submit" class="btn btn-primary">Update movie</button>
@@ -175,8 +175,8 @@ body {
     <h3>Delete Movies</h3>
     
     <form action="DeleteMovie1"  method="post">
-    <label>Enter your movie id:</label><br>
-    <input type="text" name="Move id"><br><br>
+    <label for="Move id">Enter your movie id:</label><br>
+    <input type="text" name="Move id" id="Move id"><br><br>
     <button type="submit" class="btn btn-primary">Delete movie</button>
   
 </form>

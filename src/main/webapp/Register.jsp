@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-<html lang="en">
+
 <meta charset="ISO-8859-1">
 <title>Register</title>
 <style>
@@ -70,7 +70,7 @@ p a{
 <form action="registerpage" method="post">
         <h1>Register page</h1> 
        
-        <label for ="User Name">Username</label><br>   
+        <label for ="User">Username</label><br>   
         <input type="text" class="text" name="User" id="User" placeholder="Username" pattern="[A-Za-z]{3,}"title="minimum 3 characters should be there"><br><br>  
 
         <label for="Gender">Gender</label><br>
@@ -83,10 +83,10 @@ p a{
         <label for ="Email">Email Id</label><br>    
         <input type="text" class="text" name="Email" id="Email" pattern="[a-z0-9]+[@][a-zA-Z]+[.][a-z]+" title="You have to insert @ and . in the username ex.abc@gmail.com" placeholder="Enter your email" onkeydown="validation()"required> <br><br>  
 
-        <label for="Mobilenumber">Mobile number</label><br>  
+        <label for="number">Mobile number</label><br>  
         <input type="number" class="text" name="number" id="number" pattern="[6-9]{1}[0-9]{9}" placeholder="Enter your number"minlength="10" maxlength="10" ><br><br> 
 
-        <label for="Password">Password</label><br>  
+        <label for="Pass">Password</label><br>  
         <input type="password" class="text" name="Pass" id="Pass" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&?/*$^]).{8,16}$"
          title="Minimum 8 characters should be there.There should be atleast one numeric,special character,capital letter and small letter." placeholder="Enter your password" minlength="8" maxlength="16" required><br><br> 
 

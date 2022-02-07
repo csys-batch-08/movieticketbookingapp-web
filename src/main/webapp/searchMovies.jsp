@@ -42,19 +42,19 @@ body {
 <body>
 
                      <div class="one">      
-                     <h1><b> Movie</b></h1>                                        
+                     <h1> Movie</h1>                                        
                     <c:forEach items="${moviename}" var="SearchList">
                                        
                     <tr>
-                    <td><img src="images/${SearchList.getImages()}" width=300px alt="img"></td><br><br><br>
+                    <td><img src="images/${SearchList.getImages()}" width=300px alt="img"><br><br><br></td>
 
-                    <td>Movie Name: ${SearchList.getMoviename()}</td><br><br>
-                    <td>Movie Type:${SearchList.getMovietype()}</td><br><br>
-                    <td>Movie Duration:${SearchList.getMovieduration()}</td><br><br>
-                    <td>Director:${SearchList.getDirector()}</td><br><br>
-                    <td>Music Director:${SearchList.getMusicdirector() }</td><br><br>
-                    <td>Hero Name:${SearchList.getHeroname() }</td><br><br>
-                    <td><button type = "submit"  value="theatre"> <a href="TheatreServlet">Theatre</button></a></td>      
+                    <td>Movie Name: ${SearchList.getMoviename()}<br><br></td>
+                    <td>Movie Type:${SearchList.getMovietype()}<br><br></td>
+                    <td>Movie Duration:${SearchList.getMovieduration()}<br><br></td>
+                    <td>Director:${SearchList.getDirector()}<br><br></td>
+                    <td>Music Director:${SearchList.getMusicdirector() }<br><br></td>
+                    <td>Hero Name:${SearchList.getHeroname() }<br><br></td>
+                    <td> <a href="TheatreServlet"><button type = "submit"  value="theatre">Theatre</button></a></td>      
                     </tr>
 
                     </c:forEach>             

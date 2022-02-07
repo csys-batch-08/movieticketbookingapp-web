@@ -16,7 +16,7 @@
         <input type="text" name="Email" id="Email" placeholder="Email-Id" required><br><br>  
 
         <label for="Password">Password</label><br>    
-        <input type="Password" name="Pass" id="Pass" placeholder="Password" required><br><br> 
+        <input type="Password" name="Password" id="Password" placeholder="Password" required><br><br> 
 
        <button type="submit">Submit</button>
        </form> 

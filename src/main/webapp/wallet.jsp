@@ -118,8 +118,8 @@ session.removeAttribute("lowbal");
      <h1>Wallet Update</h1>
      
      <form action="WalletAmountServlet" method="post">
-      <label> Enter your Amount:</label><br>
-     <input type="number" name="amount" id="number" min = "1" pattern="[1-9]+" ><br><br>
+      <label for="number"> Enter your Amount:</label><br>
+     <input type="number" name="number" id="number" min = "1" pattern="[1-9]+" ><br><br>
     
     <button type="submit"  class="btn btn-primary">Wallet Recharge</button><br><br>
      <p> Note:Wallet Amount Check Your Profile</p>

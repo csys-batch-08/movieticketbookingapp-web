@@ -63,9 +63,9 @@ body {
 			      Change your Password
 		         </p>
 		         <form action="Forget" method="post">
-			     <label>Enter your Email:</label><br> <input type="text"
+			     <label for="forget">Enter your Email:</label><br> <input type="text"
 				 name="forget" id="forget"><br>
-			     <br> <label>Enter your new password:</label><br> <input
+			     <br> <label for="password">Enter your new password:</label><br> <input
 				 type="text" name="password" id="password"><br>
 			     <br>
 			     <button type="submit" class="btn btn-primary">Submit</button>

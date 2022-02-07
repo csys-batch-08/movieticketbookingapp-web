@@ -93,7 +93,7 @@ p a{
          <label for ="Email">Email ID</label><br>    
          <input type="email" name="Email" id="Email" placeholder="Email-Id" required><br><br>  
          <label for="Password">Password</label><br>    
-         <input type="password" name="Pass" id="Pass" placeholder="Password" required><br><br> 
+         <input type="password" name="password" id="password" placeholder="Password" required><br><br> 
          <button type="submit" class="button1">Submit</button>
          <a href= "forgetPassword.jsp">Forgot password</a><br>
          <p>Create new account<a href="Register.jsp">Sign up?</a></p>

@@ -241,7 +241,7 @@ public class UserDaoImpl {
 		}
 	}
 
-	public User updateUser1(User user2) {
+	public User updateUser1(User User) {
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet resultset = null;
@@ -250,8 +250,8 @@ public class UserDaoImpl {
 			con = Connectionutil.DBConnection();
 			String updateQuery = "update user_details set e_password=? where email_id=?";
 			statement = con.prepareStatement(updateQuery);
-			statement.setString(2, user2.getEmailid());
-			statement.setString(1, user2.getEpassword());
+			statement.setString(2, User.getEmailid());
+			statement.setString(1, User.getEpassword());
 			resultset = statement.executeQuery();
 			while (resultset.next()) {
 

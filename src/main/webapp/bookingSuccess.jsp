@@ -114,7 +114,7 @@ input[type :number] {
          <%String errorMessage = (String)request.getAttribute("errorMessage");
          if(errorMessage !=null)
          {%>
-         <center><font color="green" style="font:bold; size:30"><%=errorMessage%></font></center>
+         <font color="green" style="font:bold; size:30"><%=errorMessage%></font>
          <%}%>
 
          <div class="one">
@@ -123,7 +123,7 @@ input[type :number] {
          
          <h1>Booking Details</h1>
          <table>
-       
+          <caption></caption> 
  <tr>
  <td>
 	

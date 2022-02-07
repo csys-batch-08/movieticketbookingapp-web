@@ -138,23 +138,23 @@ body {
     <h1>Add Theater</h1>
     
     <form action="Addtheatre" method="post">
-    <label>Enter your Theater Name:</label><br>
-    <input type="text" name="theatrename"><br><br>
-    <label>Enter your movie Id:</label> <br>
-    <input type="text" name="movieid"><br><br>
+    <label for="theatrename">Enter your Theater Name:</label><br>
+    <input type="text" name="theatrename" id="theatrename"><br><br>
+    <label for="movieid">Enter your movie Id:</label> <br>
+    <input type="text" name="movieid" id="movieid"><br><br>
  
-    <label>Enter your Number Seats:</label> <br>
-    <input type="text" name="Numberseats"><br><br>
-    <label>Enter your Theater Address:</label> <br>
-    <input type="text" name="theatre Address"><br><br>
-    <label>Enter your Theater Ratings:</label> <br>
-    <input type="text" name="theatre Ratings"><br><br>
-    <label>Enter your Movie date and time:</label> <br>
+    <label for="Numberseats">Enter your Number Seats:</label> <br>
+    <input type="text" name="Numberseats" id="Numberseats"><br><br>
+    <label for="theatre Address">Enter your Theater Address:</label> <br>
+    <input type="text" name="theatre Address" id="theatre Address"><br><br>
+    <label for="theatre Ratings">Enter your Theater Ratings:</label> <br>
+    <input type="text" name="theatre Ratings" id="theatre Ratings"><br><br>
+    <label for=" Movie date and time">Enter your Movie date and time:</label> <br>
     <input type="datetime-local" name=" Movie date and time" id="datefield"><br><br>
-    <label>Enter your Price:</label> <br>
-    <input type="Number" name="Price"><br><br>
-    <label>Enter your Image:</label><br>
-    <input type="file" name="images"><br><br>
+    <label for="Price">Enter your Price:</label> <br>
+    <input type="Number" name="Price" id="Price"><br><br>
+    <label for="images">Enter your Image:</label><br>
+    <input type="file" name="images" id="images"><br><br>
      <button type="submit">Add Theater</button><br>
      
      
@@ -167,12 +167,12 @@ body {
     <h2>Update Theater</h2>
 
      <form action="Updatetheatre1" method="post">
-    <label>Enter your Theater Name:</label><br>
-    <input type="text" name="theatrename"><br><br>
-    <label>Enter your Price:</label> <br>
-    <input type="Number" name="Price"><br><br>
-     <label>Enter your Theater Id:</label> <br>
-    <input type="text" name="theatre Id"><br><br>
+    <label for="theatrename">Enter your Theater Name:</label><br>
+    <input type="text" name="theatrename" id="theatrename"><br><br>
+    <label for="Price">Enter your Price:</label> <br>
+    <input type="Number" name="Price" id="Price"><br><br>
+     <label for="theatre Id">Enter your Theater Id:</label> <br>
+    <input type="text" name="theatre Id" id="theatre Id"><br><br>
      <button type="submit">Update Theater</button><br>
     
     </form>
@@ -183,8 +183,8 @@ body {
     <h3>Delete Theater</h3>
     
     <form action="Deletetheatre4" method="post">
-    <label>Enter your Theater Id:</label> <br>
-    <input type="text" name="theatre Id"><br><br>
+    <label for="theatre Id">Enter your Theater Id:</label> <br>
+    <input type="text" name="theatre Id" id="theatre Id"><br><br>
     <button type="submit">DeleteTheatre</button>
     </form>
     </div>

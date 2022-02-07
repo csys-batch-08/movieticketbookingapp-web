@@ -102,19 +102,22 @@ li a:hover:not(.active) {
 </body>
 <body>
 <table>
+<caption></caption>
 <tbody>
                  <tr>
                  <c:set var="count" value="1"/>
                  <c:forEach  items="${theatreListObj }" var="theatrelist">
+                 <th id="theatre"></th>
                  <td>
                  <table id="theatretable">
+                 <caption></caption>
                  <tbody>
                  <tr>
-                                       
+                  <th id="theatres"></th>                     
                  <td class="movie">
                  <div class="col">
                  <div class="card" style="width: 18rem;"> 
-                 <img src="images/${theatrelist.images }" class="card-img-top" alt="..."><br> 
+                 <img src="images/${theatrelist.images }" class="card-img-top" height="",width="", alt="img"><br> 
                  <p class="card-text">
                  
                               <span class="btn btn-success btn-sm">Theater name: ${theatrelist.theatrename }</span></p>

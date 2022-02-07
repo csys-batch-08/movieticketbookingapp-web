@@ -77,7 +77,7 @@ h2 {
                                          
                                         <div class="one">
                                           
-                                        <img src="profile1.png" style="margin-left:20px;margin-top:20px;width:130px;">  	
+                                        <img src="profile1.png" style="margin-left:20px;margin-top:20px;width:130px;"alt="img">  	
                                      
                                              
                                           

@@ -159,8 +159,8 @@ h1 {
 			<li><a href="UserServlet">Profile</a></li>
 			<li><a href="wallet.jsp">ReCharge Wallet</a></li>
 			<li><a href="MybookingServlet" class="log1">My Bookings</a></li>
-			<li><input type="text" name="moviename" id="moviename" class="log1" required>
-		    <input type="submit" class="btn btn-primary" value="Search"required></li>
+			<li><input type="text" name="moviename" id="moviename" class="log1" required></li>
+		    <li><input type="submit" class="btn btn-primary" value="Search"required></li>
 			<li><a href="about Us.jsp" class="log">About Us</a></li>
 			<li><a href="contact Us.jsp">Contact Us</a></li>
 			<li><a href="login.jsp">Logout</a></li>
@@ -179,7 +179,7 @@ h1 {
 			<table id="movietable">
 			<tbody>
 			<tr>
-
+             <th id="theatres"></th> 
 			<td><img src="images/${MovieList.getImages()}" width=250px height=250px alt="img"></td>
 			<td class="movie"><span id="movie name">Movie Name:	${MovieList.getMoviename() }
 			</span><br> <span>Movie Type: ${MovieList.getMovietype() } </span><br> 
