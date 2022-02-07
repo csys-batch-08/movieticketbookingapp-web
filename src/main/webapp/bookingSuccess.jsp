@@ -117,10 +117,10 @@ input[type :number] {
          <center><font color="green" style="font:bold; size:30"><%=errorMessage%></font></center>
          <%}%>
 
-        
+         <div class="one">
          <c:set var="count" value="1"/>
          <c:forEach items="${bookinglist}" var="usersList">
-          <div class="one">
+         
          <h1>Booking Details</h1>
          <table>
        
@@ -135,8 +135,9 @@ input[type :number] {
          MovieDateandtime:<fmt:formatDate pattern="dd-MM-yyyy HH:mm" value="${moviedatetime}"/><br>     
          Total Price : ${totalprice } rs<br>  
 
-</div>
+
 </c:forEach>
+</div>
 </td>
 </tr>
 

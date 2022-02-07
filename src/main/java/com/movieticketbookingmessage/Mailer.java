@@ -23,6 +23,7 @@ public class Mailer {
          //get Session   
          Session session = Session.getDefaultInstance(props,    
           new javax.mail.Authenticator() {    
+          @Override
           protected PasswordAuthentication getPasswordAuthentication() {    
           return new PasswordAuthentication(from,password);  
           }    
@@ -35,7 +36,7 @@ public class Mailer {
           message.setText(msg);    
           //send message  
           Transport.send(message);    
-//          System.out.println("message sent successfully");    
+          
          } catch (MessagingException e) {throw new RuntimeException(e);}    
             
    }  

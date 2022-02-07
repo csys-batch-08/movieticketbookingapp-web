@@ -46,21 +46,10 @@ span {
 	visibility: hidden;
 }
 
-.searchbtn {
-	position: absolute;
-	top: 15px;
-	left: 600px;
-	text-decoration: none;
-	color: Block;
-	text-decoration: none;
-}
-.bt{
-left:300px;
-top:20px;
-}
-.log {
 
-	padding-left: 500px;
+.log {
+    margin-top:10px;
+	padding-left: 850px;
 }
 
 button {
@@ -71,16 +60,16 @@ button {
 
 .contact {
 	position: absolute;
-	top: 1px;
-	left: 1000px;
+	top:1px;
+	left:1000px;
 	text-decoration: none;
 	color: white;
 }
 
 .contacts {
 	position: absolute;
-	top: 1px;
-	left: 1100px;
+	top:1px;
+	left:1100px;
 	text-decoration: none;
 	color: white;
 }
@@ -90,42 +79,42 @@ table {
 }
 
 p {
-	margin-top: 10px;
-	margin-left: 10px;
+	margin-top:10px;
+	margin-left:10px;
 	color: white;
 	font-size: 24px;
 }
 
 .movie {
-	position: relative;
-	left: 8px;
+	position:relative;
+	left:8px;
 	color: white;
 }
 
 ul {
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #333;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	background-color:#333;
 }
 
 li {
-	float: left;
-	padding-top: 5px;
+	float:left;
+	padding-top:5px;
 }
 
 li:last-child {
-	border-right: none;
+	border-right:none;
 }
 
 li a {
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 14px 14px;
-	text-decoration: none;
-	font-size: 18px;
+	display:black;
+	color:white;
+	text-align:center;
+	padding: 16px 16px;
+	text-decoration:none;
+	font-size:18px;
 }
 
 li a:hover:not(.active) {
@@ -169,9 +158,9 @@ h1 {
 			<li><a class="active" href="Show.jsp">Home</a></li>
 			<li><a href="UserServlet">Profile</a></li>
 			<li><a href="wallet.jsp">ReCharge Wallet</a></li>
-			<li><a href="MybookingServlet">My Bookings</a></li>
-			<li><input type="text" name="moviename" id="moviename" required>
-		    <input type="submit" class="btn btn-primary" value="Search" class="bt"required></li>
+			<li><a href="MybookingServlet" class="log1">My Bookings</a></li>
+			<li><input type="text" name="moviename" id="moviename" class="log1" required>
+		    <input type="submit" class="btn btn-primary" value="Search"required></li>
 			<li><a href="about Us.jsp" class="log">About Us</a></li>
 			<li><a href="contact Us.jsp">Contact Us</a></li>
 			<li><a href="login.jsp">Logout</a></li>
@@ -179,7 +168,7 @@ h1 {
 </form>
 	        <h1>Movie List</h1>
 	        <table>
-		    <caption></caption>
+		    <caption></caption> 
 		    <tbody>
             <tr>
 			

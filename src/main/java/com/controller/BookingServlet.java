@@ -20,11 +20,12 @@ import com.movieticketbookingmodel.Theatreinformation;
 public class BookingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-@Override
+
+	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		 HttpSession session = request.getSession();
-		 String errorMessage = (String)request.getParameter("errorMessage");
+		 HttpSession session =request.getSession();
+		 String errorMessage = request.getParameter("errorMessage");
 	     request.setAttribute("errorMessage", errorMessage);
 	     int theatreid = Integer.parseInt(request.getParameter("theatreid"));	 
 		 TheatreDaoImpl theatreDao=new TheatreDaoImpl();

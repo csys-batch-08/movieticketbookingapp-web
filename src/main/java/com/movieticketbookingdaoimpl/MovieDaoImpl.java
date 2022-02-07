@@ -21,6 +21,7 @@ public class MovieDaoImpl {
 		String query = "insert into Movie(Movie_name,Movie_id,Movie_type,movie_ratings,movie_duration,director,music_director,hero_name,images,movielink) values (?,?,?,?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement statement = null;
+		
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
@@ -34,7 +35,7 @@ public class MovieDaoImpl {
 			statement.setString(8, movie.getHeroname());
 			statement.setString(9, movie.getImages());
 			statement.setString(10, movie.getMovielink());
-			int i = statement.executeUpdate();
+			statement.executeUpdate();
 
 		
 
@@ -131,7 +132,7 @@ public class MovieDaoImpl {
 	 * Update Movie
 	 */
 
-	public void update(Movie movie2) {
+	public void update(Movie movie) {
 
 		String query = "update Movie set Movie_name=?,Movie_type=?,movie_duration=? where Movie_id=?";
 		Connection con = null;
@@ -139,12 +140,12 @@ public class MovieDaoImpl {
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
-			statement.setString(1, movie2.getMoviename());
-			statement.setString(2, movie2.getMovietype());
-			statement.setInt(3, movie2.getMovieduration());
-			statement.setInt(4, movie2.getMovieid());
+			statement.setString(1, movie.getMoviename());
+			statement.setString(2, movie.getMovietype());
+			statement.setInt(3, movie.getMovieduration());
+			statement.setInt(4, movie.getMovieid());
 
-			int i = statement.executeUpdate();
+		    statement.executeUpdate();
 			
 		} catch (ClassNotFoundException e) {
 
@@ -186,7 +187,7 @@ public class MovieDaoImpl {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
 			statement.setInt(1, movie.getMovieid());
-			int i = statement.executeUpdate();
+		    statement.executeUpdate();
 		
 
 		} catch (ClassNotFoundException e) {

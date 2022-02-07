@@ -22,11 +22,11 @@
 
 <style>
 body {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-		url("images/Rohini Sliver Screen.jpg");
+	background-image:url("images/Backimages.jpg");
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 1390px 700px;
 	background-attachment: fixed;
+	
 	color:white;
 }
 
@@ -74,7 +74,7 @@ padding-bottom: 10px;
 	
 	
 	
-                                   <h2 class="Userdetail">Booking Details</h2>
+ <h2 class="Userdetail">Booking Details</h2>
  <div class = "user">
 <table id="allusers">
 <caption></caption>
@@ -96,7 +96,9 @@ padding-bottom: 10px;
     <%String errorMessage = (String)request.getAttribute("errorMessage");
          if(errorMessage !=null)
          {%>
-<center><font color="red" style="font:bold; size:20"><%=errorMessage%></font></center>
+<center>
+<font color="red" style="font:bold; size:20"><%=errorMessage%></font>
+</center>
 <%}%>
      
     

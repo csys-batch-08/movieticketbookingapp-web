@@ -248,14 +248,14 @@ public class UserDaoImpl {
 		try {
 
 			con = Connectionutil.DBConnection();
-			String updateQuery = "update user_details set e_password=? where  email_id=?";
+			String updateQuery = "update user_details set e_password=? where email_id=?";
 			statement = con.prepareStatement(updateQuery);
 			statement.setString(2, user2.getEmailid());
 			statement.setString(1, user2.getEpassword());
 			resultset = statement.executeQuery();
 			while (resultset.next()) {
 
-	        User user = new User(resultset.getString(3), resultset.getString(5));
+	        User user = new User(resultset.getString(3),resultset.getString(5));
 				return user;
 
 			}
@@ -301,15 +301,14 @@ public class UserDaoImpl {
 		String query = "update user_details set wallet=wallet - ? where user_id = ?";
 		Connection con = null;
 		PreparedStatement statement = null;
-        int i=0;
+        
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
 			statement.setInt(1, user.getwallet());
 			statement.setInt(2, user.getUserid());
-			 i = statement.executeUpdate();
+		    statement.executeUpdate();
 			
-
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
@@ -350,7 +349,7 @@ public class UserDaoImpl {
 			statement = con.prepareStatement(query);
 			statement.setInt(1, totalprice);
 			statement.setInt(2, userid);
-			int i = statement.executeUpdate();
+		    statement.executeUpdate();
 
 		
 

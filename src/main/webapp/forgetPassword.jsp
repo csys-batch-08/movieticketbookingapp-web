@@ -37,14 +37,9 @@ p{
 color:white;
 }
 
-label ;
+.label{ 
 text color:white ;
-.
-
-.mar {
-	color: white
 }
-
 body {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
 		url('Rohini Sliver Screen.jpg');
@@ -57,9 +52,8 @@ body {
 </head>
 <body>
 
-	             <marquee class="mar">
-		         <p>Update Your Password</p>
-	             </marquee>
+	          
+	             
                  <div class="ones">
                  <a href="login.jsp" class="btn btn-primary"><button>Back</button></a>
 		         </div>

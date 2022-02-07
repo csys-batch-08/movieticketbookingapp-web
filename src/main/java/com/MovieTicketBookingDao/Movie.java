@@ -1,20 +1,25 @@
 package com.MovieTicketBookingDao;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 
 
 public interface Movie {
 
-	public void insert(Movie Movie ) ;
+	public void insert(Movie movie) ;
 	
-	public  void searchmovie(Movie Movie1) ;
+    public List<Movie> search(String moviename) ;
+ 
+	public void update(Movie movie) ;
 	
-	public  void update(Movie Movie2 );
+	public void delete(Movie movie);
 	
-	 public void delete(Movie Movie3 );
+	public String movie(Movie movie);
+	
+	public List<Movie> showMovie();
 	 
-	 public List<Movie> showMovie();
+	public ResultSet getmovie() ;
 	 
 	 
 }

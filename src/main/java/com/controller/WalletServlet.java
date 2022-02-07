@@ -16,7 +16,7 @@ public class WalletServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	protected void dopost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 
 		HttpSession session = request.getSession();

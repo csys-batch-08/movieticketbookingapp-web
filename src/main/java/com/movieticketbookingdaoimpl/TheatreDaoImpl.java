@@ -35,8 +35,7 @@ public class TheatreDaoImpl {
 			statement.setInt(6, theatre.getPrice());
 			statement.setTimestamp(7, java.sql.Timestamp.valueOf(theatre.getMoviedatetime()));
 			statement.setString(8, theatre.getImages());
-
-			int i = statement.executeUpdate();
+            statement.executeUpdate();
 
 		
 
@@ -199,7 +198,7 @@ public class TheatreDaoImpl {
 	/*
 	 * UpdateSeat
 	 */
-	public void update1(Theatreinformation theatres) {
+	public void updates(Theatreinformation theatres) {
 
 		String query = "update theatre set number_seats=? where movie_id=? ";
 		Connection con = null;
@@ -210,7 +209,7 @@ public class TheatreDaoImpl {
 			statement = con.prepareStatement(query);
 			statement.setInt(1, theatres.getNumberseats());
 			statement.setInt(2, theatres.getMovieid());
-			int i = statement.executeUpdate();
+		    statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 
@@ -250,7 +249,7 @@ public class TheatreDaoImpl {
 			statement = con.prepareStatement(query);
 			statement.setInt(1, seat);
 			statement.setInt(2, mvid);
-			int i = statement.executeUpdate();
+		    statement.executeUpdate();
 			
 		} catch (Exception e) {
 			  e.getMessage();
@@ -290,7 +289,7 @@ public class TheatreDaoImpl {
 			statement.setString(1, theatre.getTheatrename());
 			statement.setInt(2, theatre.getPrice());
 			statement.setInt(3, theatre.getTheatreid());
-			int i = statement.executeUpdate();
+		    statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 
@@ -321,7 +320,7 @@ public class TheatreDaoImpl {
 	/*
 	 * DeleteTheatre
 	 */
-	public void delete(Theatreinformation theatre3) {
+	public void delete(Theatreinformation theatre) {
 		Connection con = null;
 		PreparedStatement statement = null;
 		String query = "delete from theatre where theatre_id=? ";
@@ -329,8 +328,8 @@ public class TheatreDaoImpl {
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
-			statement.setInt(1, theatre3.getTheatreid());
-			int i = statement.executeUpdate();
+			statement.setInt(1, theatre.getTheatreid());
+		    statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 
@@ -411,7 +410,7 @@ public class TheatreDaoImpl {
 	/*
 	 * Theatreinformation
 	 */
-	public int fetch(Theatreinformation theatres1) {
+	public int fetch(Theatreinformation theatres) {
 
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -421,7 +420,7 @@ public class TheatreDaoImpl {
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
-			statement.setInt(1, theatres1.getTheatreid());
+			statement.setInt(1, theatres.getTheatreid());
 			resultset = statement.executeQuery();
 			while (resultset.next()) {
             return resultset.getInt(1);
@@ -480,7 +479,7 @@ public class TheatreDaoImpl {
 			statement = con.prepareStatement(query);
 		    statement.setInt(1, seat);
 			statement.setInt(2, thid);
-			int i = statement.executeUpdate();
+		    statement.executeUpdate();
 		
 		} catch (ClassNotFoundException e) {
 

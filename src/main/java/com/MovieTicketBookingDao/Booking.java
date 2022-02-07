@@ -1,19 +1,27 @@
 package com.MovieTicketBookingDao;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 import com.movieticketbookingmodel.Bookingdetail;
 
 public interface Booking {
 
-	public void insert(Bookingdetail Booking);
+	public void insert(Bookingdetail booking);
 	
-	public void update(Bookingdetail Booking);
+	public void update(Bookingdetail booking);
 	
-	 public int delete(Bookingdetail Booking );
+	public int delete(Bookingdetail booking);
+	
+	public List<Bookingdetail> showBooking();
+	
+	public void book(int booking) ;
+	
+	public List<Bookingdetail> getbookingidanddate(int thid, int userid);
+	
+	public String checkBookingStatus(int bookingid);
+	
+	public List<Bookingdetail> myBooking(int userId) ;
 	 
-	  public ResultSet Showbooking (int bookingid);
+	
 	  
-	  public List<Bookingdetail> showBooking();
 }

@@ -5,17 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
-import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import com.Movieticketbooking.util.Connectionutil;
 import com.movieticketbookingmessage.Mailer;
 import com.movieticketbookingmodel.Bookingdetail;
-import com.movieticketbookingmodel.Movie;
-import com.movieticketbookingmodel.Theatreinformation;
-import com.movieticketbookingmodel.User;
+
 
 public class BookingDaoImpl {
 
@@ -126,7 +123,7 @@ public class BookingDaoImpl {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
 			statement.setInt(1, booking.getBookingid());
-			int i = statement.executeUpdate();
+			statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 
@@ -229,7 +226,7 @@ public class BookingDaoImpl {
 			statement = con.prepareStatement(query);
 
 			statement.setInt(1, booking);
-			int i = statement.executeUpdate();
+			statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 
@@ -240,14 +237,19 @@ public class BookingDaoImpl {
 		} finally {
 			if (statement != null) {
 				try {
+					
 					statement.close();
+					
 				} catch (SQLException e) {
+					
 					e.printStackTrace();
 				}
 			}
 			if (con != null) {
 				try {
+					
 					con.close();
+					
 				} catch (SQLException e) {
 
 					e.printStackTrace();
@@ -286,8 +288,11 @@ public class BookingDaoImpl {
 		} finally {
 			if (statement != null) {
 				try {
+					
 					statement.close();
+					
 				} catch (SQLException e) {
+					
 					e.printStackTrace();
 				}
 			}
@@ -301,8 +306,11 @@ public class BookingDaoImpl {
 			}
 			if (resultset != null) {
 				try {
+					
 					resultset.close();
+					
 				} catch (SQLException e) {
+					
 					e.printStackTrace();
 				}
 			}
@@ -335,22 +343,30 @@ public class BookingDaoImpl {
 		} finally {
 			if (statement != null) {
 				try {
+					
 					statement.close();
+					
 				} catch (SQLException e) {
+					
 					e.printStackTrace();
 				}
 			}
 			if (con != null) {
 				try {
+					
 					con.close();
+					
 				} catch (SQLException e) {
 
 					e.printStackTrace();
 				}
 				if (resultset != null) {
 					try {
+						
 						resultset.close();
+						
 					} catch (SQLException e) {
+						
 						e.printStackTrace();
 					}
 				}
@@ -395,14 +411,19 @@ public class BookingDaoImpl {
 		} finally {
 			if (statement != null) {
 				try {
+					
 					statement.close();
+					
 				} catch (SQLException e) {
+					
 					e.printStackTrace();
 				}
 			}
 			if (con != null) {
 				try {
+					
 					con.close();
+					
 				} catch (SQLException e) {
 
 					e.printStackTrace();
@@ -410,8 +431,11 @@ public class BookingDaoImpl {
 			}
 			if (resultset != null) {
 				try {
+					
 					resultset.close();
+					
 				} catch (SQLException e) {
+					
 					e.printStackTrace();
 				}
 			}

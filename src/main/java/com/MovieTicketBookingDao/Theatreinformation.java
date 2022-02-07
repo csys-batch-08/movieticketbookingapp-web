@@ -6,14 +6,23 @@ import java.util.List;
 public interface Theatreinformation {
 	public void insert(Theatreinformation theatre ) ;
 	
-	public void update(Theatreinformation theatre2 ) ;
+	public void updates(Theatreinformation theatres)  ;
 	
-	 public void delete(Theatreinformation theatre3 ) ;
+	public void update(Theatreinformation theatre);
+	
+	public void delete(Theatreinformation theatre); 
+	
+	public void seatupdate(int seat, int mvid); 
+	
+	public int fetch(Theatreinformation theatres);
+	
+	public void updateseat(int seat, int thid) ;
 	 
-	 public  void findmytheatre(Theatreinformation M1) ;
+    public  void findmytheatre(Theatreinformation m1) ;
 	 
-	 public List<Theatreinformation> showtheatre(); 
-	 
+    public List<Theatreinformation> showtheatre(int id); 
+	
+	public List<Theatreinformation> showtheatredetails(int id) ;
 	 
 
 }

@@ -15,140 +15,88 @@
 
 
 <style>
-.about-section{
-    background: url(pic.jpg) no-repeat left;
-    background-size: 55%;
-    overflow: hidden;
-    height: 90%;
-    padding: 20px 0;
-    
-}
- 
-.inner-container{
-    margin-left:900px;
-    width: 55%;
-    float: right;
-    background-color: #fdfdfd;
-    padding: 40px;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
- 
-}
-.inner-container h1{
-    margin-bottom: 10px;
-    font-size: 30px;
-    font-weight: 900;
-}
- 
-.text{
-    font-size: 13px;
-    color: #545454;
-    line-height: 30px;
-    text-align: justify;
-    margin-bottom: 10px;
-    
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
-h1{
-    
-    color: #F85370;
+html {
+  box-sizing: border-box;
 }
- 
-.skills{
-    display: flex;
-    justify-content: space-between;
-    font-weight: 700;
-    font-size: 13px;
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
- 
-@media screen and (max-width:1200px){
-    .inner-container{
-        padding: 80px;
-    }
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
 }
- 
-@media screen and (max-width:1000px){
-    .about-section{
-        background-size: 100%;
-        padding: 100px 40px;
-    }
-    .inner-container{
-        width: 100%;
-    }
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
 }
- 
-@media screen and (max-width:600px){
-    .about-section{
-        padding: 0;
-    }
-    .inner-container{
-        padding: 60px;
-    }
-}
-span{
-  cursor: pointer;
-  font-size: 16px;
+
+.about-section {
+  padding: 220px;
   text-align: center;
-  padding: 10px;
-  width: 500px;
-}
-span:hover{
-background-image: linear-gradient(to right top, #f85370, #f35470, #ee5570, #e8556f, #e3566f);
-color: #fff;
-border-radius: 20px;
-transition: 0.5s;
- 
-}
-.active{
-  background-image: linear-gradient(to right top, #f85370, #f35470, #ee5570, #e8556f, #e3566f);
-  color: #fff;
-  border-radius: 20px;
- 
- 
+  background-color: #474e5d;
+  color: white;
 }
 
-
-
- body {
-  background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('Rohini Sliver Screen.jpg');
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-attachment: fixed;
+.container {
+  padding: 0 16px;
 }
 
-.class{
-margin-left:80px;
-margin-top:15px;
-
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
+.title {
+  color: grey;
+}
 
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
 </style>
 </head>
 <body>
 
+<div class="about-section">
+  <h1>About Us </h1>
+  <p>Cinema is equipped with comfortable push backed enabled Seating and fully air conditioned.
+  <p>The theatre has ample car and two-wheeler Parking and the canteen caters fresh and quality food items.</p>
+  <p> A cinema hall provides redefining movie going experience.Be spoilt for choice! We, offers a wide selection of short eats and beverages that are not only scrumptious but also stored and served under safe and hygienic conditions.The menu selection offers a range of irresistible combos too.The menu undergoes regular revisions to surprise your taste buds. We have also revamped our canteen facilities to deliver quick service and our courteous staff will ensure that you enjoy the services all times.
+</p>
 
-<body>
-
-    <div class="class">
-   
-   <button type="submit" ><a href="ShowServlet" class="btn btn-primary">Back</a></button>  
-   
-    </div>
-  
+</div>
 
 
-    <div class="about-section">
-        <div class="inner-container">
-            <h1>About Us</h1>
-            <p class="text">
-               Cinema is equipped with comfortable push backed enabled Seating and fully air conditioned. The theatre has ample car and two-wheeler Parking and the canteen caters fresh and quality food items. A cinema hall provides redefining movie going experience. Be spoilt for choice! We, offers a wide selection of short eats and beverages that are not only scrumptious but also stored and served under safe and hygienic conditions. The menu selection offers a range of irresistible combos too. The menu undergoes regular revisions to surprise your taste buds. We have also revamped our canteen facilities to deliver quick service and our courteous staff will ensure that you enjoy the services all times.
-            </p>
-            <div class="skills">
-                <span class="active">Manage Shows</span>
-                <span>Managae Customer</span>
-                <span>Manage Bookings</span>
-            </div>
-        </div>
-    </div>
+
 </body>
 </html>

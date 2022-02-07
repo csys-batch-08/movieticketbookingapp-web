@@ -93,7 +93,7 @@ p a{
          
          <button class="button1">Register</button>      
          <button class="button1">Reset</button>
-         <p>Already have a account? <a href="login.jsp">Login page</button></a></p>
+         <p>Already have a account? <a href="login.jsp">Login page</a></p>
     </form> 
      </div>
 </body>

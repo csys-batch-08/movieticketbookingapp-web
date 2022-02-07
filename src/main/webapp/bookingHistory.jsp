@@ -66,11 +66,11 @@ padding-bottom: 10px;
 
 <body>
 
-                    <div class="color">
-                    <a href="adminHomepage.jsp"  class="btn btn-primary"> <button>Back</a></button>  
-                    </div>
+<div class="color">
+<a href="adminHomepage.jsp"  class="btn btn-primary"> <button>Back</button></a>  
+</div>
         	
-                    <h2 class="Bookingdetail">Booking Details</h2>          
+<h2 class="Bookingdetail">Booking Details</h2>          
 <div class = "user">
 <table id="allusers">
 <caption></caption>

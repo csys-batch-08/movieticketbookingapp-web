@@ -99,8 +99,7 @@ input[type :number] {
 </style>
 </head>
 <body> 
-<ul>
-     
+<ul>     
                <li><a class="active" href="ShowServlet">Home</a></li>
                <li><a href="UserServlet">Profile</a></li>
                <li><a href="ShowServlet">Movie List</a></li>
@@ -120,8 +119,8 @@ session.removeAttribute("lowbal");
      
      <form action="WalletAmountServlet" method="post">
       <label> Enter your Amount:</label><br>
-     <input type="number" name="amount" id="number" min = "1" pattern="[1-9]+"
-     ><br><br>
+     <input type="number" name="amount" id="number" min = "1" pattern="[1-9]+" ><br><br>
+    
     <button type="submit"  class="btn btn-primary">Wallet Recharge</button><br><br>
      <p> Note:Wallet Amount Check Your Profile</p>
              

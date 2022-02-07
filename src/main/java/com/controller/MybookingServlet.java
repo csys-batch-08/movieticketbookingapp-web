@@ -30,11 +30,11 @@ public class MybookingServlet extends HttpServlet {
 		 String error=request.getParameter("errorMessage");
 		 request.setAttribute("errorMessage", error);
 		 BookingDaoImpl dao= new BookingDaoImpl();
-         List<Bookingdetail> MyBooking;
+         List<Bookingdetail> myBooking;
          HttpSession session = request.getSession(); 
          int userid=(int)session.getAttribute("userid");
-         MyBooking=dao.myBooking(userid);
-		 request.setAttribute("BookingObj", MyBooking);
+         myBooking=dao.myBooking(userid);
+		 request.setAttribute("BookingObj", myBooking);
 		 RequestDispatcher requestDispatcher = request.getRequestDispatcher("myBooking.jsp");
 		 requestDispatcher.forward(request, response);
 	}
