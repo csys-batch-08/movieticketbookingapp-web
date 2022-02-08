@@ -132,7 +132,32 @@ public class UserDaoImpl {
 		} catch (SQLException | ClassNotFoundException e) {
 
 			e.printStackTrace();
-		} 
+		}
+		finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				if (resultset != null) {
+					try {
+						resultset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+		}
 		return resultset;
 	}
 
@@ -150,6 +175,31 @@ public class UserDaoImpl {
 
 			e.printStackTrace();
 		} 
+		finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				if (resultset != null) {
+					try {
+						resultset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+		}
 		return resultset;
 	}
 

@@ -194,9 +194,10 @@ top:-1px;
 </form>
 
              <div class="small">
+             <a href="login.jsp">Logout</a>
              <a href="contact Us.jsp">Contact Us</a>
-              <a href="about Us.jsp" >About Us</a>
-		     <a href="login.jsp">Logout</a>
+             <a href="about Us.jsp" >About Us</a>
+		  
 	        
               
              </div>               
@@ -212,6 +213,7 @@ top:-1px;
             <td>
           
 			<table id="movietable">
+			 <th id=movie></th>
 			<tbody>
 			<tr>
 			<td><img src="images/${MovieList.getImages()}" width=250px height=250px alt="img"></td>

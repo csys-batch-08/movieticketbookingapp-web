@@ -299,6 +299,31 @@ public class MovieDaoImpl {
 			  e.getMessage();
 
 		}
+		finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+
+					e.printStackTrace();
+				}
+				if (resultSet != null) {
+					try {
+						resultSet.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+		}
 
 		return resultSet;
 	}
