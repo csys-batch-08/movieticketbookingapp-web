@@ -90,6 +90,17 @@ p {
 	left:8px;
 	color: white;
 }
+.small a{
+float:right;
+text-decoration: none;
+color:white;
+padding:10px;
+position:relative;
+right:10px; 
+top:-40px;
+font-size:18px;
+
+}
 
 ul {
 	list-style-type: none;
@@ -115,6 +126,9 @@ li a {
 	padding: 16px 16px;
 	text-decoration:none;
 	font-size:18px;
+	position:relative;
+	left:8px;
+	top:3px;
 }
 
 li a:hover:not(.active) {
@@ -148,37 +162,58 @@ table td {
 h1 {
 	color: white;
 }
+.log1{
 
+position:relative;
+right:-20px; 
+top:2px;
+
+}
+.btn{
+position:relative;
+right:-30px; 
+top:-1px;
+
+}
 </style>
 </head>
 <body>
 
 	        <form action="SearchServlet" method="post">
 <ul>
-			<li><a class="active" href="Show.jsp">Home</a></li>
+			<li><a  href="Show.jsp">Home</a></li>
 			<li><a href="UserServlet">Profile</a></li>
 			<li><a href="wallet.jsp">ReCharge Wallet</a></li>
-			<li><a href="MybookingServlet" class="log1">My Bookings</a></li>
+			<li><a href="MybookingServlet" >My Bookings</a></li>
+			<li><label for="moviename"></label></li>
 			<li><input type="text" name="moviename" id="moviename" class="log1" required></li>
-		    <li><input type="submit" class="btn btn-primary" value="Search"required></li>
-			<li><a href="about Us.jsp" class="log">About Us</a></li>
-			<li><a href="contact Us.jsp">Contact Us</a></li>
-			<li><a href="login.jsp">Logout</a></li>
+		    <li><input type="submit" class="btn btn-primary" value="Search" required></li>
+		
+		
 </ul>
 </form>
-	        <h1>Movie List</h1>
-	       
 
-            <c:set var="count" value="1" />
-            <c:forEach items="${Movielist}" var="MovieList">
-	        <th id="movie"></th>
-	        <td>
-	        <table id="movietable"> 
+             <div class="small">
+             <a href="contact Us.jsp">Contact Us</a>
+              <a href="about Us.jsp" >About Us</a>
+		     <a href="login.jsp">Logout</a>
+	        
+              
+             </div>               
+	        <h1>Movie List</h1>
+	        <table>
 		    <caption></caption> 
 		    <tbody>
             <tr>
-		    <th id="theatres"></th>     
-		
+
+            <c:set var="count" value="1" />
+            <c:forEach items="${Movielist}" var="MovieList">
+              <th id=movie></th>
+            <td>
+          
+			<table id="movietable">
+			<tbody>
+			<tr>
 			<td><img src="images/${MovieList.getImages()}" width=250px height=250px alt="img"></td>
 			<td class="movie"><span id="movie name">Movie Name:	${MovieList.getMoviename() }
 			</span><br> <span>Movie Type: ${MovieList.getMovietype() } </span><br> 
@@ -187,7 +222,8 @@ h1 {
 		    <span>Director:${MovieList.getDirector() }</span><br>
 		    <span>Music Director:${MovieList.getMusicdirector() }</span><br> 
 			<span>Hero Name:${MovieList.getHeroname() }</span><br> 
-			<input type="text"value=${MovieList.getMovielink() } name="movlink"class="movieid">
+			<label for="movieid"></label>
+			<input type="text"value=${MovieList.getMovielink() } name="movlink"class="movieid" id="movieid">
 			 <a
 			href="Moviedetails?mvname=${MovieList.getMoviename()}&movlink=${MovieList.getMovielink()}"><button>Theater</button></a>
 

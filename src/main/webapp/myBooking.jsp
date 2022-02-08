@@ -93,13 +93,11 @@ padding-bottom: 10px;
 </thead>
 <tbody>
 
-    <%String errorMessage = (String)request.getAttribute("errorMessage");
-         if(errorMessage !=null)
-         {%>
-<center>
-<font color="red" style="font:bold; size:20"><%=errorMessage%></font>
-</center>
-<%}%>
+  
+              <c:if test="${errorMessage} != null">
+              <h1>${errorMessage}</h1>
+              </c:if>
+     
      
     
 <c:set var="count" value="0"/>

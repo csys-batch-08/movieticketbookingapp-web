@@ -29,7 +29,11 @@ body {
 h2 {
 	color: white;
 }
+img{
+margin-left:20px;
+margin-top:20px;
 
+}
 .ones {
 	position: absolute;
 	top: 50px;
@@ -54,7 +58,7 @@ h2 {
                                          
                                         <div class="one">
                                           
-                                        <img src="profile1.png" style="margin-left:20px;margin-top:20px;width:130px,height="",alt="img";">  	
+                                        <img src="profile1.png" width=130px height="" alt="img">  	
                                      
                                              
                                           

@@ -150,7 +150,7 @@ body {
     <label for="theatre Ratings">Enter your Theater Ratings:</label> <br>
     <input type="text" name="theatre Ratings" id="theatre Ratings"><br><br>
     <label for=" Movie date and time">Enter your Movie date and time:</label> <br>
-    <input type="datetime-local" name=" Movie date and time" id="datefield"><br><br>
+    <input type="datetime-local" name=" Movie date and time" id="Movie date and time"><br><br>
     <label for="Price">Enter your Price:</label> <br>
     <input type="Number" name="Price" id="Price"><br><br>
     <label for="images">Enter your Image:</label><br>

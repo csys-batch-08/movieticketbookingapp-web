@@ -40,12 +40,6 @@ html, body {
 	text-decoration: none;
 	color: white;
 }
-.cancel{
-    margin-top:-10px;
-    margin-right:20px;
-
-}
-
 .one {
 	textalign: center;
 	position: absolute;
@@ -166,7 +160,7 @@ input[type :number] {
             
             
               </c:forEach> 
-          
+         
               <form action="bookmov" method="post" >  
               <p>BooKing your Ticket<p>
      
@@ -177,13 +171,12 @@ input[type :number] {
               <label for ="Seats">Choose number of seats</label><br>    
               <input type="Number" name="Seats" id="Seats" min="1"pattern="[1-150]+" required><br><br>
               <button type="submit" Class="btn btn-success">Book Ticket</button>
-     
-</form>
-           
-             <div class="cancel">
-             <a href="ShowServlet"><button type="submit" class="btn btn-danger">Cancel</button></a>       
-             </div>
-        
+               <a href="ShowServlet"><button type="submit" class="btn btn-danger">Cancel</button></a>       
+             
 
+ </div>
+         
+             
+ </form>       
 </body>
 </html>

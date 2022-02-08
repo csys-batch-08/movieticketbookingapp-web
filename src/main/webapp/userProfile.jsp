@@ -30,7 +30,7 @@ body {
 	font-weight: bold;
 }
 .one {
-	position: relative;
+	position: absolute;
 	margin-left: 550px;
 	border: 4px solid black;
 	top: 90px;
@@ -60,20 +60,14 @@ h2 {
 
 
         
-                                    <table border=0 >
-                                       <tbody>
-                                 
+                               
+                                      
                                        <c:set var="count" value="1"/>
                                        <c:forEach items="${listproduct}" var="Bookinglist">
                
-              
-                                       <td>
-                                       <table id="movie">
-                                       <tbody>
-                                       <tr>
                                         
                                       
-                                        <td class="viewall">
+                                 
                                          
                                         <div class="one">
                                           
@@ -102,33 +96,9 @@ h2 {
 
                                          </div>
                                            
-                                            
-                                       
-                                     </td>
-                                     </tr>
-                                     </tbody>
-                                     </table>  
-                            
-                                     </td>
-                                    
-                                     <c:choose>
-                                    
-                                     <c:when test="${count==5}">
-                                     <c:set var="count" value="1"/>
-                                     
-                                 
-                    	           
-                    	             <tr> 
-                    	             </c:when>
-                    	             <c:otherwise>
-                    	             <c:set var="count" value="${count+1}"/>
-                    	             </c:otherwise>             
-                                     </c:choose>
-                                     </c:forEach>
-                                      
-                                     </tr>
-                                     </tbody>
-                                     </table>
+                                     	</c:forEach>     
+                                   
+
          
      
   

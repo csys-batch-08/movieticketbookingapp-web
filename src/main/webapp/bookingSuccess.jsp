@@ -111,11 +111,11 @@ input[type :number] {
 </head>
 <body>
 
-         <%String errorMessage = (String)request.getAttribute("errorMessage");
-         if(errorMessage !=null)
-         {%>
-         <font color="green" style="font:bold; size:30"><%=errorMessage%></font>
-         <%}%>
+        
+              <c:if test="${errorMessage} != null">
+              <h1>${errorMessage}</h1>
+              </c:if>
+     
 
          <div class="one">
          <c:set var="count" value="1"/>
@@ -123,8 +123,10 @@ input[type :number] {
          
          <h1>Booking Details</h1>
          <table>
+      
           <caption></caption> 
  <tr>
+          <th id="user"></th>
  <td>
 	
          Booking ID: ${usersList.bookingid }<br> 
@@ -137,6 +139,7 @@ input[type :number] {
 
 
 </c:forEach>
+</div>
 </div>
 </td>
 </tr>
