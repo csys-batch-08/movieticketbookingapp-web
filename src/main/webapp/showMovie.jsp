@@ -178,8 +178,7 @@ h1 {
 		    <tbody>
             <tr>
 		    <th id="theatres"></th>     
-			<tr>
-             <th id="theatres"></th> 
+		
 			<td><img src="images/${MovieList.getImages()}" width=250px height=250px alt="img"></td>
 			<td class="movie"><span id="movie name">Movie Name:	${MovieList.getMoviename() }
 			</span><br> <span>Movie Type: ${MovieList.getMovietype() } </span><br> 
