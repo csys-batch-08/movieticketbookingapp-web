@@ -1,9 +1,14 @@
 package com.movieticketbookingmodel;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Theatreinformation {
+public class Theatreinformation  implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String theatrename;
 	private int movieid;
 	private int theatreid;

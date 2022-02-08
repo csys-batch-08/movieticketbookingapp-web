@@ -26,10 +26,10 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out=response.getWriter();
+       
 	    HttpSession session = request.getSession();
 		String email=request.getParameter("Email");
-		String password=request.getParameter("Pass");
-		User use=new User(email, password);
+		String password=request.getParameter("password");
 		UserDaoImpl userDaoImpl = new UserDaoImpl();
 		User user = new User(email,null);
 		int uid = userDaoImpl.user(user);
@@ -38,6 +38,8 @@ public class LoginServlet extends HttpServlet {
 		}
 		
          String userrole= userDaoImpl.validateUser(email,password);
+         
+        
          if(userrole.equals("admin")) {
         	
 		      response.sendRedirect("adminHomepage.jsp");

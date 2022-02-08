@@ -143,7 +143,7 @@ body {
     <input type="text" name="Music director" id="Music director"><br><br>
     <label for="Hero name">Enter your Hero name:</label><br>
     <input type="text" name="Hero name" id="Hero name"><br><br>
-    <label- for="images">Enter your Image:</label><br>
+    <label for="images">Enter your Image:</label><br>
     <input type="file" name="images" id="images"><br><br>
      <label for="number">Enter your Number:</label><br>
     <input type="text" name="number" id="number"><br><br>

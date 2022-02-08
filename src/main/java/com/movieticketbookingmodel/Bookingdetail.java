@@ -1,10 +1,13 @@
 package com.movieticketbookingmodel;
 
+import java.io.Serializable;
 import java.util.Date;
 
-
-
-public class Bookingdetail {
+public class Bookingdetail  implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int bookingid;
 	private int userid ;
 	private int theatreid;
@@ -56,7 +59,6 @@ public class Bookingdetail {
 	public void setBookingstatus(String bookingstatus) {
 		this.bookingstatus = bookingstatus;
 	}
-
 	
 	public String getMoviename() {
 		return moviename;
@@ -96,8 +98,7 @@ public class Bookingdetail {
 	
 	public Bookingdetail(int theatreid) {
 		super();
-		
-		
+	
 		this.theatreid = theatreid;
 	}
 	
@@ -120,8 +121,7 @@ public class Bookingdetail {
 	}
 
 	public Bookingdetail(int userid, int thid, int seat, int totalprice, String mvname) {
-		
-	
+
 		this.userid = userid;
 		this.theatreid = thid;
 		this.noseat = seat;

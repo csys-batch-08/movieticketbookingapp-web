@@ -2,8 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <meta charset="ISO-8859-1">
+<head>
 <title>Register</title>
 <style>
 body {
@@ -74,9 +74,9 @@ p a{
         <input type="text" class="text" name="User" id="User" placeholder="Username" pattern="[A-Za-z]{3,}"title="minimum 3 characters should be there"><br><br>  
 
         <label for="Gender">Gender</label><br>
-        <input type="radio" name="gender" value="male"><label for="" class="radio">Male</label><br>
-        <input type="radio" id="fe" name="gender" class="radio" value="female">  <label class="radio">Female</label><br>
-        <input type="radio" id="ot" class="radio" name="gender" value="other">   <label class="radio" for="">Others</label> 
+        <input type="radio" name="Gender" value="male" id="Gender"><label for="" class="radio">Male</label><br>
+        <input type="radio" id="Gender" name="Gender" class="radio" value="female">  <label class="radio">Female</label><br>
+        <input type="radio" id="Gender" class="radio" name="Gender" value="other">   <label class="radio" for="">Others</label> 
         <br>     
     
            

@@ -77,14 +77,24 @@ public class UserDaoImpl {
 			statement.setString(1, email);
 			statement.setString(2, password);
 			resultset = statement.executeQuery();
-			resultset.next();
+			while(resultset.next()) {
 			return resultset.getString(1);
+			}
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.getMessage();
 		} finally {
+			
+			if (resultset != null) {
+				try {
+					resultset.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
 			if (statement != null) {
 				try {
 					statement.close();
@@ -100,14 +110,7 @@ public class UserDaoImpl {
 					e.printStackTrace();
 				}
 			}
-			if (resultset != null) {
-				try {
-					resultset.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
+			
 		}
 		return "invalid";
 

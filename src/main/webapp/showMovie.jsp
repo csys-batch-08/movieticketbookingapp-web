@@ -167,17 +167,17 @@ h1 {
 </ul>
 </form>
 	        <h1>Movie List</h1>
-	        <table>
-		    <caption></caption> 
-		    <tbody>
-            <tr>
-			
+	       
 
             <c:set var="count" value="1" />
             <c:forEach items="${Movielist}" var="MovieList">
-<td>
-			<table id="movietable">
-			<tbody>
+	        <th id="movie"></th>
+	        <td>
+	        <table id="movietable"> 
+		    <caption></caption> 
+		    <tbody>
+            <tr>
+		    <th id="theatres"></th>     
 			<tr>
              <th id="theatres"></th> 
 			<td><img src="images/${MovieList.getImages()}" width=250px height=250px alt="img"></td>

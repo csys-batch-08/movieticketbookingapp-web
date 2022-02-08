@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,13 +108,13 @@ input[type :number] {
                <li><a href="login.jsp" class="log">Logout</a></li>
 </ul>
 
-<%
-if(session.getAttribute("lowbal") != null){%>
-<h1 id = "lowbalhead">Low Balance Please Top Up!!</h1>
-<% 	
-}
-session.removeAttribute("lowbal");
-%>
+
+
+<c:if test="${lowbal} != null">
+<h1>${lowbal}</h1>
+</c:if>
+
+
      <div class="one">
      <h1>Wallet Update</h1>
      

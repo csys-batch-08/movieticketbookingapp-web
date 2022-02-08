@@ -47,7 +47,7 @@ label {
 	padding-left: 8px;
 }
 
-#Pass {
+#password {
 	width: 223px;
 	height: 30px;
 	border: none;

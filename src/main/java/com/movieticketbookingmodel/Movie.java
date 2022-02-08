@@ -143,7 +143,6 @@ public class Movie implements Serializable{
 
 	public Movie(String moviename, int movieid, String movietype, int movieratings, int movieduration, String director2,
 			String musicdirector, String heroname, String images2) {
-
 		this.moviename = moviename;
 		this.movieid = movieid;
 		this.movietype = movietype;
@@ -156,8 +155,7 @@ public class Movie implements Serializable{
 	}
 
 	public Movie(String moviename, String movietype, int movieduration, int movieid) {
-
-		this.moviename = moviename;
+     	this.moviename = moviename;
 		this.movietype = movietype;
 		this.movieduration = movieduration;
 		this.movieid = movieid;

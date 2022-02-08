@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -87,9 +87,10 @@ h3 {
 	text-decoration: none;
 	color: white;
 }
-.admin{
+p1{
 color:white;
-margin-top:250px;
+margin-top:20px;
+margin-left:440px;
 text-size:30px;
 font-size:30px
 }
@@ -129,6 +130,6 @@ body {
 </style>
 </head>
 <body>
-               <marquee   class="admin">Welcome Admin</marquee>
+               <p1>Welcome Admin Like MyShow</p1>
 </body>
 </html>
