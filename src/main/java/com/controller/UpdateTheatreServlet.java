@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,15 +42,11 @@ public class UpdateTheatreServlet extends HttpServlet {
 		LocalDateTime mvTimeDate = LocalDateTime.parse(theatreDate);
     	Theatreinformation dao = new Theatreinformation(theatrename, movieid, theatreid, numberseats, theatreaddress,
 				theatreratings, price, mvTimeDate);
+    	
 		TheatreDaoImpl theatre1 = new TheatreDaoImpl();
 		theatre1.update(dao);
-		ResultSet rs = TheatreDaoImpl.moviedetail();
-		try {
-			session.setAttribute("noofseats", rs.getInt(4));
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
+		List<Theatreinformation> rs = TheatreDaoImpl.moviedetail();
+		session.setAttribute("noofseats", rs.get(0).getNumberseats());
 		
 		response.sendRedirect("addTheatre.jsp");
 

@@ -54,43 +54,44 @@ public class BookingMovieServlet extends HttpServlet {
 		BookingDaoImpl bookingDaoImpl = new BookingDaoImpl();
 		Bookingdetail bookingdetail = new Bookingdetail(userid, thid, seat, totalprice, movieName);
 		bookingDaoImpl.insert(bookingdetail);
-        List<Bookingdetail> bookingdetails = bdi.getbookingidanddate(thid, userid);
+        List<Bookingdetail> bookingdetails = bdi.getbookingdate(thid, userid);
 		session.setAttribute("bookinglist", bookingdetails);
 
 //low Balance
 		
-		   UserDaoImpl dao2 = new UserDaoImpl();
-		   int wallet = dao2.walletbalance(userid);
-		   if (wallet > 180) {
-		   User users = new User(userid, totalprice);
+		UserDaoImpl dao2 = new UserDaoImpl();
+		int wallet = dao2.walletbalance(userid);
+		if (wallet > 180) {
+		User users = new User(userid, totalprice);
 
 //wallet
-			UserDaoImpl dao1 = new UserDaoImpl();
-			dao1.getwallet(users);
-			com.movieticketbookingmodel.Theatreinformation theatreinformation = new com.movieticketbookingmodel.Theatreinformation(
-					thid, mvname);
+	    UserDaoImpl dao1 = new UserDaoImpl();
+		dao1.getwallet(users);
+		com.movieticketbookingmodel.Theatreinformation theatreinformation = new com.movieticketbookingmodel.Theatreinformation(
+		thid, mvname);
 
 // cancel ticket
-			TheatreDaoImpl theatreDaoImpl = new TheatreDaoImpl();
-			int dedseat = theatreDaoImpl.fetch(theatreinformation) - seat;
-			Theatreinformation theater = new Theatreinformation(seat);
-            if (dedseat >= 0) {
-				theatreDaoImpl.updateseat(dedseat, thid);
-				req.setAttribute("errorMessage", "Ticket Booked successfully!!!...");
-				RequestDispatcher rd = req.getRequestDispatcher("bookingSuccess.jsp");
-				rd.forward(req, resp);
+		TheatreDaoImpl theatreDaoImpl = new TheatreDaoImpl();
+		int dedseat = theatreDaoImpl.fetch(theatreinformation) - seat;
+		Theatreinformation theater = new Theatreinformation(seat);
+        if (dedseat >= 0) {
+		  theatreDaoImpl.updateseat(dedseat, thid);
+		  req.setAttribute("errorMessage", "Ticket Booked successfully!!!...");
+		  RequestDispatcher rd = req.getRequestDispatcher("bookingSuccess.jsp");
+		  rd.forward(req, resp);
 
-			} else {
+		} else {
 
 		
-				resp.sendRedirect("BookingServlet?errorMessage=Booking Failed !!!Seat Not Available...&theatreid=" + thid);
+		  resp.sendRedirect("BookingServlet?errorMessage=Booking Failed !!!Seat Not Available...&theatreid=" + thid);
 
-			}
-		    } else {
-			session.setAttribute("lowbal", true);
-			resp.sendRedirect("wallet.jsp");
+		}
+	    } else {
+		  session.setAttribute("lowbal", true);
+		  resp.sendRedirect("wallet.jsp");
+		  
 		}
 
-	}
+	    }
 
 }

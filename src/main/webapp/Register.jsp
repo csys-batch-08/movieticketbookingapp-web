@@ -67,7 +67,7 @@ p a{
      
 <div class="login"> 
 
-<form action="registerpage" method="post">
+<form action="registerpage" method="get">
         <h1>Register page</h1> 
        
         <label for ="User">Username</label><br>   
@@ -91,8 +91,8 @@ p a{
          title="Minimum 8 characters should be there.There should be atleast one numeric,special character,capital letter and small letter." placeholder="Enter your password" minlength="8" maxlength="16" required><br><br> 
 
          
-         <button class="button1">Register</button>      
-         <button class="button1">Reset</button>
+         <button type="submit" class="button1">Register</button>      
+         <button type="reset" class="button1">Reset</button>
          <p>Already have a account? <a href="login.jsp">Login page</a></p>
     </form> 
      </div>

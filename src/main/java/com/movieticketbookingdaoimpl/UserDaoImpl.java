@@ -18,12 +18,15 @@ public class UserDaoImpl {
  */
 	public int insert(User use) {
 		int i = 0;
-		String query = "insert into user_details(user_name,gender,email_id,mobile_num,e_password) values (?,?,?,?,?)";
+		StringBuilder query=new StringBuilder();
+		query.append("insert into user_details(user_name,gender,email_id,mobile_num,e_password)");
+		query.append("values (?,?,?,?,?)");
+	
 		Connection con = null;
 		PreparedStatement statement = null;
 		try {
 			con = Connectionutil.DBConnection();
-			statement = con.prepareStatement(query);
+			statement = con.prepareStatement(query.toString());
 			statement.setString(1, use.getUsername());
 			statement.setString(2, use.getGender());
 			statement.setString(3, use.getEmailid());
@@ -119,35 +122,26 @@ public class UserDaoImpl {
 /*
  Email Validate	
  */
-	public ResultSet getEmail(User email) {
+	public String getEmail(User email) {
 		String query = "select * from user_details where email_id = ?";
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet resultset = null;
+		String useremail=null;
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
 			statement.setString(1, email.getEmailid());
 			resultset = statement.executeQuery();
+			while(resultset.next()) {
+				useremail=resultset.getString("Email_id");
+			}
 		} catch (SQLException | ClassNotFoundException e) {
 
 			e.printStackTrace();
 		}
-		finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-
-					e.printStackTrace();
-				}
+		 finally {
+				
 				if (resultset != null) {
 					try {
 						resultset.close();
@@ -155,41 +149,49 @@ public class UserDaoImpl {
 						e.printStackTrace();
 					}
 				}
-			}
 
-		}
-		return resultset;
+				if (statement != null) {
+					try {
+						statement.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				if (con != null) {
+					try {
+						con.close();
+					} catch (SQLException e) {
+
+						e.printStackTrace();
+					}
+				}
+				
+			}
+		
+		return useremail;
 	}
 
-	public ResultSet getmobile(User mobile) {
+	public Long getmobile(User mobile) {
 		String query = "select * from user_details where mobile_num = ?";
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet resultset = null;
+		Long usermobile=-1l;
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.prepareStatement(query);
 			statement.setLong(1, mobile.getMobilenum());
 			resultset = statement.executeQuery();
+			while(resultset.next()) {
+	
+				usermobile=resultset.getLong("mobile_num");
+			}
 		} catch (SQLException | ClassNotFoundException e) {
 
 			e.printStackTrace();
 		} 
-		finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-
-					e.printStackTrace();
-				}
+		 finally {
+				
 				if (resultset != null) {
 					try {
 						resultset.close();
@@ -197,10 +199,25 @@ public class UserDaoImpl {
 						e.printStackTrace();
 					}
 				}
-			}
 
-		}
-		return resultset;
+				if (statement != null) {
+					try {
+						statement.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				if (con != null) {
+					try {
+						con.close();
+					} catch (SQLException e) {
+
+						e.printStackTrace();
+					}
+				}
+				
+			}
+		return usermobile;
 	}
 
 /*
@@ -537,19 +554,19 @@ public class UserDaoImpl {
  * Showuser
  */
 	public List<User> showUser()  {
-
+        StringBuilder showQuery=new StringBuilder();
+        showQuery.append("select  user_name,user_id,gender,email_id,mobile_num,e_password,wallet");
+        showQuery.append("from user_details");
 		List<User> userList = new ArrayList<>();
 		User userproducts = null;
 		Connection con = null;
 		Statement statement = null;
 		ResultSet resultset = null;
 
-		String showQuery = "select  user_name,user_id,gender,email_id,mobile_num,e_password,wallet  from user_details";
-
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.createStatement();
-			resultset = statement.executeQuery(showQuery);
+			resultset = statement.executeQuery(showQuery.toString());
 			while (resultset.next()) {
 			userproducts = new User(resultset.getString(1), resultset.getInt(2), resultset.getString(3), resultset.getString(4), resultset.getLong(5),
 			resultset.getString(6), resultset.getInt(7));
@@ -647,25 +664,25 @@ public class UserDaoImpl {
  * CurrentUser	
  */
 	public List<User> currentUser1(User obj) {
-
+        StringBuilder showuser=new StringBuilder();
+        showuser.append("select user_name,user_id,gender,email_id,mobile_num,e_password,wallet");
+        showuser.append("from user_details where user_id= ?");
 		List<User> userList = new ArrayList<>();
-		User userproducts = null;
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet resultset = null;
-		String showuser = "select user_name,user_id,gender,email_id,mobile_num,e_password,wallet from user_details where user_id= ?";
 
 		try {
 			con = Connectionutil.DBConnection();
-			statement = con.prepareStatement(showuser);
+			statement = con.prepareStatement(showuser.toString());
 			statement.setInt(1, obj.getUserid());
 			resultset = statement.executeQuery();
 			while (resultset.next()) {
 
-			userproducts = new User(resultset.getString(1), resultset.getInt(2), resultset.getString(3),
-						resultset.getString(4), resultset.getLong(5), resultset.getString(6), resultset.getInt(7));
+			  
 
-		   userList.add(userproducts);
+		   userList.add(new User(resultset.getString(1), resultset.getInt(2), resultset.getString(3),
+					resultset.getString(4), resultset.getLong(5), resultset.getString(6), resultset.getInt(7)));
 
 			}
 

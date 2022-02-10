@@ -13,20 +13,21 @@ import com.Movieticketbooking.util.Connectionutil;
 import com.movieticketbookingmessage.Mailer;
 import com.movieticketbookingmodel.Bookingdetail;
 
-
 public class BookingDaoImpl {
 
 	/*
 	 * Insert Bookingdetail
 	 */
 	public void insert(Bookingdetail booking) {
+		StringBuilder query = new StringBuilder();
+		query.append("insert into booking_detail(user_id,theatre_id,no_insert into booking_detail");
+		query.append("(userseats,total_amount,movie_name,booking_Date) values (?,?,?,?,?,sysdate)");
 		Connection con = null;
 		PreparedStatement statement = null;
-		String query = "insert into booking_detail(user_id,theatre_id,no_seats,total_amount,movie_name,booking_Date) values (?,?,?,?,?,sysdate)";
 
 		try {
 			con = Connectionutil.DBConnection();
-			statement = con.prepareStatement(query);
+			statement = con.prepareStatement(query.toString());
 			statement.setInt(1, booking.getUserid());
 			statement.setInt(2, booking.getTheatreid());
 			statement.setInt(3, booking.getNoseat());
@@ -42,20 +43,29 @@ public class BookingDaoImpl {
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
+
 		} catch (SQLException e) {
 
-			  e.getMessage();
+			e.getMessage();
+
 		} finally {
+
 			if (statement != null) {
+
 				try {
 					statement.close();
+
 				} catch (SQLException e) {
+
 					e.printStackTrace();
 				}
 			}
 			if (con != null) {
+
 				try {
+
 					con.close();
+
 				} catch (SQLException e) {
 
 					e.printStackTrace();
@@ -90,7 +100,7 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (Exception e) {
 
-			  e.getMessage();
+			e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -130,7 +140,7 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			  e.getMessage();
+			e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -158,17 +168,20 @@ public class BookingDaoImpl {
 	 */
 
 	public List<Bookingdetail> showBooking() {
+		StringBuilder showQuery = new StringBuilder();
+		showQuery.append("select  booking_id,user_id,theatre_id,No_seats,Total_amount,booking_status,");
+		showQuery.append("movie_name,booking_date  from booking_detail");
+
 		Connection con = null;
 		Statement statement = null;
 		ResultSet resultset = null;
 		List<Bookingdetail> booking = new ArrayList<>();
 		Bookingdetail mvtheatre1 = null;
-		String showQuery = "select  booking_id,user_id,theatre_id,No_seats,Total_amount,booking_status,movie_name,booking_date  from booking_detail";
 
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.createStatement();
-			resultset = statement.executeQuery(showQuery);
+			resultset = statement.executeQuery(showQuery.toString());
 			while (resultset.next()) {
 				mvtheatre1 = new Bookingdetail(resultset.getInt(1), resultset.getInt(2), resultset.getInt(3),
 						resultset.getInt(4), resultset.getInt(5), resultset.getString(6), resultset.getString(7),
@@ -182,7 +195,7 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			  e.getMessage();
+			e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
@@ -233,23 +246,23 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			  e.getMessage();
+			e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
-					
+
 					statement.close();
-					
+
 				} catch (SQLException e) {
-					
+
 					e.printStackTrace();
 				}
 			}
 			if (con != null) {
 				try {
-					
+
 					con.close();
-					
+
 				} catch (SQLException e) {
 
 					e.printStackTrace();
@@ -262,16 +275,20 @@ public class BookingDaoImpl {
 
 //Booking
 
-	public List<Bookingdetail> getbookingidanddate(int thid, int userid) {
+	public List<Bookingdetail> getbookingdate(int thid, int userid) {
+		StringBuilder query = new StringBuilder();
+		query.append("select booking_id,user_id,theatre_id,no_seats,total_amount,booking_status,");
+		query.append("movie_name,booking_date from booking_detail where theatre_id =? and user_id=? ");
+		query.append("order by booking_id desc");
 		List<Bookingdetail> bookingdetails = new ArrayList<>();
-		String query = "select  *  from booking_detail where theatre_id =? and user_id=? order by booking_id desc";
+
 		ResultSet resultset = null;
 		Connection con = null;
 		PreparedStatement statement = null;
 
 		try {
 			con = Connectionutil.DBConnection();
-			statement = con.prepareStatement(query);
+			statement = con.prepareStatement(query.toString());
 			statement.setInt(1, thid);
 			statement.setInt(2, userid);
 			resultset = statement.executeQuery();
@@ -284,15 +301,15 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			  e.getMessage();
+			e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
-					
+
 					statement.close();
-					
+
 				} catch (SQLException e) {
-					
+
 					e.printStackTrace();
 				}
 			}
@@ -306,11 +323,11 @@ public class BookingDaoImpl {
 			}
 			if (resultset != null) {
 				try {
-					
+
 					resultset.close();
-					
+
 				} catch (SQLException e) {
-					
+
 					e.printStackTrace();
 				}
 			}
@@ -339,34 +356,34 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			  e.getMessage();
+			e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
-					
+
 					statement.close();
-					
+
 				} catch (SQLException e) {
-					
+
 					e.printStackTrace();
 				}
 			}
 			if (con != null) {
 				try {
-					
+
 					con.close();
-					
+
 				} catch (SQLException e) {
 
 					e.printStackTrace();
 				}
 				if (resultset != null) {
 					try {
-						
+
 						resultset.close();
-						
+
 					} catch (SQLException e) {
-						
+
 						e.printStackTrace();
 					}
 				}
@@ -381,19 +398,19 @@ public class BookingDaoImpl {
 	 */
 
 	public List<Bookingdetail> myBooking(int userId) {
+		StringBuilder showQuery = new StringBuilder();
+		showQuery.append("select booking_id,user_id,theatre_id,No_seats,Total_amount,booking_status,");
+		showQuery.append("movie_name,booking_date from booking_detail where user_id='"+userId+"'");
 		List<Bookingdetail> bookinglist = new ArrayList<>();
 		Bookingdetail mvtheatre1 = null;
 		ResultSet resultset = null;
 		Connection con = null;
 		Statement statement = null;
 
-		String showQuery = "select booking_id,user_id,theatre_id,No_seats,Total_amount,booking_status,movie_name,booking_date  from booking_detail where user_id='"
-				+ userId + "'";
-
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.createStatement();
-			resultset = statement.executeQuery(showQuery);
+			resultset = statement.executeQuery(showQuery.toString());
 			while (resultset.next()) {
 				mvtheatre1 = new Bookingdetail(resultset.getInt(1), resultset.getInt(2), resultset.getInt(3),
 						resultset.getInt(4), resultset.getInt(5), resultset.getString(6), resultset.getString(7),
@@ -407,23 +424,23 @@ public class BookingDaoImpl {
 			e.printStackTrace();
 		} catch (SQLException e) {
 
-			  e.getMessage();
+			e.getMessage();
 		} finally {
 			if (statement != null) {
 				try {
-					
+
 					statement.close();
-					
+
 				} catch (SQLException e) {
-					
+
 					e.printStackTrace();
 				}
 			}
 			if (con != null) {
 				try {
-					
+
 					con.close();
-					
+
 				} catch (SQLException e) {
 
 					e.printStackTrace();
@@ -431,11 +448,11 @@ public class BookingDaoImpl {
 			}
 			if (resultset != null) {
 				try {
-					
+
 					resultset.close();
-					
+
 				} catch (SQLException e) {
-					
+
 					e.printStackTrace();
 				}
 			}

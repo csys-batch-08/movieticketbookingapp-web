@@ -21,35 +21,35 @@ public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	
 		String username=request.getParameter("User");
-		String gender=request.getParameter("gender");
+		String gender=request.getParameter("Gender");
 		String email=request.getParameter("Email");
 		Long mobilenumber=Long.parseLong(request.getParameter("number"));
 		String password=request.getParameter("Pass");
 		UserDaoImpl use1=new UserDaoImpl();
 		User use=new User(email,mobilenumber);
 		User use2=new User(username,gender,email,mobilenumber,password);
-		ResultSet rs=use1.getEmail(use);
-		ResultSet rs1=use1.getmobile(use);
+		String useremail=use1.getEmail(use);
+		long usermobile=use1.getmobile(use);
+		
        try { 
-		   if(rs.next())
-		   {
-			   if(email.equals(rs.getString(4)))
+		  
+		   
+			   if(email.equals(useremail))
 		   {
 				   throw new ExistEmailIdException();
 		   }
-		   }  
-		   if(rs1.next())
-		   {
-			   if(mobilenumber.equals(rs1.getLong(5)))
+		    
+		  
+			   if(mobilenumber.equals(usermobile))
 			   {
 				   throw new ExistMobileNoException();
 			   }
-		   }
-	
+		   
+			  
            int i=use1.insert(use2);
 		   if(i==1)
 		   {
@@ -60,14 +60,14 @@ public class Register extends HttpServlet {
          catch (ExistMobileNoException e)
         {
        String invalidmobile = e.getMessage();
-	   response.sendRedirect("MovieBooking.jsp?message="+e.getMessage()+"&url=Register.jsp");
+	   response.sendRedirect("ErrorServlet?message="+e.getMessage()+"&url=Register.jsp");
  } 
         catch (ExistEmailIdException e)
 {
        String invalidemail = e.getMessage();
-        response.sendRedirect("MovieBooking.jsp?message="+e.getMessage()+"&url=Register.jsp");
+        response.sendRedirect("ErrorServlet?message="+e.getMessage()+"&url=Register.jsp");
 }
-       catch (IOException | SQLException e) 
+       catch (IOException e) 
          {
          e.printStackTrace();
 		 }

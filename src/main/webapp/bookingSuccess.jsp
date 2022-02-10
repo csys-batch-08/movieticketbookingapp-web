@@ -104,30 +104,28 @@ input[type :number] {
 			<li><a href="Wallet.jsp">ReCharge Wallet</a></li>
 			<li><a href="MyBooking.jsp">MyBooking</a></li>
 			<li><a href="CancelBooking.jsp">Cancel Booking</a></li>
-	       <li><a href="login.jsp" class="log">Logout</a></li>
+	        <li><a href="login.jsp" class="log">Logout</a></li>
 	       
 </ul>
-
 </head>
 <body>
 
         
-              <c:if test="${errorMessage} != null">
-              <h1>${errorMessage}</h1>
-              </c:if>
+        <c:if test="${errorMessage} != null">
+        <h1>${errorMessage}</h1>
+        </c:if>
      
-
-         <div class="one">
-         <c:set var="count" value="1"/>
-         <c:forEach items="${bookinglist}" var="usersList">
+        <div class="one">
+        <c:set var="count" value="1"/>
+        <c:forEach items="${bookinglist}" var="usersList">
          
-         <h1>Booking Details</h1>
-         <table>
+        <h1>Booking Details</h1>
+        <table>
       
-          <caption></caption> 
- <tr>
-          <th id="user"></th>
- <td>
+         <caption></caption> 
+         <tr>
+         <th id="user"></th>
+         <td>
 	
          Booking ID: ${usersList.bookingid }<br> 
          User Id: ${usersList.userid }<br>  

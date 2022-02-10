@@ -18,13 +18,15 @@ public class MovieDaoImpl {
 	 * Insert Movie
 	 */
 	public void insert(Movie movie) {
-		String query = "insert into Movie(Movie_name,Movie_id,Movie_type,movie_ratings,movie_duration,director,music_director,hero_name,images,movielink) values (?,?,?,?,?,?,?,?,?,?)";
+		StringBuilder query=new StringBuilder();
+		query.append("insert into Movie(Movie_name,Movie_id,Movie_type,movie_ratings,movie_duration,");
+		query.append("director,music_director,hero_name,images,movielink) values (?,?,?,?,?,?,?,?,?,?)");
 		Connection con = null;
 		PreparedStatement statement = null;
 		
 		try {
 			con = Connectionutil.DBConnection();
-			statement = con.prepareStatement(query);
+			statement = con.prepareStatement(query.toString());
 			statement.setString(1, movie.getMoviename());
 			statement.setInt(2, movie.getMovieid());
 			statement.setString(3, movie.getMovietype());
@@ -71,16 +73,19 @@ public class MovieDaoImpl {
 	 */
 
 	public List<Movie> search(String moviename) {
+		StringBuilder ShowQuery=new StringBuilder();
+		ShowQuery.append("Select Movie_name,Movie_id,Movie_type,Movie_duration,Director,Music_director,");
+		ShowQuery.append("Hero_name,Images from  Movie where Movie_name = ?");
+		
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet resultset = null;
-
 		List<Movie> viewmoviess = new ArrayList<>();
 		Movie mvproduct = null;
-		String showQuery = "Select Movie_name,Movie_id,Movie_type,Movie_duration,Director,Music_director,Hero_name,Images from  Movie where Movie_name = ?";
+		
 		try {
 			con = Connectionutil.DBConnection();
-			statement = con.prepareStatement(showQuery);
+			statement = con.prepareStatement(ShowQuery.toString());
 			statement.setString(1, moviename);
 			resultset = statement.executeQuery();
 			while (resultset.next()) {
@@ -222,18 +227,19 @@ public class MovieDaoImpl {
 	 */
 
 	public List<Movie> showMovie() {
-
+        StringBuilder showQuery=new StringBuilder();
+        showQuery.append("select movie_name,movie_id,movie_type,movie_ratings,movie_duration,director,");
+        showQuery.append("music_director,hero_name,images,movielink from movie");
 		List<Movie> movieList = new ArrayList<>();
 		Movie mvproduct = null;
 		Connection con = null;
 		Statement statement = null;
 		ResultSet resultset = null;
-		String showQuery = "select movie_name,movie_id,movie_type,movie_ratings,movie_duration,director,music_director,hero_name,images,movielink from movie";
-
+		
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.createStatement();
-			resultset = statement.executeQuery(showQuery);
+			resultset = statement.executeQuery(showQuery.toString());
 			while (resultset.next()) {
 				mvproduct = new Movie(resultset.getString(1), resultset.getInt(2), resultset.getString(3),
 						resultset.getInt(4), resultset.getInt(5), resultset.getString(6), resultset.getString(7),
@@ -282,13 +288,16 @@ public class MovieDaoImpl {
 	 * Movie
 	 */
 	public ResultSet getmovie() {
-		String query = "Select movie_name,movie_id,movie_type,movie_ratings,movie_duration,director,music_director,hero_name  from Movie";
+		StringBuilder query=new StringBuilder();
+		query.append("Select movie_name,movie_id,movie_type,movie_ratings,movie_duration,director,");
+		query.append("music_director,hero_name  from Movie");
+	
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		try {
 			con = Connectionutil.DBConnection();
-			statement = con.prepareStatement(query);
+			statement = con.prepareStatement(query.toString());
 			resultSet = statement.executeQuery();
 
 		} catch (ClassNotFoundException e) {
@@ -299,32 +308,7 @@ public class MovieDaoImpl {
 			  e.getMessage();
 
 		}
-		finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-
-					e.printStackTrace();
-				}
-				if (resultSet != null) {
-					try {
-						resultSet.close();
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-
-		}
-
+		
 		return resultSet;
 	}
 

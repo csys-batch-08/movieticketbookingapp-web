@@ -106,23 +106,23 @@ input[type :number] {
                <li><a href="ShowServlet">Movie List</a></li>
                <li><a href="MybookingServlet">My Bookings</a></li>
                <li><a href="login.jsp" class="log">Logout</a></li>
-</ul>
+     </ul>
 
 
 
-<c:if test="${lowbal} != null">
-<h1>${lowbal}</h1>
-</c:if>
+     <c:if test="${lowbal} != null">
+     <h1>${lowbal}</h1>
+     </c:if>
 
 
      <div class="one">
      <h1>Wallet Update</h1>
      
      <form action="WalletAmountServlet" method="post">
-      <label for="number"> Enter your Amount:</label><br>
+     <label for="number"> Enter your Amount:</label><br>
      <input type="number" name="number" id="number" min = "1" pattern="[1-9]+" ><br><br>
     
-    <button type="submit"  class="btn btn-primary">Wallet Recharge</button><br><br>
+     <button type="submit"  class="btn btn-primary">Wallet Recharge</button><br><br>
      <p> Note:Wallet Amount Check Your Profile</p>
              
 </form>

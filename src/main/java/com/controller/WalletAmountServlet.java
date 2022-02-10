@@ -18,12 +18,13 @@ import com.movieticketbookingmodel.User;
 public class WalletAmountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        @Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
 		int userid=(int)session.getAttribute("userid");
-		int wallet=Integer.parseInt(request.getParameter("amount"));
-	    User use=new User(userid,wallet);
+		String amu=request.getParameter("number");
+		int wallet=Integer.parseInt(amu);
+        User use=new User(userid,wallet);
 		UserDaoImpl dao=new UserDaoImpl();
 		dao.updatewallet(use);
 		response.sendRedirect("showMovie.jsp");

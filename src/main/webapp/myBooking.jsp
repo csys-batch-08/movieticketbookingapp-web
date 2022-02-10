@@ -5,6 +5,7 @@
     <%@ page import="com.movieticketbookingmodel.Bookingdetail" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,12 +23,11 @@
 
 <style>
 body {
-	background-image:url("images/Backimages.jpg");
+	background-image: url("images/Backimages.jpg");
 	background-repeat: no-repeat;
 	background-size: 1390px 700px;
 	background-attachment: fixed;
-	
-	color:white;
+	color: white;
 }
 
 .one {
@@ -38,23 +38,28 @@ h2 {
 	color: white;
 	text-align: center;
 }
-table{
-border-style: solid;
-border-color:silver;
-margin-left: 220px;
-padding:18px 18px;
-background-color: rgba(0,0,0, 0.7);
-}
-th{
-padding-right: 15px;
-padding-bottom: 15px;
-font-size: 17px;
-}
-td{
-padding-right: 15px;
-padding-bottom: 10px;
+
+table {
+	border-style: solid;
+	border-color: silver;
+	margin-left: 220px;
+	padding: 18px 18px;
+	background-color: rgba(0, 0, 0, 0.7);
 }
 
+th {
+	padding-right: 15px;
+	padding-bottom: 15px;
+	font-size: 17px;
+}
+
+td {
+	padding-right: 15px;
+	padding-bottom: 10px;
+}
+h1{
+color:red;
+}
 .ones {
 	position: absolute;
 	top: 20px;
@@ -62,23 +67,17 @@ padding-bottom: 10px;
 	text-decoration: none;
 	color: white
 }
-
-
 </style>
-
 </head>
 <body>
 
-    
+<h2 class="Userdetail">Booking Details</h2>
 
-	
-	
-	
- <h2 class="Userdetail">Booking Details</h2>
- <div class = "user">
+<div class = "user">
 <table id="allusers">
 <caption></caption>
 <thead>
+
 <tr>
 <th id = "sno">S.no</th>
 <th id = "Booking Id">Booking Id</th>
@@ -90,22 +89,19 @@ padding-bottom: 10px;
 <th id = "cancel">Booking Date</th>
 <th id = "MovieDateandTime">MovieDateandTime</th>
 </tr>
+
 </thead>
 <tbody>
-
   
-              <c:if test="${errorMessage} != null">
-              <h1>${errorMessage}</h1>
-              </c:if>
-     
-     
-    
+<c:if test="${errorMessage} != null">
+<h1>${errorMessage}</h1>
+</c:if>
+        
 <c:set var="count" value="0"/>
 <c:forEach items="${BookingObj}" var="BookingList">
 <c:set var="count" value="${count+1}"/>
 
 <tr>
-
 <td>${count}</td>
 
 <td>${BookingList.bookingid}</td>
@@ -128,6 +124,5 @@ padding-bottom: 10px;
 </table>
 </div><br><br>
         
-
 </body>                               
 </html>

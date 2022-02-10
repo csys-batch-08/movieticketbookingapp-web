@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+    
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,12 +41,10 @@ a {
 <body>
 
        <div class="one">
-	   ${ String message=request.getParameter("message");
-       String url=request.getParameter("url");
-       }
+	   
        <h1 class="finish"> "${ message }"</h1>
        <a href="${url}"><button class="btn btn-dark">Retry</button></a>
-    
+        
 </div>
 </body>
 </html>

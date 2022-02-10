@@ -8,8 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 import com.Movieticketbooking.util.Connectionutil;
 import com.movieticketbookingmodel.Theatreinformation;
@@ -20,13 +19,16 @@ public class TheatreDaoImpl {
 	 * Insert Theater
 	 */
 	public void insert(Theatreinformation theatre) {
-
-		String query = "insert into theatre(theatre_name, movie_id,number_seats,theatre_address,theatre_rating,price,movie_date_time,images) values (?,?,?,?,?,?,?,?)";
+        StringBuilder query=new StringBuilder();
+        query.append("insert into theatre(theatre_name, movie_id,number_seats,");
+        query.append("theatre_address,theatre_rating,price,movie_date_time,images)");
+        query.append(" values (?,?,?,?,?,?,?,?)");
+        
 		Connection con = null;
 		PreparedStatement statement = null;
 		try {
 			con = Connectionutil.DBConnection();
-			statement = con.prepareStatement(query);
+			statement = con.prepareStatement(query.toString());
 			statement.setString(1, theatre.getTheatrename());
 			statement.setInt(2, theatre.getMovieid());
 			statement.setInt(3, theatre.getNumberseats());
@@ -36,9 +38,8 @@ public class TheatreDaoImpl {
 			statement.setTimestamp(7, java.sql.Timestamp.valueOf(theatre.getMoviedatetime()));
 			statement.setString(8, theatre.getImages());
             statement.executeUpdate();
-
 		
-
+            
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
@@ -70,25 +71,29 @@ public class TheatreDaoImpl {
 	 */
 
 	public List<Theatreinformation> showtheatre(int id) {
-
+		
+		StringBuilder showQuery=new StringBuilder();
+		showQuery.append("select theatre_name,movie_id,theatre_id,number_seats,");
+		showQuery.append("theatre_address,theatre_rating,price,movie_date_time,images");
+		showQuery.append(" from theatre where movie_id =? ");
+		
 		List<Theatreinformation> movietheatre = new ArrayList<>();
 		Theatreinformation mvtheatre = null;
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet resultset = null;
-		String showQuery = "select * from theatre where movie_id =? ";
-
+		
 		try {
 			con = Connectionutil.DBConnection();
-			statement = con.prepareStatement(showQuery);
+			statement = con.prepareStatement(showQuery.toString());
 			statement.setInt(1, id);
 
 			resultset = statement.executeQuery();
 			while (resultset.next()) {
-				mvtheatre = new Theatreinformation(resultset.getString(1), resultset.getInt(2), resultset.getInt(3),
-						resultset.getInt(4), resultset.getString(5), resultset.getInt(6), resultset.getInt(7),
-						resultset.getTimestamp(8).toLocalDateTime(), resultset.getString(9));
-				movietheatre.add(mvtheatre);
+				mvtheatre = new Theatreinformation(resultset.getString("theatre_name"), resultset.getInt("movie_id"), resultset.getInt("theatre_id"),
+						resultset.getInt("number_seats"), resultset.getString("theatre_address"), resultset.getInt("theatre_rating"), resultset.getInt("price"),
+						resultset.getTimestamp("movie_date_time").toLocalDateTime(), resultset.getString("images"));
+				        movietheatre.add(mvtheatre);
 
 			}
 
@@ -135,17 +140,21 @@ public class TheatreDaoImpl {
 	 */
 
 	public List<Theatreinformation> showtheatredetails(int id) {
-
+		
+		StringBuilder showQuery=new StringBuilder();
+		showQuery.append("select theatre_name,movie_id,theatre_id,number_seats,");
+		showQuery.append("theatre_address,theatre_rating,price,movie_date_time,images");
+		showQuery.append(" from theatre where theatre_id =? ");
+	
 		List<Theatreinformation> movietheatre = new ArrayList<>();
 		Theatreinformation mvtheatre = null;
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet resultset = null;
-		String showQuery = "select * from theatre where theatre_id =? ";
-
+		
 		try {
 			con = Connectionutil.DBConnection();
-			statement = con.prepareStatement(showQuery);
+			statement = con.prepareStatement(showQuery.toString());
 			statement.setInt(1, id);
 
 			resultset = statement.executeQuery();
@@ -281,7 +290,7 @@ public class TheatreDaoImpl {
 
 		Connection con = null;
 		PreparedStatement statement = null;
-		String query = "update theatre set theatre_name=?, price=? where theatre_id=?  ";
+		String query = "update theatre set theatre_name=?, price=? where theatre_id=?";
 
 		try {
 			con = Connectionutil.DBConnection();
@@ -361,16 +370,24 @@ public class TheatreDaoImpl {
 	 * Moviedetail
 	 */
 
-	public static ResultSet moviedetail() {
-		String query = "select * from theatre";
+	public static List<Theatreinformation> moviedetail() {
+		StringBuilder query=new StringBuilder();
+		query.append("select theatre_name,movie_id,theatre_id,number_seats,theatre_adddress,theatre_rating,");
+		query.append("movie_date_time,price,images from theatre");
+		List<Theatreinformation> moviedetail = new ArrayList<>();
 		ResultSet resultset = null;
 		Statement statement = null;
 		Connection con = null;
 		try {
 			con = Connectionutil.DBConnection();
 			statement = con.createStatement();
-			resultset = statement.executeQuery(query);
-
+			resultset = statement.executeQuery(query.toString());
+            while(resultset.next()) {
+            	 
+            	moviedetail.add(new Theatreinformation(resultset.getString(1), resultset.getInt(2), resultset.getInt(3),
+						resultset.getInt(4), resultset.getString(5), resultset.getInt(6), resultset.getInt(7),
+						resultset.getTimestamp(8).toLocalDateTime(), resultset.getString(9)));	
+            }
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
@@ -378,35 +395,39 @@ public class TheatreDaoImpl {
 		} catch (SQLException e) {
 
 			  e.getMessage();
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-
-					e.printStackTrace();
-				}
-			}
-			if (resultset != null) {
-				try {
-					resultset.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
+		} 
+		 finally {
+				
+				if (resultset != null) {
+					try {
+						resultset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
 				}
 
-			}
+				if (statement != null) {
+					try {
+						statement.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				if (con != null) {
+					try {
+						con.close();
+					} catch (SQLException e) {
 
-		}
-		return resultset;
+						e.printStackTrace();
+					}
+				}
+				
+			}
+		return moviedetail;
 	}
-
+    
+	
+	
 	/*
 	 * Theatreinformation
 	 */
@@ -467,12 +488,9 @@ public class TheatreDaoImpl {
 	 */
 
 	public void updateseat(int seat, int thid) {
-
 		Connection con = null;
 		PreparedStatement statement = null;
         String query = "update theatre set number_seats= ? where  theatre_id=? ";
-
-		
 
 		try {
 			con = Connectionutil.DBConnection();
