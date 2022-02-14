@@ -1,9 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -59,18 +56,12 @@ public class Register extends HttpServlet {
 }
          catch (ExistMobileNoException e)
         {
-       String invalidmobile = e.getMessage();
-	   response.sendRedirect("ErrorServlet?message="+e.getMessage()+"&url=Register.jsp");
+       response.sendRedirect("ErrorServlet?message="+e.getMessage()+"&url=Register.jsp");
  } 
-        catch (ExistEmailIdException e)
+        catch (ExistEmailIdException |IOException e)
 {
-       String invalidemail = e.getMessage();
-        response.sendRedirect("ErrorServlet?message="+e.getMessage()+"&url=Register.jsp");
+       response.sendRedirect("ErrorServlet?message="+e.getMessage()+"&url=Register.jsp");
 }
-       catch (IOException e) 
-         {
-         e.printStackTrace();
-		 }
 	   }
 		
 

@@ -19,7 +19,7 @@ public class ErrorServlet extends HttpServlet {
    
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    
 		String message=request.getParameter("message");
         String url=request.getParameter("url");

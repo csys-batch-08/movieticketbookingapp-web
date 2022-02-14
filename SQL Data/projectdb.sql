@@ -217,3 +217,6 @@ update user_details set Gender='male' where email_id='sachinraj6878@gmail.com';
 create sequence Movie_theatre_id start WITH 600 increment by 1;
 create table Movie_theatre(Movie_theatre_id number Default Movie_theatre_id.nextval,
 Movie_id number,theatre_id number,
+select * from user_details where mobile_num =8927486346 ;
+select  user_name,user_id,gender,email_id,mobile_num,e_password,wallet from user_details;
+select user_name,user_id,gender,email_id,mobile_num,e_password,wallet from user_details where user_id= 114;

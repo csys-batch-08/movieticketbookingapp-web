@@ -664,9 +664,8 @@ public class UserDaoImpl {
  * CurrentUser	
  */
 	public List<User> currentUser1(User obj) {
-        StringBuilder showuser=new StringBuilder();
-        showuser.append("select user_name,user_id,gender,email_id,mobile_num,e_password,wallet");
-        showuser.append("from user_details where user_id= ?");
+        
+         String showuser = "select user_name,user_id,gender,email_id,mobile_num,e_password,wallet from user_details where user_id= ?";
 		List<User> userList = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -674,14 +673,12 @@ public class UserDaoImpl {
 
 		try {
 			con = Connectionutil.DBConnection();
-			statement = con.prepareStatement(showuser.toString());
+			statement = con.prepareStatement(showuser);
 			statement.setInt(1, obj.getUserid());
 			resultset = statement.executeQuery();
 			while (resultset.next()) {
 
-			  
-
-		   userList.add(new User(resultset.getString(1), resultset.getInt(2), resultset.getString(3),
+			   userList.add(new User(resultset.getString(1), resultset.getInt(2), resultset.getString(3),
 					resultset.getString(4), resultset.getLong(5), resultset.getString(6), resultset.getInt(7)));
 
 			}
